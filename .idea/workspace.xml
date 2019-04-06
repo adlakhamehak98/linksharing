@@ -1,0 +1,1493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2cdaeaf-dc58-4f1a-9cbc-feffba7f80e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/DocumentResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/LinkResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Resource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ResourceRating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ddd.uml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/DocumentResourceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/LinkResourceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ReadingItemRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/SubscriptionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/TopicRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/SubscriptionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/TopicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/myLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/rating.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/rating.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/username.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Topic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/trials.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ttn/linksharing/LinksharingApplicationTests.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-266040077">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="Groovy" value="2" />
+          <entry key="HTML" value="3" />
+          <entry key="JAVA" value="71" />
+          <entry key="Properties" value="2" />
+          <entry key="UML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="15" />
+          <entry key="HTML" value="3" />
+          <entry key="JAVA" value="759" />
+          <entry key="PLAIN_TEXT" value="28" />
+          <entry key="Properties" value="16" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="62" lean-forward="true" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ddd.uml">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement />
+              <nodes />
+              <notes />
+              <edges />
+              <settings layout="Hierarchic Group" zoom="1.0" x="-228.0" y="-39.0" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://JAVA/com.ttn.linksharing.entity.DocumentResource">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>JAVA</ID>
+              <OriginalElement>com.ttn.linksharing.entity.DocumentResource</OriginalElement>
+              <nodes>
+                <node x="714.5833333333334" y="0.0">javax.persistence.Entity</node>
+                <node x="407.70572916666663" y="212.0">com.ttn.linksharing.entity.User</node>
+                <node x="72.70572916666663" y="212.0">com.ttn.linksharing.entity.ResourceRating</node>
+                <node x="522.5319010416666" y="0.0">javax.persistence.Table</node>
+                <node x="831.4375" y="0.0">javax.persistence.Inheritance</node>
+                <node x="794.4902343749999" y="304.0">com.ttn.linksharing.entity.DocumentResource</node>
+                <node x="665.7057291666666" y="212.0">com.ttn.linksharing.entity.Topic</node>
+                <node x="632.4902343749999" y="304.0">com.ttn.linksharing.entity.LinkResource</node>
+                <node x="317.3834635416667" y="0.0">lombok.Data</node>
+                <node x="508.70572916666663" y="212.0">com.ttn.linksharing.entity.Subscription</node>
+                <node x="250.70572916666663" y="212.0">com.ttn.linksharing.entity.ReadingItem</node>
+                <node x="825.966796875" y="212.0">com.ttn.linksharing.entity.Resource</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="com.ttn.linksharing.entity.LinkResource" target="com.ttn.linksharing.entity.Resource">
+                  <point x="47.33333333333337" y="-16.0" />
+                  <point x="750.8235677083333" y="284.0" />
+                  <point x="854.216796875" y="284.0" />
+                  <point x="-28.25" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Resource" target="lombok.Data">
+                  <point x="-37.66666666666663" y="-16.0" />
+                  <point x="844.8001302083334" y="72.0" />
+                  <point x="395.1959635416667" y="72.0" />
+                  <point x="36.3125" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.User" target="lombok.Data">
+                  <point x="-20.25" y="-16.0" />
+                  <point x="427.95572916666663" y="112.0" />
+                  <point x="364.0709635416667" y="112.0" />
+                  <point x="5.1875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Subscription" target="javax.persistence.Table">
+                  <point x="0.0" y="-16.0" />
+                  <point x="10.875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Resource" target="javax.persistence.Inheritance">
+                  <point x="37.66666666666663" y="-16.0" />
+                  <point x="920.1334635416666" y="192.0" />
+                  <point x="895.4375" y="192.0" />
+                  <point x="0.0" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ReadingItem" target="javax.persistence.Entity">
+                  <point x="45.66666666666663" y="-16.0" />
+                  <point x="364.87239583333326" y="152.0" />
+                  <point x="731.6458333333334" y="152.0" />
+                  <point x="-28.4375" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ResourceRating" target="javax.persistence.Entity">
+                  <point x="52.66666666666666" y="-16.0" />
+                  <point x="204.37239583333326" y="142.0" />
+                  <point x="720.2708333333334" y="142.0" />
+                  <point x="-39.8125" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.LinkResource" target="javax.persistence.Entity">
+                  <point x="0.0" y="-16.0" />
+                  <point x="703.4902343749999" y="274.0" />
+                  <point x="763.2057291666666" y="274.0" />
+                  <point x="763.2057291666666" y="192.0" />
+                  <point x="777.1458333333334" y="192.0" />
+                  <point x="17.0625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Topic" target="javax.persistence.Table">
+                  <point x="0.0" y="-16.0" />
+                  <point x="709.2057291666666" y="82.0" />
+                  <point x="598.6569010416666" y="82.0" />
+                  <point x="32.625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.DocumentResource" target="javax.persistence.Entity">
+                  <point x="61.66666666666663" y="-16.0" />
+                  <point x="948.6569010416665" y="284.0" />
+                  <point x="976.0625" y="284.0" />
+                  <point x="976.0625" y="52.0" />
+                  <point x="799.8958333333334" y="52.0" />
+                  <point x="39.81250000000003" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Subscription" target="javax.persistence.Entity">
+                  <point x="45.666666666666686" y="-16.0" />
+                  <point x="622.8723958333333" y="172.0" />
+                  <point x="754.3958333333334" y="172.0" />
+                  <point x="-5.6875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.LinkResource" target="lombok.Data">
+                  <point x="-47.33333333333337" y="-16.0" />
+                  <point x="656.1569010416665" y="284.0" />
+                  <point x="0.0" y="284.0" />
+                  <point x="0.0" y="82.0" />
+                  <point x="322.5709635416667" y="82.0" />
+                  <point x="-36.3125" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Topic" target="javax.persistence.Entity">
+                  <point x="29.0" y="-16.0" />
+                  <point x="738.2057291666666" y="182.0" />
+                  <point x="765.7708333333334" y="182.0" />
+                  <point x="5.6875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.DocumentResource" target="lombok.Data">
+                  <point x="-61.66666666666663" y="-16.0" />
+                  <point x="825.3235677083333" y="264.0" />
+                  <point x="57.79947916666663" y="264.0" />
+                  <point x="57.79947916666663" y="92.0" />
+                  <point x="332.9459635416667" y="92.0" />
+                  <point x="-25.9375" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Topic" target="lombok.Data">
+                  <point x="-29.0" y="-16.0" />
+                  <point x="680.2057291666666" y="92.0" />
+                  <point x="384.8209635416667" y="92.0" />
+                  <point x="25.9375" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Subscription" target="lombok.Data">
+                  <point x="-45.66666666666663" y="-16.0" />
+                  <point x="531.5390625" y="102.0" />
+                  <point x="374.4459635416667" y="102.0" />
+                  <point x="15.5625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ReadingItem" target="javax.persistence.Table">
+                  <point x="0.0" y="-16.0" />
+                  <point x="319.20572916666663" y="132.0" />
+                  <point x="555.1569010416666" y="132.0" />
+                  <point x="-10.875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ResourceRating" target="javax.persistence.Table">
+                  <point x="0.0" y="-16.0" />
+                  <point x="151.70572916666663" y="122.0" />
+                  <point x="533.4069010416666" y="122.0" />
+                  <point x="-32.625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.User" target="javax.persistence.Entity">
+                  <point x="20.25" y="-16.0" />
+                  <point x="468.45572916666663" y="162.0" />
+                  <point x="743.0208333333334" y="162.0" />
+                  <point x="-17.0625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.Resource" target="javax.persistence.Entity">
+                  <point x="0.0" y="-16.0" />
+                  <point x="882.466796875" y="62.0" />
+                  <point x="788.5208333333334" y="62.0" />
+                  <point x="28.4375" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ResourceRating" target="lombok.Data">
+                  <point x="-52.66666666666666" y="-16.0" />
+                  <point x="99.0390625" y="102.0" />
+                  <point x="343.3209635416667" y="102.0" />
+                  <point x="-15.5625" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.ReadingItem" target="lombok.Data">
+                  <point x="-45.66666666666663" y="-16.0" />
+                  <point x="273.5390625" y="112.0" />
+                  <point x="353.6959635416667" y="112.0" />
+                  <point x="-5.1875" y="16.0" />
+                </edge>
+                <edge source="com.ttn.linksharing.entity.DocumentResource" target="com.ttn.linksharing.entity.Resource">
+                  <point x="0.0" y="-16.0" />
+                  <point x="886.9902343749999" y="284.0" />
+                  <point x="910.716796875" y="284.0" />
+                  <point x="28.25" y="16.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.936" x="236.4102564102564" y="141.4102564102564" />
+              <SelectedNodes />
+              <Categories />
+              <SCOPE>All</SCOPE>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="64" lean-forward="true" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/Home.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Home.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="28" column="71" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ReadingItemRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="myGradleHomes">
+      <map>
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1" />
+      </map>
+    </option>
+    <option name="myGradleVersions">
+      <map>
+        <entry key="$PROJECT_DIR$" value="5.2.1" />
+      </map>
+    </option>
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="linksharing" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="linksharing" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="availableTasks">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <list>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the components produced by root project 'linksharing'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="components" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildDependents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the sub-projects of root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="projects" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="classes" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependent components of components in root project 'linksharing'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependentComponents" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildEnvironment" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Gradle wrapper files." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles test classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="testClasses" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Generates Javadoc API documentation for the main source code." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="javadoc" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles an executable jar archive containing the main classes and their dependencies." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="bootJar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles a jar archive containing the main classes." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="jar" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the configuration model of root project 'linksharing'. [incubating]" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes main resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the tasks runnable from root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="tasks" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Initializes a new Gradle build." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="init" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs the unit tests." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="test" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the dependency management declared in root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencyManagement" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs this project as a Spring Boot application." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="bootRun" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles main Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the insight into a specific dependency in root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencyInsight" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs all checks." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="check" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles the outputs of this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="assemble" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Deletes the build directory." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="clean" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Compiles test Java source." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileTestJava" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays all dependencies declared in root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="dependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Processes test resources." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="processTestResources" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays a help message." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="help" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="build" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Assembles and tests this project and all projects it depends on." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="buildNeeded" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Displays the properties of root project 'linksharing'." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="properties" />
+              </ExternalTaskPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="6217723785000" />
+        <entry key="$PROJECT_DIR$/.gradle" value="0" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="511799923" />
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="408007245" />
+        <entry key="$PROJECT_DIR$/settings.gradle" value="486811288" />
+      </map>
+    </option>
+    <option name="projectBuildClasspath">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <ExternalProjectBuildClasspathPojo>
+              <option name="modulesBuildClasspath">
+                <map>
+                  <entry key="$PROJECT_DIR$">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/2.1.4.RELEASE/c160f24168a528326dd625dc278001549a452cc4/spring-boot-gradle-plugin-2.1.4.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/2.1.4.RELEASE/5981659aa6d1ff875aae4528eb42ef16ac940389/spring-boot-loader-tools-2.1.4.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.6.RELEASE/d6c42859b24b62034b2a5e0db5ea12c688493d48/dependency-management-plugin-1.0.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.1.6.RELEASE/aa74700198d24e1ed8b3c8ad663ad50733658ac6/spring-core-5.1.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.18/a25b942b99fde2cc2913ab39ad34abc0df4f5eb9/commons-compress-1.18-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.1.6.RELEASE/e5cf3ba1dc3bb1127ea8a591f4afd88fc706a27a/spring-jcl-5.1.6.RELEASE-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/2.1.4.RELEASE/531200f161ffd934b8db6dfbf84ee85f1bd7b67f/spring-boot-gradle-plugin-2.1.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/2.1.4.RELEASE/d0fdc1a76c4d7ebaf3a9326d9ed7003922d5a888/spring-boot-loader-tools-2.1.4.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.6.RELEASE/c7118365d75bca698892b5df1e683b8d6d6b87bb/dependency-management-plugin-1.0.6.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.1.6.RELEASE/9329591e728ef9844911e082e399f4fc3e3ecb37/spring-core-5.1.6.RELEASE.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.18/1191f9f2bc0c47a8cce69193feb1ff0a8bcb37d5/commons-compress-1.18.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.1.6.RELEASE/a4ad3c98c7cc31357e94e12772c8e6449522bc5/spring-jcl-5.1.6.RELEASE.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="name" value="linksharing" />
+              <option name="projectBuildClasspath">
+                <list>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-launcher-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-execution-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-kotlin-dsl-tooling-models-1.1.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-build-cache-packaging-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-base-services-groovy-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-kotlin-dsl-tooling-builders-1.1.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-persistent-cache-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-snapshots-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-logging-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/ant-1.9.13.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-base-services-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-wrapper-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-api-metadata-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-build-option-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-tooling-api-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-files-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-process-services-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-cli-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-jvm-services-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-resources-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-core-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-docs-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-core-api-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-kotlin-dsl-1.1.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-model-groovy-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-build-cache-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-model-core-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-installation-beacon-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/ant-launcher-1.9.13.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-messaging-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-runtime-api-info-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/gradle-kotlin-dsl-provider-plugins-1.1.3.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-platform-base-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-plugins-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-testing-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-scala-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-diagnostics-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-test-kit-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-ear-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-resources-sftp-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-testing-jvm-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-osgi-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-build-profile-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-code-quality-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-antlr-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-build-cache-http-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-platform-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-platform-play-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-version-control-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-tooling-api-builders-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-dependency-management-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-build-init-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-ide-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-plugin-development-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-language-groovy-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-language-jvm-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-testing-base-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-platform-jvm-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-signing-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-resources-http-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-ide-play-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-javascript-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-plugin-use-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-tooling-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-workers-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-reporting-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-resources-s3-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-resources-gcs-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-ivy-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-jacoco-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-language-java-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-testing-junit-platform-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-language-scala-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-publish-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-announce-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-composite-builds-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-ide-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-language-native-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-maven-5.2.1.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/ivy-2.3.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.2.1-bin/9lc4nzslqh3ep7ml2tp68fk8s/gradle-5.2.1/lib/plugins/gradle-build-comparison-5.2.1.jar" />
+                </list>
+              </option>
+            </ExternalProjectBuildClasspathPojo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/Downloads/spring-assignments-master/Mar15_Spring_MVC/mvc" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/spring-assignments-master/Mar19_Hibernate/hibernate" value="PREVIEW" />
+        <entry key="$USER_HOME$/GradleAssignment" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/springbootassignment" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/thymeleafDemo" value="PREVIEW" />
+        <entry key="$USER_HOME$/LinkSharing" value="PREVIEW" />
+        <entry key="$USER_HOME$/RestWithSpring/rest-with-spring" value="PREVIEW" />
+        <entry key="$USER_HOME$/hibernate" value="PREVIEW" />
+        <entry key="$USER_HOME$/hibernate_basic" value="PREVIEW" />
+        <entry key="$USER_HOME$/hibernate_basics" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+        <entry key="$USER_HOME$/spock-demo" value="PREVIEW" />
+        <entry key="$USER_HOME$/springConcepts/SpringBootcamp" value="PREVIEW" />
+        <entry key="$USER_HOME$/springConcepts/hibernate" value="PREVIEW" />
+        <entry key="$USER_HOME$/springConcepts/mvc" value="PREVIEW" />
+        <entry key="$USER_HOME$/springConcepts/rest" value="PREVIEW" />
+        <entry key="$USER_HOME$/springConcepts/springbootassignment" value="PREVIEW" />
+        <entry key="$USER_HOME$/springcoreConcepts/SpringCoreBootcamp" value="PREVIEW" />
+        <entry key="$USER_HOME$/vishalTyagiThymeleafSession/thymleafDemo" value="PREVIEW" />
+        <entry key="$USER_HOME$/yatinSpringAssignments/spring-assignments/Mar26_Thymeleaf/thymeleaf" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/SubscriberService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/TopicService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/TopicRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/SubscriptionRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ReadingItemRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/LinkResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/LinkResourceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/DocumentResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/LinkResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Resource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Topic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ResourceRating.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/DocumentResourceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/Home.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="167" />
+    <option name="y" value="146" />
+    <option name="width" value="1161" />
+    <option name="height" value="622" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="linksharing" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554567881052" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="LinksharingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="linksharing_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ttn.linksharing.LinksharingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2cdaeaf-dc58-4f1a-9cbc-feffba7f80e7" name="Default Changelist" comment="" />
+      <created>1554445890476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554445890476</updated>
+      <workItem from="1554445893602" duration="2503000" />
+      <workItem from="1554448446086" duration="10732000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13235000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2529928" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.3284553" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960095" weight="0.35609755" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3284553" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039905" side_tool="true" weight="0.35609755" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25379092" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.3284553" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3284553" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/SubscriptionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/LinkResourceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="84" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="5" column="79" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/SubscriptionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/TopicRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="58" lean-forward="true" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.1.6.RELEASE/edd8534e9e343663a18560cc465c49f9d93ca097/spring-beans-5.1.6.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="1777" selection-start-line="1777" selection-end-line="1777" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/TopicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/DocumentResourceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Dashboard.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ResourceRating.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/DocumentResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/LinkResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ddd.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-228.0" y="-39.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.ttn.linksharing.entity.DocumentResource">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.ttn.linksharing.entity.DocumentResource</OriginalElement>
+          <nodes>
+            <node x="714.5833333333334" y="0.0">javax.persistence.Entity</node>
+            <node x="407.70572916666663" y="212.0">com.ttn.linksharing.entity.User</node>
+            <node x="72.70572916666663" y="212.0">com.ttn.linksharing.entity.ResourceRating</node>
+            <node x="522.5319010416666" y="0.0">javax.persistence.Table</node>
+            <node x="831.4375" y="0.0">javax.persistence.Inheritance</node>
+            <node x="794.4902343749999" y="304.0">com.ttn.linksharing.entity.DocumentResource</node>
+            <node x="665.7057291666666" y="212.0">com.ttn.linksharing.entity.Topic</node>
+            <node x="632.4902343749999" y="304.0">com.ttn.linksharing.entity.LinkResource</node>
+            <node x="317.3834635416667" y="0.0">lombok.Data</node>
+            <node x="508.70572916666663" y="212.0">com.ttn.linksharing.entity.Subscription</node>
+            <node x="250.70572916666663" y="212.0">com.ttn.linksharing.entity.ReadingItem</node>
+            <node x="825.966796875" y="212.0">com.ttn.linksharing.entity.Resource</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.ttn.linksharing.entity.LinkResource" target="com.ttn.linksharing.entity.Resource">
+              <point x="47.33333333333337" y="-16.0" />
+              <point x="750.8235677083333" y="284.0" />
+              <point x="854.216796875" y="284.0" />
+              <point x="-28.25" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Resource" target="lombok.Data">
+              <point x="-37.66666666666663" y="-16.0" />
+              <point x="844.8001302083334" y="72.0" />
+              <point x="395.1959635416667" y="72.0" />
+              <point x="36.3125" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.User" target="lombok.Data">
+              <point x="-20.25" y="-16.0" />
+              <point x="427.95572916666663" y="112.0" />
+              <point x="364.0709635416667" y="112.0" />
+              <point x="5.1875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Subscription" target="javax.persistence.Table">
+              <point x="0.0" y="-16.0" />
+              <point x="10.875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Resource" target="javax.persistence.Inheritance">
+              <point x="37.66666666666663" y="-16.0" />
+              <point x="920.1334635416666" y="192.0" />
+              <point x="895.4375" y="192.0" />
+              <point x="0.0" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ReadingItem" target="javax.persistence.Entity">
+              <point x="45.66666666666663" y="-16.0" />
+              <point x="364.87239583333326" y="152.0" />
+              <point x="731.6458333333334" y="152.0" />
+              <point x="-28.4375" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ResourceRating" target="javax.persistence.Entity">
+              <point x="52.66666666666666" y="-16.0" />
+              <point x="204.37239583333326" y="142.0" />
+              <point x="720.2708333333334" y="142.0" />
+              <point x="-39.8125" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.LinkResource" target="javax.persistence.Entity">
+              <point x="0.0" y="-16.0" />
+              <point x="703.4902343749999" y="274.0" />
+              <point x="763.2057291666666" y="274.0" />
+              <point x="763.2057291666666" y="192.0" />
+              <point x="777.1458333333334" y="192.0" />
+              <point x="17.0625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Topic" target="javax.persistence.Table">
+              <point x="0.0" y="-16.0" />
+              <point x="709.2057291666666" y="82.0" />
+              <point x="598.6569010416666" y="82.0" />
+              <point x="32.625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.DocumentResource" target="javax.persistence.Entity">
+              <point x="61.66666666666663" y="-16.0" />
+              <point x="948.6569010416665" y="284.0" />
+              <point x="976.0625" y="284.0" />
+              <point x="976.0625" y="52.0" />
+              <point x="799.8958333333334" y="52.0" />
+              <point x="39.81250000000003" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Subscription" target="javax.persistence.Entity">
+              <point x="45.666666666666686" y="-16.0" />
+              <point x="622.8723958333333" y="172.0" />
+              <point x="754.3958333333334" y="172.0" />
+              <point x="-5.6875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.LinkResource" target="lombok.Data">
+              <point x="-47.33333333333337" y="-16.0" />
+              <point x="656.1569010416665" y="284.0" />
+              <point x="0.0" y="284.0" />
+              <point x="0.0" y="82.0" />
+              <point x="322.5709635416667" y="82.0" />
+              <point x="-36.3125" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Topic" target="javax.persistence.Entity">
+              <point x="29.0" y="-16.0" />
+              <point x="738.2057291666666" y="182.0" />
+              <point x="765.7708333333334" y="182.0" />
+              <point x="5.6875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.DocumentResource" target="lombok.Data">
+              <point x="-61.66666666666663" y="-16.0" />
+              <point x="825.3235677083333" y="264.0" />
+              <point x="57.79947916666663" y="264.0" />
+              <point x="57.79947916666663" y="92.0" />
+              <point x="332.9459635416667" y="92.0" />
+              <point x="-25.9375" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Topic" target="lombok.Data">
+              <point x="-29.0" y="-16.0" />
+              <point x="680.2057291666666" y="92.0" />
+              <point x="384.8209635416667" y="92.0" />
+              <point x="25.9375" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Subscription" target="lombok.Data">
+              <point x="-45.66666666666663" y="-16.0" />
+              <point x="531.5390625" y="102.0" />
+              <point x="374.4459635416667" y="102.0" />
+              <point x="15.5625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ReadingItem" target="javax.persistence.Table">
+              <point x="0.0" y="-16.0" />
+              <point x="319.20572916666663" y="132.0" />
+              <point x="555.1569010416666" y="132.0" />
+              <point x="-10.875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ResourceRating" target="javax.persistence.Table">
+              <point x="0.0" y="-16.0" />
+              <point x="151.70572916666663" y="122.0" />
+              <point x="533.4069010416666" y="122.0" />
+              <point x="-32.625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.User" target="javax.persistence.Entity">
+              <point x="20.25" y="-16.0" />
+              <point x="468.45572916666663" y="162.0" />
+              <point x="743.0208333333334" y="162.0" />
+              <point x="-17.0625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.Resource" target="javax.persistence.Entity">
+              <point x="0.0" y="-16.0" />
+              <point x="882.466796875" y="62.0" />
+              <point x="788.5208333333334" y="62.0" />
+              <point x="28.4375" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ResourceRating" target="lombok.Data">
+              <point x="-52.66666666666666" y="-16.0" />
+              <point x="99.0390625" y="102.0" />
+              <point x="343.3209635416667" y="102.0" />
+              <point x="-15.5625" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.ReadingItem" target="lombok.Data">
+              <point x="-45.66666666666663" y="-16.0" />
+              <point x="273.5390625" y="112.0" />
+              <point x="353.6959635416667" y="112.0" />
+              <point x="-5.1875" y="16.0" />
+            </edge>
+            <edge source="com.ttn.linksharing.entity.DocumentResource" target="com.ttn.linksharing.entity.Resource">
+              <point x="0.0" y="-16.0" />
+              <point x="886.9902343749999" y="284.0" />
+              <point x="910.716796875" y="284.0" />
+              <point x="28.25" y="16.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.936" x="236.4102564102564" y="141.4102564102564" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Home.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/Home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="28" column="71" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ReadingItemRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="64" lean-forward="true" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="40" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="62" lean-forward="true" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
