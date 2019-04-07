@@ -23,5 +23,4 @@ public class Topic {
 
     @OneToMany(mappedBy = "topic")
     private List<Resource> resource;
-
 }

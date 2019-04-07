@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
     <meta charset="utf-8">
@@ -114,7 +114,7 @@
                 <div class="card m-2">
                     <h5 class="card-header">Login</h5>
                     <div class="card-body">
-                        <form>
+                        <form method="post">
                             <div class="form-group row">
                                 <label class="col-md-5 col-form-label">Email/Username*</label>
                                 <div class="col-md-7">
@@ -141,12 +141,12 @@
                 <div class="card m-2">
                     <h5 class="card-header">Registration</h5>
                     <div class="card-body">
-                        <form>
+                        <form method="post" th:action="@{/RegistrationDataShow}" th:object="${user}">
                             <div class="form-group row">
-                                <label for="fname" class="col-md-5 col-form-label">FirstName*</label>
+                                <label class="col-md-5 col-form-label">FirstName*</label>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" id="fname" placeholder="first name"
-                                           required="">
+                                           required="" th:field="*{firstName}">
                                 </div>
                             </div>
 
@@ -154,34 +154,36 @@
                                 <label for="fname" class="col-md-5 col-form-label">LastName*</label>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" id="lname" placeholder="Last name"
-                                           required="">
+                                           required="" th:field="*{lastName}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fname" class="col-md-5 col-form-label">Email*</label>
                                 <div class="col-md-7">
-                                    <input type="email" class="form-control" id="email" placeholder="email" required="">
+                                    <input type="email" class="form-control" id="email" placeholder="email" required=""
+                                           th:field="*{email}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="fname" class="col-md-5 col-form-label">Username</label>
                                 <div class="col-md-7">
-                                    <input type="text" class="form-control" id="username1" placeholder="username.."
-                                           required="">
+                                    <input type="text" class="form-control" id="username1" placeholder="username"
+                                           required="" th:field="*{username}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-5 col-form-label">Password</label>
                                 <div class="col-md-7">
                                     <input type="password" class="form-control" id="password1"
-                                           placeholder="type password" required="">
+                                           placeholder="type password" required="" th:field="*{password}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-5 col-form-label">Confirm password</label>
                                 <div class="col-md-7">
-                                    <input type="password" class="form-control" id="confirmPassword" required="">
+                                    <input type="password" class="form-control" id="confirmPassword" required=""
+                                           th:field="*{confirmPassword}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -194,10 +196,9 @@
                                 </div>
                             </div>
 
-
                         </form>
 
-                        <a href="#" class="btn btn-primary" style="float: right;">Register</a>
+                        <a class="btn btn-primary" style="float: right;">Register</a>
                     </div>
                 </div>
             </div>
