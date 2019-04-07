@@ -8,7 +8,20 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="Home.css">
+    <script type="text/javascript">
 
+        function showPass()
+        {
+            var pass=document.getElementById('password');
+            if(document.getElementById('check').checked)
+            {
+                pass.setAttribute('type','text');
+            }
+            else {
+                pass.setAttribute('type','password');
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -141,7 +154,7 @@
                 <div class="card m-2">
                     <h5 class="card-header">Registration</h5>
                     <div class="card-body">
-                        <form method="post" th:action="@{/RegistrationDataShow}" th:object="${user}">
+                        <form method="post" th:action="@{/}" th:object="${user}">
                             <div class="form-group row">
                                 <label class="col-md-5 col-form-label">FirstName*</label>
                                 <div class="col-md-7">
@@ -176,7 +189,14 @@
                                 <label class="col-md-5 col-form-label">Password</label>
                                 <div class="col-md-7">
                                     <input type="password" class="form-control" id="password1"
-                                           placeholder="type password" required="" th:field="*{password}">
+                                           placeholder="type password" required=""
+                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                           title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                           th:field="*{password}">
+                                </div>
+                                <div class="form-group row m-2">
+                                    <input id="check" type="checkbox" onclick="showPass();">
+                                    <label for="check" style="color:black"> Show Password</label>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -198,12 +218,27 @@
 
                         </form>
 
-                        <a class="btn btn-primary" style="float: right;">Register</a>
+                        <a class="btn btn-primary" style="float: right;" onClick="validatePassword()">Register</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirmPassword");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            alert("Passwords don't match")
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    /*  password.onchange = validatePassword();
+      confirmPassword.onkeyup = validatePassword();*/
+</script>
 </body>
 </html>
