@@ -8,17 +8,6 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="Home.css">
-    <script type="text/javascript">
-        function showPass() {
-            var pass = document.getElementById('password1');
-            if (document.getElementById('check').checked) {
-                pass.setAttribute('type', 'text');
-            }
-            else {
-                pass.setAttribute('type', 'password');
-            }
-        }
-    </script>
 </head>
 <body>
 <div class="container-fluid">
@@ -124,12 +113,13 @@
                 <div class="card m-2">
                     <h5 class="card-header">Login</h5>
                     <div class="card-body">
-                        <form method="post">
+                        <form method="post" th:action="@{/}" th:object="${login}">
                             <div class="form-group row">
-                                <label class="col-md-5 col-form-label">Email/Username*</label>
+                                <p th:text="${error}"></p>
+                                <label class="col-md-5 col-form-label">Username*</label>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" id="username" placeholder="username"
-                                           required="">
+                                           th:field="*{username}" required="">
                                 </div>
                             </div>
 
@@ -137,12 +127,12 @@
                                 <label class="col-md-5 col-form-label">Password*</label>
                                 <div class="col-md-7">
                                     <input type="password" class="form-control" id="password" placeholder="Password"
-                                           required="">
+                                           th:field="*{password}" required="">
                                 </div>
                             </div>
                         </form>
-                        <a href="">Forgot password</a>
-                        <a href="#" class="btn btn-primary" style="float: right;">Login</a>
+                        <a href="#">Forgot password</a>
+                        <input type="submit" class="btn btn-primary" style="float: right;">Login
                     </div>
                 </div>
             </div>
@@ -212,7 +202,7 @@
                                     <a href="#" class="btn btn-primary">Browse</a>
                                 </div>
                             </div>
-                            <input type="submit" class="btn btn-primary" style="float: right;" onClick="validatePassword()">Register</input>
+                            <input type="submit" class="btn btn-primary" style="float: right;" onClick="validatePassword()">Register
                         </form>
 
 
@@ -223,6 +213,16 @@
     </div>
 </div>
 <script type="text/javascript">
+    function showPass() {
+        var pass = document.getElementById('password1');
+        if (document.getElementById('check').checked) {
+            pass.setAttribute('type', 'text');
+        }
+        else {
+            pass.setAttribute('type', 'password');
+        }
+    }
+
     var password = document.getElementById("password1")
         , confirm_password = document.getElementById("confirmPassword");
 
@@ -234,9 +234,6 @@
             confirm_password.setCustomValidity('');
         }
     }
-
-    /*  password.onchange = validatePassword();
-      confirmPassword.onkeyup = validatePassword();*/
 </script>
 </body>
 </html>

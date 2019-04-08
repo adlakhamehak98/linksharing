@@ -10,7 +10,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,21 +32,45 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String submit(@ModelAttribute("user") User user, ModelMap model) {
+    public ModelAndView submit(@ModelAttribute("user") User responseData, ModelMap model) {
         System.out.println("inside method");
-        users.add(user);
-        userRepository.save(user);
-        model.addAttribute("user", user);
+        ModelAndView modelAndView = new ModelAndView("Home");
+        users.add(responseData);
+        userRepository.save(responseData);
+        model.addAttribute("user", responseData);
         System.out.println(users);
-        return "RegistrationDataShow";
+        List<User> userCheck = userService.checkUser(responseData);
+        if (!(userCheck.size() > 0)) {
+            userService.saveUser(responseData);
+            return new ModelAndView("redirect:/");
+        } else {
+            return modelAndView.addObject("error", "username already exists");
+        }
     }
 
-//    @RequestMapping("dashboard")
-//    public ModelAndView dashboard() {
-//        ModelAndView modelAndView = new ModelAndView("Dashboard");
-//        return modelAndView;
-//    }
-//
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView formSuccess(@ModelAttribute("login") User responseData) {
+        ModelAndView modelAndView = new ModelAndView("Home");
+
+        User loginStatus = userService.validateUser(responseData);
+
+        if (loginStatus != null) {
+                return new ModelAndView("redirect:dashboard");
+        } else {
+
+            ModelAndView modelAndView1=new ModelAndView("redirect:/login").addObject("error","Wrong Username Password");
+            return new ModelAndView("Home").addObject("error", "username or password Wrong");
+
+        }
+       // return modelAndView;
+    }
+
+    @RequestMapping("dashboard")
+    public ModelAndView dashboard() {
+        ModelAndView modelAndView = new ModelAndView("Dashboard");
+        return modelAndView;
+    }
+
 //    @RequestMapping("topic")
 //    public ModelAndView topic() {
 //        ModelAndView modelAndView = new ModelAndView("Topic");
