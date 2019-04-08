@@ -31,16 +31,45 @@ public class Bootstrap {
 
     @EventListener(ApplicationStartedEvent.class)
     public void init() {
-        Iterator<Subscription> iterable = subscriptionRepository.findAll().iterator();
-        if (!iterable.hasNext()) {
-            User user1 = new User("Kirti", "Chauhan", "kirti.chauhan@tothenew.com", "kirtich", "Kirti1997@", "profilepic.png");
-            userRepository.save(user1);
-            Topic topic1 = new Topic("Grails", user1, Visibility.PRIVATE);
-            topicRepository.save(topic1);
-            Subscription subscription = new Subscription(user1, topic1, Seriousness.CASUAL);
-
-            subscriptionRepository.save(subscription);
+        Long userCount = userRepository.count();
+        if (userCount == 0) {
+            addUsers();
+            addTopics();
+            addSubscription();
         }
         System.out.println("Your Application is up and running");
+    }
+
+    private void addUsers() {
+        userRepository.save(new User("User1", "Dummy", "User1.dummy@tothenew.com", "user1", "Abc123@", "user1.png"));
+        userRepository.save(new User("User2", "Dummy", "User2.dummy@tothenew.com", "user2", "Abc123@", "user2.png"));
+        userRepository.save(new User("User3", "Dummy", "User3.dummy@tothenew.com", "user3", "Abc123@", "user3.png"));
+        userRepository.save(new User("User4", "Dummy", "User4.dummy@tothenew.com", "user4", "Abc123@", "user4.png"));
+        userRepository.save(new User("User5", "Dummy", "User5.dummy@tothenew.com", "user5", "Abc123@", "user5.png"));
+    }
+
+    private void addTopics() {
+        Iterator<User> users = userRepository.findAll().iterator();
+        while (users.hasNext()) {
+            User user = users.next();
+            topicRepository.save(new Topic(user.getFirstName() + " Topic1", user, Visibility.PRIVATE));
+            topicRepository.save(new Topic(user.getFirstName() + " Topic2", user, Visibility.PRIVATE));
+            topicRepository.save(new Topic(user.getFirstName() + " Topic3", user, Visibility.PUBLIC));
+        }
+    }
+
+    private void addSubscription() {
+        Iterator<User> users = userRepository.findAll().iterator();
+        List<Topic> topics = topicRepository.findAll();
+        while (users.hasNext()) {
+            User user = users.next();
+            topics.forEach(topic -> {
+                if (topic.getUser().getId().equals(user.getId())) {
+                    subscriptionRepository.save(new Subscription(user, topic, Seriousness.VERY_SERIOUS));
+                } else {
+                    subscriptionRepository.save(new Subscription(user, topic, Seriousness.SERIOUS));
+                }
+            });
+        }
     }
 }

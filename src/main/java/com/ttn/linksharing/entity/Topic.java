@@ -30,4 +30,7 @@ public class Topic {
         this.user = user;
         this.visibility = visibility;
     }
+
+    public Topic() {
+    }
 }
