@@ -14,8 +14,8 @@ public class TopicService {
     TopicRepository topicRepository;
     List<Topic> topicList = new ArrayList<>();
 
-    public void createTopic(){
-        topicRepository.save(new Topic());
+    public void createTopic(Topic topic){
+        topicRepository.save(topic);
 
     }
 }

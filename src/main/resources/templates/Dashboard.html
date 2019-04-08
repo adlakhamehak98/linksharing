@@ -120,8 +120,8 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <form method="post" th:action="@{/dashboard/createTopic}" th:object="${topic}">
                                 <div class="modal-body">
-                                    <form method="post" th:action="@{/dashboard/createTopic}" th:object="${topic}">
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Name*</label>
                                             <div class="col-md-7">
@@ -135,17 +135,16 @@
                                             <div class="col-md-7">
                                                 <select class="browser-default custom-select m-2">
                                                     <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
-                                                            th:value="${visibility.getValue()}" th:text="${visibility.getValue()}" selected value="Private">Private</option>
-                                                    <option th:value="${visibility.getValue()}" th:text="${visibility.getValue()}" value="Public">Public</option>
+                                                            th:value="${visibility}" th:text="${visibility}"></option>
                                                 </select>
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary createTopicButton">Save</button>
+                                    <input type="submit" class="btn btn-primary createTopicButton">Save</input>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

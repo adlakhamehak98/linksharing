@@ -29,6 +29,10 @@ public class UserService {
         return userRepository.findByUsername(responseData.getUsername());
     }
 
+    public User findById(int id){
+        return userRepository.findById(id);
+    }
+
     public User validateUser(User responseData) {
         User loginStatus = userRepository.findByUsernameAndPassword(responseData.getUsername(), responseData.getPassword());
         return loginStatus;
