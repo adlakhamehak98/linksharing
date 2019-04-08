@@ -19,5 +19,14 @@ public class Subscription {
     @OneToOne
     Topic topic;
 
+    @Enumerated(EnumType.STRING)
     private Seriousness seriousness;
+
+    public Subscription(User user, Topic topic, Seriousness seriousness) {
+        this.user = user;
+        this.topic = topic;
+        this.seriousness = seriousness;
+    }
+
+    public Subscription(){}
 }

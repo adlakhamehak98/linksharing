@@ -19,8 +19,15 @@ public class Topic {
     @OneToOne
     User user;
 
+    @Enumerated(EnumType.STRING)
     Visibility visibility;
 
     @OneToMany(mappedBy = "topic")
     private List<Resource> resource;
+
+    public Topic(String name, User user, Visibility visibility) {
+        this.name = name;
+        this.user = user;
+        this.visibility = visibility;
+    }
 }
