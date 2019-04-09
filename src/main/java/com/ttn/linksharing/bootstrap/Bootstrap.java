@@ -1,9 +1,6 @@
 package com.ttn.linksharing.bootstrap;
 
-import com.ttn.linksharing.entity.Resource;
-import com.ttn.linksharing.entity.Subscription;
-import com.ttn.linksharing.entity.Topic;
-import com.ttn.linksharing.entity.User;
+import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.repository.ResourceRepository;
@@ -15,6 +12,7 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -39,6 +37,7 @@ public class Bootstrap {
             addUsers();
             addTopics();
             addSubscription();
+            addResource();
         }
         System.out.println("Your Application is up and running");
     }
@@ -73,6 +72,20 @@ public class Bootstrap {
                     subscriptionRepository.save(new Subscription(user, topic, Seriousness.SERIOUS));
                 }
             });
+        }
+    }
+
+    private void addResource() {
+        Iterator<User> users = userRepository.findAll().iterator();
+        List<Topic> topics = topicRepository.findAll();
+        List<ResourceRating> resourceRatings = new ArrayList<>();
+        while (users.hasNext()) {
+            User user = users.next();
+            int id = user.getId();
+            if (id < 3)
+                topics.forEach(topic -> resourceRepository.save(new DocumentResource(user, topic, resourceRatings, "/home/abc.txt")));
+            else
+                topics.forEach(topic -> resourceRepository.save(new LinkResource(user, topic, resourceRatings, "https://www.javatpoint.com/java-tutorial")));
         }
     }
 }

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class DashboardController {
@@ -44,11 +46,12 @@ public class DashboardController {
             model.addAttribute("countSub", countSub);
             int countTop = topicService.topicsCount(user);
             model.addAttribute("countTop", countTop);
-            Subscription subscription= subscriptionService.subscriptionsPerUser(user);
-            String topicName= subscription.getTopic().getName();
-            Seriousness seriousness = subscription.getSeriousness();
+            List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
+            List<String> topicName = subscriptionList.stream().map(e->e.getTopic().getName()).collect(Collectors.toList());
+            List<Seriousness> seriousness = subscriptionList.stream().map(Subscription::getSeriousness).collect(Collectors.toList());
             model.addAttribute("topicName", topicName);
             model.addAttribute("seriousness", seriousness);
+            model.addAttribute("subscriptions", subscriptionList);
 
             return modelAndView;
         }

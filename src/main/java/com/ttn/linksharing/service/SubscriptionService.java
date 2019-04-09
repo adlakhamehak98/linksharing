@@ -6,6 +6,8 @@ import com.ttn.linksharing.repository.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SubscriptionService {
     @Autowired
@@ -15,7 +17,7 @@ public class SubscriptionService {
         return subscriptionRepository.countAllByUser(user);
     }
 
-    public Subscription subscriptionsPerUser(User user){
+    public List<Subscription> subscriptionsPerUser(User user){
         return subscriptionRepository.findAllByUser(user);
     }
 }
