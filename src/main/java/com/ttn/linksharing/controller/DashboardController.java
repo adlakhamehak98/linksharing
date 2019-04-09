@@ -1,9 +1,8 @@
 package com.ttn.linksharing.controller;
 
-import com.ttn.linksharing.entity.Subscription;
-import com.ttn.linksharing.entity.Topic;
-import com.ttn.linksharing.entity.User;
+import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Seriousness;
+import com.ttn.linksharing.service.LinkResourceService;
 import com.ttn.linksharing.service.SubscriptionService;
 import com.ttn.linksharing.service.TopicService;
 import com.ttn.linksharing.service.UserService;
@@ -31,11 +30,15 @@ public class DashboardController {
     @Autowired
     SubscriptionService subscriptionService;
 
+    @Autowired
+    LinkResourceService linkResourceService;
+
     @RequestMapping("dashboard")
     public ModelAndView dashboard(ModelMap model, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("Dashboard");
         modelAndView.addObject("topic", new Topic());
         modelAndView.addObject("subscription", new Subscription());
+        modelAndView.addObject("linkResource", new LinkResource());
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
             User user = userService.findById(userId);
@@ -73,5 +76,21 @@ public class DashboardController {
         return "redirect:/dashboard";
     }
 
+    @RequestMapping(value = "/dashboard/shareLink", method = RequestMethod.POST)
+    public  String shareLink(@ModelAttribute("linkResource") LinkResource resource,@ModelAttribute("subscription") Subscription subscription, ModelMap model, HttpSession session){
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if (userId != null) {
+            User user = userService.findById(userId);
+            List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
+            List<String> topicName = subscriptionList.stream().map(e->e.getTopic().getName()).collect(Collectors.toList());
+            resource.setUser(user);
+            ModelAndView modelAndView = new ModelAndView("Dashboard");
+            linkResourceService.shareLink(resource);
+            model.addAttribute("linkResource", resource);
+            model.addAttribute("topics", topicName);
+            return "redirect:/dashboard";
+        }
+        return "redirect:/dashboard";
+    }
 
 }

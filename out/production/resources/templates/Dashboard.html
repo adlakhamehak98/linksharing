@@ -164,12 +164,12 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="usrform">
+                                    <form id="usrform" method="post" th:action="@{/dashboard/shareLink}" th:object="${linkResource}">
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Link*</label>
                                             <div class="col-md-7">
                                                 <input type="text" class="form-control" id="Link" placeholder="Link"
-                                                       required="">
+                                                       th:field="*{url}"  required="">
                                             </div>
                                         </div>
 
@@ -177,7 +177,7 @@
                                             <label class="col-md-5 col-form-label">Description*</label>
                                             <div class="col-md-7">
                                                 <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                          rows="3">Description</textarea>
+                                                          th:field="*{description}"   rows="3">Description</textarea>
                                             </div>
                                         </div>
 
@@ -185,9 +185,9 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <select class="browser-default custom-select m-2">
-                                                    <option selected value="1">Topic1</option>
-                                                    <option value="2">Topic2</option>
+                                                <select class="browser-default custom-select m-2" th:object=${subscription} th:field="*{topic}">
+                                                    <option  th:each="topic : ${topics}"
+                                                             th:value="${topic}" th:text="${topic}"></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -295,11 +295,19 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title subscriptionTopicNameOriginal"
+                                    <h5 class="card-title subscriptionTopicNameOriginal" th:id="${subscription.topic.id}+'subscriptionTopicNameOriginal'"
                                         th:text="${subscription.topic.name}"></h5>
                                     <h5 class="card-title subscriptionTopicName" style="display: none"
-                                        th:id="${subscription.topic.id}+'subscriptionTopicName'"><input
-                                            type="text"></h5>
+                                        th:id="${subscription.topic.id}+'subscriptionTopicName'"><input type="text">
+                                        <span class="input-group-btn">
+                                                       <button class="btn btn-outline-primary"
+                                                               type="button">Save</button>
+                                                    </span>
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-outline-primary"
+                                                type="button">Cancel</button>
+                                        </span>
+                                    </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span th:text="${subscription.seriousness}"></span><br>
@@ -528,11 +536,11 @@
         });
         $(".editIcon").click(function () {
 
-            $(".subscriptionTopicNameOriginal").css('display', 'none');
-            var x= $(".editIcon").attr("data-el_id").concat("subscriptionTopicName");
-                x.css('display','block');
-            //$('.').css('display', 'block');
+            var y= $(this).attr("data-el_id").concat("subscriptionTopicNameOriginal");
+            $("#"+y).css('display','none');
 
+            var x= $(this).attr("data-el_id").concat("subscriptionTopicName");
+                $("#"+x).css('display','block');
         });
     });
 </script>

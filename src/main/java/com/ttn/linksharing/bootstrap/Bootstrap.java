@@ -83,9 +83,9 @@ public class Bootstrap {
             User user = users.next();
             int id = user.getId();
             if (id < 3)
-                topics.forEach(topic -> resourceRepository.save(new DocumentResource(user, topic, resourceRatings, "/home/abc.txt")));
+                topics.forEach(topic -> resourceRepository.save(new DocumentResource(user, topic, "This is abc.txt.", resourceRatings, "/home/abc.txt")));
             else
-                topics.forEach(topic -> resourceRepository.save(new LinkResource(user, topic, resourceRatings, "https://www.javatpoint.com/java-tutorial")));
+                topics.forEach(topic -> resourceRepository.save(new LinkResource(user, topic, "Study java here.", resourceRatings, "https://www.javatpoint.com/java-tutorial")));
         }
     }
 }

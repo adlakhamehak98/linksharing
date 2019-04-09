@@ -21,14 +21,18 @@ public class Resource {
     @ManyToOne
     private Topic topic;
 
+    private String description;
+
     @OneToMany(mappedBy = "resource")
     private List<ResourceRating> resourceRatings = new ArrayList<>();
 
-    public Resource(User user, Topic topic, List<ResourceRating> resourceRatings) {
+    public Resource(User user, Topic topic, String description, List<ResourceRating> resourceRatings) {
         this.user = user;
         this.topic = topic;
+        this.description = description;
         this.resourceRatings = resourceRatings;
     }
 
-    public Resource(){}
+    public Resource() {
+    }
 }

@@ -10,8 +10,8 @@ import java.util.List;
 public class DocumentResource extends Resource {
     private String path;
 
-    public DocumentResource(User user, Topic topic, List<ResourceRating> resourceRatings, String path) {
-        super(user, topic, resourceRatings);
+    public DocumentResource(User user, Topic topic, String description, List<ResourceRating> resourceRatings, String path) {
+        super(user, topic,description, resourceRatings);
         this.path = path;
     }
 
