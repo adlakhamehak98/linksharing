@@ -2,10 +2,7 @@ package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Seriousness;
-import com.ttn.linksharing.service.LinkResourceService;
-import com.ttn.linksharing.service.SubscriptionService;
-import com.ttn.linksharing.service.TopicService;
-import com.ttn.linksharing.service.UserService;
+import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,6 +30,9 @@ public class DashboardController {
     @Autowired
     LinkResourceService linkResourceService;
 
+    @Autowired
+    DocumentResourceService documentResourceService;
+
     @RequestMapping("dashboard")
     public ModelAndView dashboard(ModelMap model, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("Dashboard");
@@ -50,9 +50,9 @@ public class DashboardController {
             int countTop = topicService.topicsCount(user);
             model.addAttribute("countTop", countTop);
             List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
-            List<String> topicName = subscriptionList.stream().map(e->e.getTopic().getName()).collect(Collectors.toList());
+            List<Topic> topics = subscriptionList.stream().map(e->e.getTopic()).collect(Collectors.toList());
             List<Seriousness> seriousness = subscriptionList.stream().map(Subscription::getSeriousness).collect(Collectors.toList());
-            model.addAttribute("topicName", topicName);
+            model.addAttribute("topics", topics);
             model.addAttribute("seriousness", seriousness);
             model.addAttribute("subscriptions", subscriptionList);
 
@@ -81,13 +81,24 @@ public class DashboardController {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
             User user = userService.findById(userId);
-            List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
-            List<String> topicName = subscriptionList.stream().map(e->e.getTopic().getName()).collect(Collectors.toList());
             resource.setUser(user);
             ModelAndView modelAndView = new ModelAndView("Dashboard");
             linkResourceService.shareLink(resource);
             model.addAttribute("linkResource", resource);
-            model.addAttribute("topics", topicName);
+            return "redirect:/dashboard";
+        }
+        return "redirect:/dashboard";
+    }
+
+    @RequestMapping(value = "/dashboard/shareDocument", method = RequestMethod.POST)
+    public  String shareDocument(@ModelAttribute("documentResource") DocumentResource resource, ModelMap model, HttpSession session){
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if (userId != null) {
+            User user = userService.findById(userId);
+            resource.setUser(user);
+            ModelAndView modelAndView = new ModelAndView("Dashboard");
+            documentResourceService.shareDocument(resource);
+            model.addAttribute("documentResource", resource);
             return "redirect:/dashboard";
         }
         return "redirect:/dashboard";
