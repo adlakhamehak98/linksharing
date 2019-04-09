@@ -23,4 +23,12 @@ public class Resource {
 
     @OneToMany(mappedBy = "resource")
     private List<ResourceRating> resourceRatings = new ArrayList<>();
+
+    public Resource(User user, Topic topic, List<ResourceRating> resourceRatings) {
+        this.user = user;
+        this.topic = topic;
+        this.resourceRatings = resourceRatings;
+    }
+
+    public Resource(){}
 }

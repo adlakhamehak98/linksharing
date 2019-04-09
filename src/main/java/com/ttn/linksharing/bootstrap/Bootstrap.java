@@ -6,6 +6,7 @@ import com.ttn.linksharing.entity.Topic;
 import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.enums.Visibility;
+import com.ttn.linksharing.repository.ResourceRepository;
 import com.ttn.linksharing.repository.SubscriptionRepository;
 import com.ttn.linksharing.repository.TopicRepository;
 import com.ttn.linksharing.repository.UserRepository;
@@ -14,7 +15,6 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +28,9 @@ public class Bootstrap {
 
     @Autowired
     TopicRepository topicRepository;
+
+    @Autowired
+    ResourceRepository resourceRepository;
 
     @EventListener(ApplicationStartedEvent.class)
     public void init() {

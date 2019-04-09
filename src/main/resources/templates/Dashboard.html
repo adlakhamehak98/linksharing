@@ -133,7 +133,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Visibility*</label>
                                             <div class="col-md-7">
-                                                <select class="browser-default custom-select m-2">
+                                                <select th:field="*{visibility}" class="browser-default custom-select m-2">
                                                     <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
                                                             th:value="${visibility}" th:text="${visibility}"></option>
                                                 </select>
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <input type="submit" class="btn btn-primary createTopicButton">Save</input>
+                                    <input type="submit" class="btn btn-primary createTopicButton">
                                 </div>
                                 </form>
                             </div>
@@ -269,10 +269,13 @@
                         </div>
                         <div class="col-md-8">
 
-                            <h5 class="card-title">Uday Pratap singh</h5>
+                            <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                             <p class="card-text">
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                <span>Subscriptions: </span>
+                                <span th:object="${subscription}" id="subscriptionsCount" th:text="${countSub}"></span><br>
+                                <span>Topics: </span>
+                                <span  th:object="${topic}" id="topicsCount" th:text="${countTop}"></span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -289,9 +292,10 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${subscription}" th:text="${topicName}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
+                                            <span  th:object="${subscription}" th:text="${seriousness}" ></span>
                                             <span><a href="#">Unsubscribe</a></span>
                                         </p>
                                     </div>
@@ -326,7 +330,7 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span><a href="#">Unsubscribe</a></span>
@@ -371,7 +375,7 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span><a href="#">Subscribe</a></span>
@@ -408,7 +412,7 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span><a href="#">Unsubscribe</a></span>
@@ -457,7 +461,7 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
@@ -481,7 +485,7 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <h5 class="card-title" th:object="${user}" th:text="${name}" ></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
