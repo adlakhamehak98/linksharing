@@ -115,6 +115,7 @@ public class DashboardController {
                 User user = userService.findById(userId);
                 resource.setUser(user);
                 String filePath = documentResourceService.storeDocument(file);
+                System.out.println(">>>>>>>>>>>filePath"+filePath);
                 if(filePath != null) {
                     resource.setPath(filePath);
                     ModelAndView modelAndView = new ModelAndView("Dashboard");

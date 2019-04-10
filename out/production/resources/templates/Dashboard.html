@@ -249,7 +249,9 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Cancel
+                                            </button>
                                             <input type="submit" value="Share" class="btn btn-primary">
                                         </div>
                                     </form>
@@ -278,10 +280,10 @@
                             <h5 class="card-title" th:text="${name}"></h5>
                             <p class="card-text">
                                 <span>Subscriptions: </span>
-                                <span id="subscriptionsCount"
-                                      th:text="${countSub}"></span><br>
+                                <a href="#" id="subscriptionsCount"
+                                      th:text="${countSub}"></a><br>
                                 <span>Topics: </span>
-                                <span id="topicsCount" th:text="${countTop}"></span>
+                                <a href="#" id="topicsCount" th:text="${countTop}"></a>
                             </p>
                         </div>
                     </div>
@@ -319,14 +321,12 @@
                                     </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            <!--<span th:text="${subscription.seriousness}"></span><br>-->
-
                                             <span>Subscriptions: </span>
-                                            <span class="subscriptionsCount"
-                                                  th:text="${subscription.topic.subscriptions.size()}"></span><br>
+                                            <a href="#" class="subscriptionsCount"
+                                                  th:text="${subscription.topic.subscriptions.size()}"></a><br>
                                             <span>Post: </span>
-                                            <span class="topicsCount"
-                                                  th:text="${subscription.topic.resource.size()}"></span>
+                                            <a href="#" class="topicsCount"
+                                                  th:text="${subscription.topic.resource.size()}"></a>
                                             <br>
                                             <span><a href="#">Unsubscribe</a></span>
                                         </p>
@@ -368,7 +368,7 @@
                 <h5 class="card-header">Trending Topics</h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <li class="list-group-item" th:each="topic : ${trendingTopics}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="username.png" alt="user image"
@@ -378,44 +378,17 @@
                                     <h5 class="card-title" th:text="${topic.name}"></h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            <span><a href="#">Subscribe</a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Serious</option>
-                                        <option value="2">Very Serious</option>
-                                        <option value="3">Casual</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Private</option>
-                                        <option value="2">Edit</option>
-                                        <option value="3">Delete</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="username.png" alt="user image"
-                                         style="border: 1px solid;height: 140px; width: 140px">
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 class="card-title" th:object="${user}" th:text="${name}"></h5>
-                                    <div style="display: inline-block">
-                                        <p class="card-text">
-                                            <span><a href="#">Unsubscribe</a></span>
+                                            <span>Subscriptions: </span>
+                                            <a href="#"  class="subscriptionsCount"
+                                                  th:text="${topic.subscriptions.size()}"></a><br>
+                                            <span>Post: </span>
+                                            <a href="#"  class="topicsCount"
+                                                  th:text="${topic.resource.size()}"></a>
+                                            <br>
+                                            <span>
+                                                <a href="#" class="trendingTopicUnsubscribe" >Unsubscribe</a>
+                                                <a href="#" class="trendingTopicSubscribe">Subscribe</a>
+                                            </span>
                                         </p>
                                     </div>
                                 </div>

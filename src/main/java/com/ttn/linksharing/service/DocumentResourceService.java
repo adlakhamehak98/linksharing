@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -24,10 +25,9 @@ public class DocumentResourceService {
     }
 
     public String storeDocument(MultipartFile document) {
-        try (InputStream inputStream = document.getInputStream()) {
+        try {
             String filename = StringUtils.cleanPath(document.getOriginalFilename());
-            Files.copy(inputStream, Paths.get("/home/ttn/project/uploads/documents").resolve(filename),
-                    StandardCopyOption.REPLACE_EXISTING);
+            document.transferTo(new File("/home/ttn/project/uploads/documents/"+filename));
             return "/home/ttn/project/uploads/documents/"+filename;
         } catch (IOException e) {
             e.printStackTrace();

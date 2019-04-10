@@ -17,15 +17,10 @@ public class ResourceService {
     @Autowired
     TopicRepository topicRepository;
 
-    public List<Topic> findTopicsWithMaxResourcesCount(){
+    public List<Topic> findTopicsWithMaxResourcesCount() {
         List<Object[]> topTopics = resourceRepository.findTopByIdOrderByTopicDesc();
-        List<Topic> topics = topTopics.stream().map(obj -> (Integer) obj[0]).map(o -> {
-            return topicRepository.findById(o).get();
-        }).collect(Collectors.toList());
+        List<Topic> topics = topTopics.stream().map(obj -> (Integer) obj[0]).map(o -> topicRepository.findById(o).get())
+                .collect(Collectors.toList());
         return topics;
     }
-
-//    public List<Resource> findTopicsWithMaxResourcesCount(){
-//        return resourceRepository.findTopByIdOrderByTopicDesc();
-//    }
 }
