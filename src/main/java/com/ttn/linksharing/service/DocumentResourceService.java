@@ -25,12 +25,10 @@ public class DocumentResourceService {
 
     public String storeDocument(MultipartFile document) {
         try (InputStream inputStream = document.getInputStream()) {
-            if (document.getContentType().split("/")[0].equals("document")) {
-                String filename = StringUtils.cleanPath(document.getOriginalFilename());
-                Files.copy(inputStream, Paths.get("/home/ttn/project/uploads/documents").resolve(filename),
-                        StandardCopyOption.REPLACE_EXISTING);
-                return filename;
-            }
+            String filename = StringUtils.cleanPath(document.getOriginalFilename());
+            Files.copy(inputStream, Paths.get("/home/ttn/project/uploads/documents").resolve(filename),
+                    StandardCopyOption.REPLACE_EXISTING);
+            return "/home/ttn/project/uploads/documents/"+filename;
         } catch (IOException e) {
             e.printStackTrace();
         }

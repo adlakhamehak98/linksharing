@@ -63,7 +63,7 @@ public class DashboardController {
             List<Topic> topics = subscriptionList.stream().map(e -> e.getTopic()).collect(Collectors.toList());
             List<Seriousness> seriousness = subscriptionList.stream().map(Subscription::getSeriousness).collect(Collectors.toList());
             model.addAttribute("topics", topics);
-            model.addAttribute("seriousness", seriousness);
+            //model.addAttribute("seriousness", seriousness);
             model.addAttribute("subscriptions", subscriptionList);
             List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
             model.addAttribute("trendingTopics", topics1);
@@ -103,20 +103,26 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "/dashboard/shareDocument", method = RequestMethod.POST)
-    public String shareDocument(@Valid @RequestParam MultipartFile file, @ModelAttribute("documentResource") DocumentResource resource, ModelMap model, BindingResult bindingResult, HttpSession session) {
+    public String shareDocument(@RequestParam MultipartFile file, @ModelAttribute("documentResource") DocumentResource resource, ModelMap model, BindingResult bindingResult, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
             if (file == null || file.isEmpty()) {
-                bindingResult.addError(new FieldError("user", "fileName", "File can't be null."));
+                bindingResult.addError(new FieldError("documentResource", "path", "File can't be null."));
                 if (bindingResult.hasErrors()) {
                     return "redirect:/dashboard";
-                } else {
-                    User user = userService.findById(userId);
-                    resource.setUser(user);
-                    documentResourceService.storeDocument(file);
+                }
+            } else {
+                User user = userService.findById(userId);
+                resource.setUser(user);
+                String filePath = documentResourceService.storeDocument(file);
+                if(filePath != null) {
+                    resource.setPath(filePath);
                     ModelAndView modelAndView = new ModelAndView("Dashboard");
                     documentResourceService.shareDocument(resource);
                     model.addAttribute("documentResource", resource);
+                    return "redirect:/dashboard";
+                } else {
+                    bindingResult.addError(new FieldError("documentResource", "path", "File can't be uploaded."));
                     return "redirect:/dashboard";
                 }
             }

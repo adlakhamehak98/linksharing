@@ -222,9 +222,9 @@
                                             <label class="col-md-5 col-form-label">Document*</label>
                                             <div class="col-md-7">
                                                 <div class="input-group">
-                                                    <input type="file" id="file" th:field="*{path}" name="file" class="form-control">
-                                                    <!--<p th:if="${#fields.hasErrors('fileName')}" th:errors="*{fileName}"-->
-                                                       <!--class="alert alert-danger"/>-->
+                                                    <input type="file" id="file" name="file" class="form-control">
+                                                    <p th:if="${#fields.hasErrors('path')}" th:errors="*{path}"
+                                                       class="alert alert-danger"/>
                                                 </div><!-- /input-group -->
                                             </div>
                                         </div>

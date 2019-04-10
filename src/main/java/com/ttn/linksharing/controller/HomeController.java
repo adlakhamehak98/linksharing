@@ -97,13 +97,14 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/reset", method = RequestMethod.POST)
-    public ModelAndView resetPass(String email) throws Exception {
+    public String resetPass(String email) throws Exception {
         User user = userService.findUserByEmail(email);
         if (user != null) {
             sendEmail(user);
-            return new ModelAndView("Home");}
+            return "redirect:/";
+        }
         else
-            return new ModelAndView("ForgetPassword");
+            return "ForgetPassword";
         }
 
 
