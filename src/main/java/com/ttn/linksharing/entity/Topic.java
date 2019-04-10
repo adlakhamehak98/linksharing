@@ -25,6 +25,9 @@ public class Topic {
     @OneToMany(mappedBy = "topic")
     private List<Resource> resource;
 
+    @OneToMany(mappedBy = "topic")
+    private List<Subscription> subscriptions;
+
     public Topic(String name, User user, Visibility visibility) {
         this.name = name;
         this.user = user;

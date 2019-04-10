@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,11 +36,11 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String submit(@Valid @RequestParam MultipartFile file,@Valid @ModelAttribute("user") User responseData, ModelMap model, BindingResult bindingResult) {
+    public String submit(@Valid @RequestParam MultipartFile file, @Valid @ModelAttribute("user") User responseData, ModelMap model, BindingResult bindingResult) {
         System.out.println("to register::::::::::::::::::");
         if (file == null || file.isEmpty()) {
-            bindingResult.addError(new FieldError("user","fileName", "File cant be null."));
-            if(bindingResult.hasErrors()) {
+            bindingResult.addError(new FieldError("user", "fileName", "File cant be null."));
+            if (bindingResult.hasErrors()) {
                 return "Home";
             }
         } else {
@@ -56,8 +55,8 @@ public class HomeController {
                 userService.saveUser(responseData);
                 return "Home";
             } else {
-                bindingResult.addError(new FieldError("user","username", "Duplicate Username not allowed."));
-                if(bindingResult.hasErrors()) {
+                bindingResult.addError(new FieldError("user", "username", "Duplicate Username not allowed."));
+                if (bindingResult.hasErrors()) {
                     return "Home";
                 }
                 return "Home";
@@ -68,7 +67,6 @@ public class HomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView formSuccess(@ModelAttribute("user") User responseData, HttpSession session) {
-        //Integer id = session.getAttribute("loggedInUser")!=null? Integer.valueOf(session.getAttribute("loggedInUser").toString()) :null;
         ModelAndView modelAndView = new ModelAndView("Home");
 
         User loginStatus = userService.validateUser(responseData);
@@ -84,9 +82,8 @@ public class HomeController {
         }
     }
 
-    @RequestMapping(value="/logout",method=RequestMethod.GET)
-    public ModelAndView logout(HttpSession session)
-    {
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logout(HttpSession session) {
         session.invalidate();
         return new ModelAndView("redirect:/");
     }

@@ -13,10 +13,10 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne
+    @ManyToOne
     User user;
 
-    @OneToOne
+    @ManyToOne
     Topic topic;
 
     @Enumerated(EnumType.STRING)
