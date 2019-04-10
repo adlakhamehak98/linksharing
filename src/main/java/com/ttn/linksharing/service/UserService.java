@@ -24,9 +24,13 @@ public class UserService {
         userRepository.save(responseData);
     }
 
-    public List<User> checkUser(User responseData) {
+    public User checkUser(String username) {
 
-        return userRepository.findByUsername(responseData.getUsername());
+        return userRepository.findByUsername(username);
+    }
+
+    public User findUserByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 
     public User findById(int id){

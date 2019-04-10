@@ -4,6 +4,8 @@ import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.repository.UserRepository;
 import com.ttn.linksharing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -25,8 +28,13 @@ import java.util.List;
 public class HomeController {
     @Autowired
     UserService userService;
+
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    private JavaMailSender sender;
+
     List<User> users = new ArrayList<>();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -49,9 +57,9 @@ public class HomeController {
             userRepository.save(responseData);
             model.addAttribute("user", responseData);
             System.out.println(users);
-            List<User> userCheck = userService.checkUser(responseData);
+            User userCheck = userService.checkUser(responseData.getUsername());
             userService.storeProfilePic(file);
-            if ((userCheck.size() > 0)) {
+            if ((userCheck != null)) {
                 userService.saveUser(responseData);
                 return "Home";
             } else {
@@ -87,6 +95,37 @@ public class HomeController {
         session.invalidate();
         return new ModelAndView("redirect:/");
     }
+
+    @RequestMapping(value = "/reset", method = RequestMethod.POST)
+    public ModelAndView resetPass(String email) throws Exception {
+        User user = userService.findUserByEmail(email);
+        if (user != null) {
+            sendEmail(user);
+            return new ModelAndView("Home");}
+        else
+            return new ModelAndView("ForgetPassword");
+        }
+
+
+    @RequestMapping(value = "/reset", method = RequestMethod.GET)
+    public ModelAndView reset() throws Exception {
+             return new ModelAndView("ForgetPassword");
+    }
+
+
+
+    private void sendEmail (User user) throws Exception {
+        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
+            MimeMessage message = sender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message);
+            helper.setTo(user.getEmail());
+        System.out.println(user.getEmail());
+        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
+
+            helper.setText("Hello your password is: " + user.getPassword());
+            helper.setSubject("Please Find your password here");
+            sender.send(message);
+        }
 //    @RequestMapping("topic")
 //    public ModelAndView topic() {
 //        ModelAndView modelAndView = new ModelAndView("Topic");
@@ -110,4 +149,4 @@ public class HomeController {
 //        ModelAndView modelAndView = new ModelAndView("Edit Profile");
 //        return modelAndView;
 //    }
-}
+    }

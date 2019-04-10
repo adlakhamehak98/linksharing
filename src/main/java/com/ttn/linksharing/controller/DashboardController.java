@@ -64,9 +64,9 @@ public class DashboardController {
             List<Seriousness> seriousness = subscriptionList.stream().map(Subscription::getSeriousness).collect(Collectors.toList());
             model.addAttribute("topics", topics);
             model.addAttribute("seriousness", seriousness);
-            List<Resource> resourceList = resourceService.findTopicsWithMaxResourcesCount();
-            List<Topic> topics1 = resourceList.stream().map(e -> e.getTopic()).collect(Collectors.toList());
-            model.addAttribute("topics1", topics1);
+            model.addAttribute("subscriptions", subscriptionList);
+            List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
+            model.addAttribute("trendingTopics", topics1);
 
             return modelAndView;
         }
@@ -102,28 +102,26 @@ public class DashboardController {
         return "redirect:/dashboard";
     }
 
-//    @RequestMapping(value = "/dashboard/shareDocument", method = RequestMethod.POST)
-//    public String shareDocument(@Valid @RequestParam MultipartFile file, @ModelAttribute("documentResource") DocumentResource resource, ModelMap model, BindingResult bindingResult, HttpSession session) {
-//        Integer userId = (Integer) session.getAttribute("loggedInUser");
-//        if (userId != null) {
-//            if (file == null || file.isEmpty()) {
-//                bindingResult.addError(new FieldError("user", "fileName", "File can't be null."));
-//                if (bindingResult.hasErrors()) {
-//                    return "redirect:/dashboard";
-//                } else {
-//                    User user = userService.findById(userId);
-//                    resource.setUser(user);
-//                    documentResourceService.storeDocument(file);
-//                    ModelAndView modelAndView = new ModelAndView("Dashboard");
-//                    documentResourceService.shareDocument(resource);
-//                    model.addAttribute("documentResource", resource);
-//                    return "redirect:/dashboard";
-//                }
-//            }
-//        }
-//        return "redirect:/dashboard";
-//    }
-
-
+    @RequestMapping(value = "/dashboard/shareDocument", method = RequestMethod.POST)
+    public String shareDocument(@Valid @RequestParam MultipartFile file, @ModelAttribute("documentResource") DocumentResource resource, ModelMap model, BindingResult bindingResult, HttpSession session) {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if (userId != null) {
+            if (file == null || file.isEmpty()) {
+                bindingResult.addError(new FieldError("user", "fileName", "File can't be null."));
+                if (bindingResult.hasErrors()) {
+                    return "redirect:/dashboard";
+                } else {
+                    User user = userService.findById(userId);
+                    resource.setUser(user);
+                    documentResourceService.storeDocument(file);
+                    ModelAndView modelAndView = new ModelAndView("Dashboard");
+                    documentResourceService.shareDocument(resource);
+                    model.addAttribute("documentResource", resource);
+                    return "redirect:/dashboard";
+                }
+            }
+        }
+        return "redirect:/dashboard";
+    }
 
 }

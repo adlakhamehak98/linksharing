@@ -43,7 +43,7 @@ public class Bootstrap {
     }
 
     private void addUsers() {
-        userRepository.save(new User("User1", "Dummy", "User1.dummy@tothenew.com", "user1", "Abc123@", "user1.png"));
+        userRepository.save(new User("User1", "Dummy", "mehak.adlakha@tothenew.com", "user1", "Abc123@", "user1.png"));
         userRepository.save(new User("User2", "Dummy", "User2.dummy@tothenew.com", "user2", "Abc123@", "user2.png"));
         userRepository.save(new User("User3", "Dummy", "User3.dummy@tothenew.com", "user3", "Abc123@", "user3.png"));
         userRepository.save(new User("User4", "Dummy", "User4.dummy@tothenew.com", "user4", "Abc123@", "user4.png"));

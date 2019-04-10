@@ -9,6 +9,6 @@ import java.util.List;
 public interface ResourceRepository extends CrudRepository<Resource, Integer> {
     List<Resource> findAll();
 
-    @Query(value = "select * from resource group by topic_id order by count(id) desc limit 5",nativeQuery = true)
-    List<Resource> findTopByIdOrderByTopicDesc();
+    @Query(value = "select topic_id, COUNT(id) from resource group by topic_id order by count(id) desc limit 5",nativeQuery = true)
+    List<Object[]> findTopByIdOrderByTopicDesc();
 }
