@@ -10,4 +10,5 @@ import java.util.List;
 public interface TopicRepository extends CrudRepository<Topic, Integer> {
     List<Topic> findAll();
     int countAllByUser(User user);
+    Topic findById(int id);
 }

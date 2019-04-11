@@ -26,7 +26,7 @@ public class SubscriptionController {
             Subscription subscription = subscriptionService.findByid(subscriptionId);
             subscription.setSeriousness(seriousness);
             subscriptionService.saveSubscription(subscription);
-            map.put("SUCCESS","Data Updated");
+            map.put("SUCCESS","Seriousness Updated Successfully");
         }
         map.put("ERROR","No Logged In User");
         return map;

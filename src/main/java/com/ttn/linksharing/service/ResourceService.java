@@ -8,6 +8,7 @@ import com.ttn.linksharing.repository.ResourceRepository;
 import com.ttn.linksharing.repository.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,5 +38,14 @@ public class ResourceService {
     public List<Resource> fetchTopFivePublicResources(){
         List<Integer> resourceIds = resourceRatingRepository.fetchTopResources(Visibility.PUBLIC.name(),5);
         return resourceRepository.findAllByIdIn(resourceIds);
+    }
+
+    public List<Resource> findByTopic(Topic topic){
+        return resourceRepository.findByTopic(topic);
+    }
+
+    @Transactional
+    public void deleteResources(List<Resource> resourceList){
+        resourceRepository.deleteAll(resourceList);
     }
 }

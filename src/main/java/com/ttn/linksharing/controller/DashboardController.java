@@ -1,21 +1,21 @@
 package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
+import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -38,6 +38,9 @@ public class DashboardController {
 
     @Autowired
     ResourceService resourceService;
+
+    @Autowired
+    ResourceRatingService resourceRatingService;
 
     @RequestMapping("dashboard")
     public ModelAndView dashboard(ModelMap model, HttpSession session) {
@@ -127,4 +130,52 @@ public class DashboardController {
         return "redirect:/dashboard";
     }
 
+    @RequestMapping(value = "/updateVisibility", method = RequestMethod.POST)
+    @ResponseBody
+    public Map updateVisibility(@RequestParam int topicId, @RequestParam Visibility visibility, HttpSession session) throws Exception {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> map = new HashMap<>();
+        if (userId != null) {
+            Topic topic = topicService.findTopicById(topicId);
+            topic.setVisibility(visibility);
+            topicService.createTopic(topic);
+            map.put("SUCCESS", "Visibility Updated Successfully");
+        }
+        map.put("ERROR", "No Logged In User");
+        return map;
+    }
+
+    @RequestMapping(value = "/updateTopicName", method = RequestMethod.POST)
+    @ResponseBody
+    public Map updateTopicName(@RequestParam int topicId, @RequestParam String topicName, HttpSession session) throws Exception {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> map = new HashMap<>();
+        if (userId != null) {
+            Topic topic = topicService.findTopicById(topicId);
+            topic.setName(topicName);
+            topicService.createTopic(topic);
+            map.put("SUCCESS", "Topic Name Updated Successfully");
+        }
+        map.put("ERROR", "No Logged In User");
+        return map;
+    }
+
+    @RequestMapping(value = "/deleteSubscription", method = RequestMethod.POST)
+    @ResponseBody
+    public Map deleteSubscription(@RequestParam int topicId, HttpSession session) throws Exception {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> map = new HashMap<>();
+        if (userId != null) {
+            Topic topic = topicService.findTopicById(topicId);
+            List<Resource> resources = resourceService.findByTopic(topic);
+            resourceRatingService.deleteRatingList(resources);
+            resourceService.deleteResources(resources);
+            subscriptionService.deleteSubscription(topic);
+            topicService.deleteTopic(topic);
+
+            map.put("SUCCESS", "Subscription Deleted Successfully");
+        }
+        map.put("ERROR", "No Logged In User");
+        return map;
+    }
 }

@@ -1,6 +1,7 @@
 package com.ttn.linksharing.repository;
 
 import com.ttn.linksharing.entity.Resource;
+import com.ttn.linksharing.entity.Topic;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -17,4 +18,6 @@ public interface ResourceRepository extends CrudRepository<Resource, Integer> {
     List<Resource> findRecentByTopicVisiblity(@Param("visibility") String visibility, @Param("maxRecords") Integer limit);
 
     List<Resource> findAllByIdIn(List<Integer> ids);
+
+    List<Resource> findByTopic(Topic topic);
 }

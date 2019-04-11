@@ -291,10 +291,10 @@
             </div>
 
             <div class="card m-2">
-                <h5 class="card-header">Subscriptions<span style="float: right"><a href="#">View All</a> </span></h5>
+                <h5 class="card-header">Subscriptions<span style="float: right"></span></h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" th:each="subscription : ${subscriptions}">
+                        <li class="list-group-item" th:id="${subscription.topic.id}+'subscriptionBox'" th:each="subscription : ${subscriptions}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="username.png" alt="user image"
@@ -346,7 +346,8 @@
                                     <select th:attr="data-topic_id=${subscription.topic.id}"
                                             class="browser-default custom-select m-2 visibilityDropDown">
                                         <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
-                                                th:value="${visibility}" th:text="${visibility}"></option>
+                                                th:value="${visibility}" th:text="${visibility}"
+                                                th:selected="${visibility==subscription.topic.visibility}"></option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -487,6 +488,27 @@
             alert("The topic has been created successfully!");
         });
 
+        $(".subscriptionTopicDelete").click(function () {
+            var y = $(this).attr("data-topic_id").concat("subscriptionBox");
+            $("#" + y).css('display', 'none');
+
+            var topicId = $(this).attr("data-topic_id");
+
+            $.ajax({
+                type: "POST",
+                url: "/deleteSubscription",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null){
+                        location.reload();
+                        alert(data.SUCCESS);}
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
         $(".subscriptionTopicEdit").click(function () {
             var y = $(this).attr("data-el_id").concat("subscriptionTopicNameOriginal");
             $("#" + y).css('display', 'none');
@@ -511,13 +533,25 @@
 
             var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
             $("#" + x).css('display', 'none');
+
+            $.ajax({
+                type: "POST",
+                url: "/updateTopicName",
+                data: {topicId: topicId, topicName: topicName},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null){
+                        location.reload();
+                        alert(data.SUCCESS);}
+                    else
+                        alert(data.ERROR);
+                }
+            });
         });
 
         $(".seriousnessDropDown").change(function () {
             var subscriptionId = $(this).attr("data-subscription_id");
             var seriousness = $(this).val();
-            // alert(subscriptionId);
-            // alert(seriousness);
             $.ajax({
                 type: "POST",
                 url: "/updateSeriousness",
@@ -532,7 +566,22 @@
             });
         });
 
-
+        $(".visibilityDropDown").change(function () {
+            var topicId = $(this).attr("data-topic_id");
+            var visibility = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "/updateVisibility",
+                data: {topicId: topicId, visibility: visibility},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null)
+                        alert(data.SUCCESS);
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
     });
 </script>
 </body>
