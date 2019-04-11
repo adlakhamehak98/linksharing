@@ -335,7 +335,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <select th:attr="data-topic_id=${subscription.topic.id}"
+                                    <select th:attr="data-subscription_id=${subscription.id}"
                                             class="browser-default custom-select m-2 seriousnessDropDown">
                                         <option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"
                                                 th:value="${seriousness}" th:text="${seriousness}"
@@ -512,19 +512,25 @@
             var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
             $("#" + x).css('display', 'none');
         });
-        // function sendTopicInvitation(button) {
-        //     var id = button.getAttribute("data-topic-id");
 
+        $(".seriousnessDropDown").change(function () {
+            var subscriptionId = $(this).attr("data-subscription_id");
+            var seriousness = $(this).val();
+            // alert(subscriptionId);
+            // alert(seriousness);
+        });
             $.ajax({
                 type: "POST",
-                url: "/sendTopicInvitation",
-                data: $("#invitationform"+id).serialize(), // serializes the form's elements.
+                url: "/updateSeriousness",
+                data: {subscriptionId:subscriptionId,seriousness:seriousness},
                 success: function (data) {
-                    alert(data);
-                    $("#invitationform"+id).css("display","none");
+                    if(data.success!=null)
+                    alert(data.success);
+                    else
+                    alert(data.error);
                 }
             });
-        }
+
     });
 </script>
 </body>

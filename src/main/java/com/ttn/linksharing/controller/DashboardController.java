@@ -41,7 +41,6 @@ public class DashboardController {
 
     @RequestMapping("dashboard")
     public ModelAndView dashboard(ModelMap model, HttpSession session) {
-        int a= 1/0;
         ModelAndView modelAndView = new ModelAndView("Dashboard");
         modelAndView.addObject("topic", new Topic());
         modelAndView.addObject("subscription", new Subscription());

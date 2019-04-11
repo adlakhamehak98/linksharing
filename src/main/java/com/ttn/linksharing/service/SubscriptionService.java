@@ -20,4 +20,12 @@ public class SubscriptionService {
     public List<Subscription> subscriptionsPerUser(User user){
         return subscriptionRepository.findAllByUser(user);
     }
+
+    public Subscription findByid(int id){
+        return subscriptionRepository.findById(id);
+    }
+
+    public void saveSubscription (Subscription subscription){
+        subscriptionRepository.save(subscription);
+    }
 }

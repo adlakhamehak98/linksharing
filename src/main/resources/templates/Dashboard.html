@@ -281,7 +281,7 @@
                             <p class="card-text">
                                 <span>Subscriptions: </span>
                                 <a href="#" id="subscriptionsCount"
-                                      th:text="${countSub}"></a><br>
+                                   th:text="${countSub}"></a><br>
                                 <span>Topics: </span>
                                 <a href="#" id="topicsCount" th:text="${countTop}"></a>
                             </p>
@@ -323,10 +323,10 @@
                                         <p class="card-text">
                                             <span>Subscriptions: </span>
                                             <a href="#" class="subscriptionsCount"
-                                                  th:text="${subscription.topic.subscriptions.size()}"></a><br>
+                                               th:text="${subscription.topic.subscriptions.size()}"></a><br>
                                             <span>Post: </span>
                                             <a href="#" class="topicsCount"
-                                                  th:text="${subscription.topic.resource.size()}"></a>
+                                               th:text="${subscription.topic.resource.size()}"></a>
                                             <br>
                                             <span><a href="#">Unsubscribe</a></span>
                                         </p>
@@ -335,7 +335,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <select th:attr="data-topic_id=${subscription.topic.id}"
+                                    <select th:attr="data-subscription_id=${subscription.id}"
                                             class="browser-default custom-select m-2 seriousnessDropDown">
                                         <option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"
                                                 th:value="${seriousness}" th:text="${seriousness}"
@@ -379,14 +379,14 @@
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span>Subscriptions: </span>
-                                            <a href="#"  class="subscriptionsCount"
-                                                  th:text="${topic.subscriptions.size()}"></a><br>
+                                            <a href="#" class="subscriptionsCount"
+                                               th:text="${topic.subscriptions.size()}"></a><br>
                                             <span>Post: </span>
-                                            <a href="#"  class="topicsCount"
-                                                  th:text="${topic.resource.size()}"></a>
+                                            <a href="#" class="topicsCount"
+                                               th:text="${topic.resource.size()}"></a>
                                             <br>
                                             <span>
-                                                <a href="#" class="trendingTopicUnsubscribe" >Unsubscribe</a>
+                                                <a href="#" class="trendingTopicUnsubscribe">Unsubscribe</a>
                                                 <a href="#" class="trendingTopicSubscribe">Subscribe</a>
                                             </span>
                                         </p>
@@ -512,19 +512,25 @@
             var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
             $("#" + x).css('display', 'none');
         });
-        // function sendTopicInvitation(button) {
-        //     var id = button.getAttribute("data-topic-id");
 
-            $.ajax({
-                type: "POST",
-                url: "/sendTopicInvitation",
-                data: $("#invitationform"+id).serialize(), // serializes the form's elements.
-                success: function (data) {
-                    alert(data);
-                    $("#invitationform"+id).css("display","none");
-                }
-            });
-        }
+        $(".seriousnessDropDown").change(function () {
+            var subscriptionId = $(this).attr("data-subscription_id");
+            var seriousness = $(this).val();
+            // alert(subscriptionId);
+            // alert(seriousness);
+        });
+        $.ajax({
+            type: "POST",
+            url: "/updateSeriousness",
+            data: {subscriptionId: subscriptionId, seriousness: seriousness},
+            success: function (data) {
+                if (data.success != null)
+                    alert(data.success);
+                else
+                    alert(data.error);
+            }
+        });
+
     });
 </script>
 </body>

@@ -9,4 +9,5 @@ import java.util.List;
 public interface SubscriptionRepository extends CrudRepository<Subscription, Integer> {
     int countAllByUser(User user);
     List<Subscription> findAllByUser(User user);
+    Subscription findById(int id);
 }
