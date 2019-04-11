@@ -129,14 +129,14 @@ public class HomeController {
 
 
     private void sendEmail (User user) throws Exception {
-        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
             MimeMessage message = sender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message);
             helper.setTo(user.getEmail());
         System.out.println(user.getEmail());
-        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
 
-            helper.setText("Hello your password is: " + user.getPassword());
+            helper.setText("Hello, your new password is: " + user.getPassword());
             helper.setSubject("Please Find your password here");
             sender.send(message);
         }

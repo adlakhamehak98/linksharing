@@ -4,6 +4,7 @@ import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -43,6 +44,9 @@ public class DashboardController {
 
     @Autowired
     ResourceRatingService resourceRatingService;
+
+    @Autowired
+    private JavaMailSender sender;
 
     @RequestMapping("dashboard")
     public ModelAndView dashboard(ModelMap model, HttpSession session) {
@@ -103,29 +107,30 @@ public class DashboardController {
         return "redirect:/dashboard";
     }
 
-//    @RequestMapping(value = "/dashboard/sendInvitation", method = RequestMethod.POST)
-//    public String createTopic( ModelMap model, HttpSession session) {
-//        Integer userId = (Integer) session.getAttribute("loggedInUser");
-//        if (userId != null) {
-//            User user = userService.findById(userId);
-//            ModelAndView modelAndView = new ModelAndView("Dashboard");
-//            return "redirect:/dashboard";
-//        }
-//        return "redirect:/dashboard";
-//    }
-//
-//    private void sendEmail (User user) throws Exception {
-//        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
-//        MimeMessage message = sender.createMimeMessage();
-//        MimeMessageHelper helper = new MimeMessageHelper(message);
-//        helper.setTo(user.getEmail());
-//        System.out.println(user.getEmail());
-//        System.out.println("Herre>>>>>>>>>>>>>>>>>>>>>>");
-//
-//        helper.setText("Hello your password is: " + user.getPassword());
-//        helper.setSubject("Please Find your password here");
-//        sender.send(message);
-//    }
+    @RequestMapping(value = "/dashboard/sendInvitation", method = RequestMethod.POST)
+    public String createTopic(HttpSession session) throws Exception {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if (userId != null) {
+            User user = userService.findById(userId);
+                sendEmail(user);
+            return "redirect:/dashboard";
+        }
+        return "redirect:/dashboard";
+    }
+
+    private void sendEmail (User user) throws Exception {
+        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
+        MimeMessage message = sender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setTo(user.getEmail());
+        System.out.println(user.getEmail());
+        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
+        String url="http://localhost:8080/dashboard/topicSubscription";
+        helper.setText("Hello, you have received an invitation from "+user.getFirstName()+" for the topic." +
+                " Click on the url to subscribe to the topic, "+url+".");
+        helper.setSubject("A New Invitation from "+user.getFirstName());
+        sender.send(message);
+    }
 
     @RequestMapping(value = "/dashboard/shareDocument", method = RequestMethod.POST)
     public String shareDocument(@RequestParam MultipartFile file, @ModelAttribute("documentResource") DocumentResource resource, ModelMap model, BindingResult bindingResult, HttpSession session) {
