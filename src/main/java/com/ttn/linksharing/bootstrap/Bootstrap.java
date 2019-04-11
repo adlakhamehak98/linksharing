@@ -3,11 +3,7 @@ package com.ttn.linksharing.bootstrap;
 import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.enums.Visibility;
-import com.ttn.linksharing.repository.ResourceRatingRepository;
-import com.ttn.linksharing.repository.ResourceRepository;
-import com.ttn.linksharing.repository.SubscriptionRepository;
-import com.ttn.linksharing.repository.TopicRepository;
-import com.ttn.linksharing.repository.UserRepository;
+import com.ttn.linksharing.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
@@ -34,6 +30,9 @@ public class Bootstrap {
     @Autowired
     ResourceRatingRepository resourceRatingRepository;
 
+    @Autowired
+    ReadingItemRepository readingItemRepository;
+
     @EventListener(ApplicationStartedEvent.class)
     public void init() {
         Long userCount = userRepository.count();
@@ -43,6 +42,7 @@ public class Bootstrap {
             addSubscription();
             addResource();
             addResourceRating();
+            addReadingItem();
         }
         System.out.println("Your Application is up and running");
     }
@@ -107,41 +107,50 @@ public class Bootstrap {
         Resource resource7 = resourceRepository.findById(30).orElse(null);
         Resource resource8 = resourceRepository.findById(41).orElse(null);
         Resource resource9 = resourceRepository.findById(55).orElse(null);
-        if(resource1 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource1,4));
-            resourceRatingRepository.save(new ResourceRating(user2,resource1,3));
+        if (resource1 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource1, 4));
+            resourceRatingRepository.save(new ResourceRating(user2, resource1, 3));
         }
-        if(resource2 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource2,4));
-            resourceRatingRepository.save(new ResourceRating(user2,resource2,3));
+        if (resource2 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource2, 4));
+            resourceRatingRepository.save(new ResourceRating(user2, resource2, 3));
         }
-        if(resource3 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource3,4));
-            resourceRatingRepository.save(new ResourceRating(user2,resource3,3));
+        if (resource3 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource3, 4));
+            resourceRatingRepository.save(new ResourceRating(user2, resource3, 3));
         }
-        if(resource4 != null){
-            resourceRatingRepository.save(new ResourceRating(user3,resource4,5));
-            resourceRatingRepository.save(new ResourceRating(user2,resource4,4));
+        if (resource4 != null) {
+            resourceRatingRepository.save(new ResourceRating(user3, resource4, 5));
+            resourceRatingRepository.save(new ResourceRating(user2, resource4, 4));
         }
-        if(resource5 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource5,2));
-            resourceRatingRepository.save(new ResourceRating(user2,resource5,3));
+        if (resource5 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource5, 2));
+            resourceRatingRepository.save(new ResourceRating(user2, resource5, 3));
         }
-        if(resource6 != null){
-            resourceRatingRepository.save(new ResourceRating(user3,resource6,2));
-            resourceRatingRepository.save(new ResourceRating(user2,resource6,1));
+        if (resource6 != null) {
+            resourceRatingRepository.save(new ResourceRating(user3, resource6, 2));
+            resourceRatingRepository.save(new ResourceRating(user2, resource6, 1));
         }
-        if(resource7 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource7,3));
-            resourceRatingRepository.save(new ResourceRating(user2,resource7,3));
+        if (resource7 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource7, 3));
+            resourceRatingRepository.save(new ResourceRating(user2, resource7, 3));
         }
-        if(resource8 != null){
-            resourceRatingRepository.save(new ResourceRating(user1,resource8,1));
-            resourceRatingRepository.save(new ResourceRating(user3,resource8,2));
+        if (resource8 != null) {
+            resourceRatingRepository.save(new ResourceRating(user1, resource8, 1));
+            resourceRatingRepository.save(new ResourceRating(user3, resource8, 2));
         }
-        if(resource9 != null){
-            resourceRatingRepository.save(new ResourceRating(user3,resource9,5));
-            resourceRatingRepository.save(new ResourceRating(user2,resource9,5));
+        if (resource9 != null) {
+            resourceRatingRepository.save(new ResourceRating(user3, resource9, 5));
+            resourceRatingRepository.save(new ResourceRating(user2, resource9, 5));
+        }
+    }
+
+    private void addReadingItem() {
+        Iterator<User> users = userRepository.findAll().iterator();
+        List<Resource> resources = resourceRepository.findAll();
+        while (users.hasNext()) {
+            User user = users.next();
+            resources.forEach(resource -> readingItemRepository.save(new ReadingItem(user, resource)));
         }
     }
 }

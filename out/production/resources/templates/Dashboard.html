@@ -380,7 +380,24 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title" th:text="${topic.name}"></h5>
+                                    <h5 class="card-title topicNameOriginal"
+                                        th:id="${topic.id}+'topicNameOriginal'"
+                                        th:text="${topic.name}"></h5>
+                                    <h5 class="card-title topicName" style="display: none"
+                                        th:id="${topic.id}+'topicName'">
+                                        <input type="text" th:id="${topic.id}+'topicText'"
+                                               th:value="${topic.name}">
+                                        <span class="input-group-btn">
+                                                       <button class="btn btn-outline-primary topicSave"
+                                                               th:attr="data-topic_id=${topic.id}"
+                                                               type="button">Save</button>
+                                        </span>
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-outline-primary topicCancel"
+                                                th:attr="data-topic_id=${topic.id}"
+                                                type="button">Cancel</button>
+                                        </span>
+                                    </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
                                             <span>Subscriptions: </span>
@@ -399,24 +416,32 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Serious</option>
-                                        <option value="2">Very Serious</option>
-                                        <option value="3">Casual</option>
+                                <!--<div class="col-md-4" th:if="${topic.user.id == user.id}">-->
+                                    <!--<select th:attr="data-subscription_id=${topic.id}"-->
+                                            <!--class="browser-default custom-select m-2 seriousnessDropDown1">-->
+                                        <!--<option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"-->
+                                                <!--th:value="${seriousness}" th:text="${seriousness}"-->
+                                                <!--th:selected="${seriousness==subscription.seriousness}"></option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <div class="col-md-4" th:if="${topic.user.id == user.id}">
+                                    <select th:attr="data-topic_id=${topic.id}"
+                                            class="browser-default custom-select m-2 visibilityDropDown">
+                                        <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
+                                                th:value="${visibility}" th:text="${visibility}"
+                                                th:selected="${visibility==topic.visibility}"></option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Private</option>
-                                        <option value="2">Edit</option>
-                                        <option value="3">Delete</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3"></i>
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"
+                                       th:if="${topic.user.id == user.id}"
+                                       th:attr="data-el_id=${topic.id}"></i>
+                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 topicEdit"
+                                       th:if="${topic.user.id == user.id}"
+                                       th:attr="data-el_id=${topic.id}"></i>
+                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3 topicDelete"
+                                       th:if="${topic.user.id == user.id}"
+                                       th:attr="data-topic_id=${topic.id}"></i>
                                 </div>
                             </div>
                         </li>
@@ -429,23 +454,19 @@
         <!--body in between right content-->
         <div class="col-md-7">
             <div class="card m-2">
-                <h5 class="card-header">Inbox<span style="float: right"><a href="#">View All</a> </span></h5>
+                <h5 class="card-header">Inbox<span style="float: right"></span></h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <li class="list-group-item" th:each="readingItem : ${readingItems}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="username.png" alt="user image"
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title" th:object="${user}" th:text="${name}"></h5>
+                                    <h5 class="card-title" th:text="${readingItem.resource.name}"></h5>
                                     <div style="display: inline-block">
-                                        <p class="card-text">
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                        </p>
+                                        <p class="card-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -586,6 +607,7 @@
                 }
             });
         });
+
     });
 </script>
 </body>

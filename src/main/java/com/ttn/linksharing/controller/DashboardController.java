@@ -46,6 +46,9 @@ public class DashboardController {
     ResourceRatingService resourceRatingService;
 
     @Autowired
+    ReadingItemService readingItemService;
+
+    @Autowired
     private JavaMailSender sender;
 
     @RequestMapping("dashboard")
@@ -55,6 +58,7 @@ public class DashboardController {
         modelAndView.addObject("subscription", new Subscription());
         modelAndView.addObject("linkResource", new LinkResource());
         modelAndView.addObject("resource", new Resource());
+        modelAndView.addObject("resource", new ReadingItem());
         modelAndView.addObject("documentResource", new DocumentResource());
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
@@ -67,11 +71,13 @@ public class DashboardController {
             int countTop = topicService.topicsCount(user);
             model.addAttribute("countTop", countTop);
             List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
-            List<Topic> topics = subscriptionList.stream().map(e -> e.getTopic()).collect(Collectors.toList());
+            List<Topic> topics = subscriptionList.stream().map(Subscription::getTopic).collect(Collectors.toList());
             model.addAttribute("topics", topics);
             model.addAttribute("subscriptions", subscriptionList);
             List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
             model.addAttribute("trendingTopics", topics1);
+            List<ReadingItem> readingItemList = readingItemService.findUnreadResorces(false);
+            model.addAttribute("readingItems", readingItemList);
 
             return modelAndView;
         }
@@ -112,23 +118,23 @@ public class DashboardController {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
             User user = userService.findById(userId);
-                sendEmail(user);
+            sendEmail(user);
             return "redirect:/dashboard";
         }
         return "redirect:/dashboard";
     }
 
-    private void sendEmail (User user) throws Exception {
+    private void sendEmail(User user) throws Exception {
         System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
         helper.setTo(user.getEmail());
         System.out.println(user.getEmail());
         System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
-        String url="http://localhost:8080/dashboard/topicSubscription";
-        helper.setText("Hello, you have received an invitation from "+user.getFirstName()+" for the topic." +
-                " Click on the url to subscribe to the topic, "+url+".");
-        helper.setSubject("A New Invitation from "+user.getFirstName());
+        String url = "http://localhost:8080/dashboard/topicSubscription";
+        helper.setText("Hello, you have received an invitation from " + user.getFirstName() + " for the topic." +
+                " Click on the url to subscribe to the topic, " + url + ".");
+        helper.setSubject("A New Invitation from " + user.getFirstName());
         sender.send(message);
     }
 
