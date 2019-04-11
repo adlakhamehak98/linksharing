@@ -4,12 +4,14 @@ import com.ttn.linksharing.entity.Subscription;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
+@Controller
 public class SubscriptionController {
 
     @Autowired
@@ -25,8 +27,8 @@ public class SubscriptionController {
             subscription.setSeriousness(seriousness);
             subscriptionService.saveSubscription(subscription);
             map.put("SUCCESS","Data Updated");
-            map.put("ERROR","No Logged In User");
         }
+        map.put("ERROR","No Logged In User");
         return map;
     }
 }
