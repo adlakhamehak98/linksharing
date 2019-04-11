@@ -23,7 +23,7 @@
     <div class="row">
 
         <!--  Header Text -->
-        <div class="col-md-12 m-2">
+        <div class="col-md-12 mb-2">
             <div class="row">
                 <nav class="navbar navbar-light bg-light col-md-12" style="border: 1px solid; border-radius: 7px">
                     <div>
@@ -512,6 +512,19 @@
             var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
             $("#" + x).css('display', 'none');
         });
+        // function sendTopicInvitation(button) {
+        //     var id = button.getAttribute("data-topic-id");
+
+            $.ajax({
+                type: "POST",
+                url: "/sendTopicInvitation",
+                data: $("#invitationform"+id).serialize(), // serializes the form's elements.
+                success: function (data) {
+                    alert(data);
+                    $("#invitationform"+id).css("display","none");
+                }
+            });
+        }
     });
 </script>
 </body>

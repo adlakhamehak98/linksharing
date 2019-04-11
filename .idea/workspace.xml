@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2cdaeaf-dc58-4f1a-9cbc-feffba7f80e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
-    <list id="682ea0c2-0f56-44a0-ba55-b3f2a05ce067" name="Home Page integration" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Resource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ResourceRating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ResourceRating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/error/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/error/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/error/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/error/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Home.html" afterDir="false" />
     </list>
+    <list id="682ea0c2-0f56-44a0-ba55-b3f2a05ce067" name="Home Page integration" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -102,9 +91,9 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="Groovy" value="4" />
-          <entry key="HTML" value="31" />
+          <entry key="HTML" value="35" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="187" />
+          <entry key="JAVA" value="192" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="6" />
           <entry key="UML" value="3" />
@@ -114,8 +103,8 @@
         <counts>
           <entry key="CSS" value="16" />
           <entry key="Groovy" value="2" />
-          <entry key="HTML" value="2140" />
-          <entry key="JAVA" value="5558" />
+          <entry key="HTML" value="2204" />
+          <entry key="JAVA" value="5671" />
           <entry key="PLAIN_TEXT" value="39" />
           <entry key="Properties" value="69" />
         </counts>
@@ -128,34 +117,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="494" column="45" selection-start-line="494" selection-start-column="45" selection-end-line="494" selection-end-column="45" />
+            <state relative-caret-position="192">
+              <caret line="342" column="45" lean-forward="true" selection-start-line="342" selection-start-column="45" selection-end-line="342" selection-end-column="45" />
               <folding>
                 <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -164,10 +129,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="50" column="102" selection-start-line="50" selection-start-column="102" selection-end-line="50" selection-end-column="102" />
+            <state relative-caret-position="162">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="90">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -187,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="148">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -197,9 +162,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
+            <state relative-caret-position="112">
               <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -209,34 +183,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/DocumentResourceService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/trials.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="71" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="71" />
+            <state relative-caret-position="342">
+              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/500.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -248,8 +221,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -616,7 +589,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/SubscriberService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ReadingItemRepository.java" />
@@ -630,8 +602,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/Edit Profile.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/RegistrationDataShow.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/error/404.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/error/500.html" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/SubscriptionBootstrap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java" />
@@ -649,15 +619,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/Home.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/ForgetPassword.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/DocumentResourceService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/Dashboard.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/Home.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/Dashboard.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/error/500.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/error/404.html" />
       </list>
     </option>
   </component>
@@ -753,6 +727,30 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="error" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="linksharing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="linksharing" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -770,7 +768,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554965477687" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554969672929" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Home_Page_integration.patch" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -879,12 +877,12 @@
       <workItem from="1554448446086" duration="10732000" />
       <workItem from="1554721733562" duration="69444000" />
       <workItem from="1554913345838" duration="5583000" />
-      <workItem from="1554965087843" duration="603000" />
+      <workItem from="1554965087843" duration="4413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119388000" />
+    <option name="totallyTimeSpent" value="123198000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -897,6 +895,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49867374" visible="true" weight="0.26097366" />
       <window_info id="Structure" order="1" sideWeight="0.50132626" side_tool="true" weight="0.2529928" />
@@ -908,7 +907,7 @@
       <window_info id="Web" order="7" sideWeight="0.50132626" side_tool="true" weight="0.2529928" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49880287" visible="true" weight="0.27895597" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49880287" visible="true" weight="0.10766721" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39967373" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1014,20 +1013,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="5" column="79" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.1.6.RELEASE/edd8534e9e343663a18560cc465c49f9d93ca097/spring-beans-5.1.6.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="1777" selection-start-line="1777" selection-end-line="1777" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1091,13 +1076,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/oops-smiley.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.1.6.RELEASE/647293fbac4e4a0805d5440151ebb79cd0bf426b/spring-context-5.1.6.RELEASE-sources.jar!/org/springframework/validation/BindingResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1128,20 +1106,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Topic.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/500.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="101" selection-start-line="43" selection-start-column="101" selection-end-line="43" selection-end-column="101" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -1260,24 +1224,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1297">
-          <caret line="121" column="63" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ForgetPassword.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -1332,16 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/DocumentResourceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1359,36 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="494" column="45" selection-start-line="494" selection-start-column="45" selection-end-line="494" selection-end-column="45" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1403,6 +1313,91 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/LinksharingApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/ReadingItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/trials.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/Subscription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="342" column="45" lean-forward="true" selection-start-line="342" selection-start-column="45" selection-end-line="342" selection-end-column="45" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/500.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
         </state>
       </provider>
     </entry>

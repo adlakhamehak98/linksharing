@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.ttn.linksharing.entity")
 @EnableJpaRepositories("com.ttn.linksharing.repository")
 @SpringBootApplication
-@EnableJpaAuditing
+@EnableJpaAuditing //raises event audityentitylistener
 public class LinksharingApplication {
 
 	public static void main(String[] args) {
