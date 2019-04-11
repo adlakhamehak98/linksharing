@@ -85,7 +85,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Email*</label>
                                             <div class="col-md-7">
-                                                <input type="text" class="form-control" id="email" placeholder="email"
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="email"
                                                        required="">
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
                                                 <select class="browser-default custom-select m-2"
-                                                        th:field="*{subscription.topic.id}">
+                                                        name="topicId" id="topicId">
                                                     <option th:each="topic : ${topics}"
                                                             th:value="${topic.id}" th:text="${topic.name}"></option>
                                                 </select>

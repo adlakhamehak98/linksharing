@@ -31,6 +31,10 @@ public class SubscriptionService {
         subscriptionRepository.save(subscription);
     }
 
+    public Subscription findByUserAndTopic(User user, Topic topic){
+        return subscriptionRepository.findByUserAndTopic(user, topic);
+    }
+
     @Transactional
     public void deleteSubscription(Topic topic){
         subscriptionRepository.deleteByTopic(topic);

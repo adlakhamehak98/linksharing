@@ -12,4 +12,6 @@ public interface SubscriptionRepository extends CrudRepository<Subscription, Int
     List<Subscription> findAllByUser(User user);
     Subscription findById(int id);
     void deleteByTopic(Topic topic);
+
+    Subscription findByUserAndTopic(User user, Topic topic);
 }

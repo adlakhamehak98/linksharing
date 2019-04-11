@@ -1,12 +1,14 @@
 package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
+import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -52,18 +54,17 @@ public class DashboardController {
     private JavaMailSender sender;
 
     @RequestMapping("dashboard")
-    public ModelAndView dashboard(ModelMap model, HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView("Dashboard");
-        modelAndView.addObject("topic", new Topic());
-        modelAndView.addObject("subscription", new Subscription());
-        modelAndView.addObject("linkResource", new LinkResource());
-        modelAndView.addObject("resource", new Resource());
-        modelAndView.addObject("resource", new ReadingItem());
-        modelAndView.addObject("documentResource", new DocumentResource());
+    public String dashboard(ModelMap model, HttpSession session) {
+        model.addAttribute("topic", new Topic());
+        model.addAttribute("subscription", new Subscription());
+        model.addAttribute("linkResource", new LinkResource());
+        model.addAttribute("resource", new Resource());
+        model.addAttribute("readItem", new ReadingItem());
+        model.addAttribute("documentResource", new DocumentResource());
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         if (userId != null) {
             User user = userService.findById(userId);
-            modelAndView.addObject("user", user);
+            model.addAttribute("user", user);
             String name = user.getFirstName() + " " + user.getLastName();
             model.addAttribute("name", name);
             int countSub = subscriptionService.subscriptionsCount(user);
@@ -79,9 +80,9 @@ public class DashboardController {
             List<ReadingItem> readingItemList = readingItemService.findUnreadResorces(false);
             model.addAttribute("readingItems", readingItemList);
 
-            return modelAndView;
+            return "Dashboard";
         }
-        return modelAndView;
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/dashboard/createTopic", method = RequestMethod.POST)
@@ -114,27 +115,24 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "/dashboard/sendInvitation", method = RequestMethod.POST)
-    public String createTopic(HttpSession session) throws Exception {
+    public String createTopic(@RequestParam Integer topicId, @RequestParam String email, HttpSession session) throws Exception {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
-        if (userId != null) {
-            User user = userService.findById(userId);
-            sendEmail(user);
-            return "redirect:/dashboard";
-        }
+
+            User user = userId != null ?userService.findById(userId): null;
+        Topic  topic = topicService.findTopicById(topicId);
+                sendEmail(email, topic,user);
+
         return "redirect:/dashboard";
     }
 
-    private void sendEmail(User user) throws Exception {
-        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
+    private void sendEmail(String email, Topic topic, User user) throws Exception {
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-        helper.setTo(user.getEmail());
-        System.out.println(user.getEmail());
-        System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
-        String url = "http://localhost:8080/dashboard/topicSubscription";
-        helper.setText("Hello, you have received an invitation from " + user.getFirstName() + " for the topic." +
-                " Click on the url to subscribe to the topic, " + url + ".");
-        helper.setSubject("A New Invitation from " + user.getFirstName());
+        helper.setTo(email);
+        String url="http://localhost:8080/dashboard/topicSubscription/"+ topic.getId();
+        helper.setText("Hello, you have received an invitation"+ (user != null ? " from "+user.getFirstName(): "")+" for the topic" + topic.getName() + "." +
+                " Click on the url to subscribe to the topic, "+url+".");
+        helper.setSubject("A New Invitation" + (user != null ? " from "+user.getFirstName(): "") + ".");
         sender.send(message);
     }
 
@@ -167,52 +165,19 @@ public class DashboardController {
         return "redirect:/dashboard";
     }
 
-    @RequestMapping(value = "/updateVisibility", method = RequestMethod.POST)
-    @ResponseBody
-    public Map updateVisibility(@RequestParam int topicId, @RequestParam Visibility visibility, HttpSession session) throws Exception {
+    @RequestMapping(value = "/dashboard/topicSubscription/{id}", method = RequestMethod.GET)
+    public String subscribeTopic(@PathVariable Integer id, HttpSession session){
+        Topic topic = topicService.findTopicById(id);
         Integer userId = (Integer) session.getAttribute("loggedInUser");
-        Map<String, String> map = new HashMap<>();
-        if (userId != null) {
-            Topic topic = topicService.findTopicById(topicId);
-            topic.setVisibility(visibility);
-            topicService.createTopic(topic);
-            map.put("SUCCESS", "Visibility Updated Successfully");
+        User user = userId != null ? userService.findById(userId) : null;
+        if(topic != null && user != null){
+            Subscription subscription = subscriptionService.findByUserAndTopic(user, topic);
+            if(subscription == null) {
+                subscriptionService.saveSubscription(new Subscription(user, topic, Seriousness.CASUAL));
+            }
+            return "redirect:/topic/"+topic.getId();
+        } else {
+            return "redirect:/";
         }
-        map.put("ERROR", "No Logged In User");
-        return map;
-    }
-
-    @RequestMapping(value = "/updateTopicName", method = RequestMethod.POST)
-    @ResponseBody
-    public Map updateTopicName(@RequestParam int topicId, @RequestParam String topicName, HttpSession session) throws Exception {
-        Integer userId = (Integer) session.getAttribute("loggedInUser");
-        Map<String, String> map = new HashMap<>();
-        if (userId != null) {
-            Topic topic = topicService.findTopicById(topicId);
-            topic.setName(topicName);
-            topicService.createTopic(topic);
-            map.put("SUCCESS", "Topic Name Updated Successfully");
-        }
-        map.put("ERROR", "No Logged In User");
-        return map;
-    }
-
-    @RequestMapping(value = "/deleteSubscription", method = RequestMethod.POST)
-    @ResponseBody
-    public Map deleteSubscription(@RequestParam int topicId, HttpSession session) throws Exception {
-        Integer userId = (Integer) session.getAttribute("loggedInUser");
-        Map<String, String> map = new HashMap<>();
-        if (userId != null) {
-            Topic topic = topicService.findTopicById(topicId);
-            List<Resource> resources = resourceService.findByTopic(topic);
-            resourceRatingService.deleteRatingList(resources);
-            resourceService.deleteResources(resources);
-            subscriptionService.deleteSubscription(topic);
-            topicService.deleteTopic(topic);
-
-            map.put("SUCCESS", "Subscription Deleted Successfully");
-        }
-        map.put("ERROR", "No Logged In User");
-        return map;
     }
 }

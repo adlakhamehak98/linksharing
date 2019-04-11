@@ -43,13 +43,18 @@ public class HomeController {
     List<User> users = new ArrayList<>();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Model model) {
-        List<Resource> topResources = resourceService.fetchTopFivePublicResources();
-        List<Resource> latestResources = resourceService.fetchLatestFivePublicResources();
-        model.addAttribute("topResources", topResources);
-        model.addAttribute("latestResources", latestResources);
-        model.addAttribute("user", new User());
-        return "Home";
+    public String home(Model model, HttpSession session) {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if (userId == null) {
+            List<Resource> topResources = resourceService.fetchTopFivePublicResources();
+            List<Resource> latestResources = resourceService.fetchLatestFivePublicResources();
+            model.addAttribute("topResources", topResources);
+            model.addAttribute("latestResources", latestResources);
+            model.addAttribute("user", new User());
+            return "Home";
+        } else {
+            return "redirect:/dashboard";
+        }
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)

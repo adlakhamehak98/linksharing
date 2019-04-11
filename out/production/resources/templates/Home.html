@@ -48,7 +48,7 @@
                             <div class="card-title">
                             <h5 class="float-left" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
                             <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
-                            <a href="#" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                            <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right" th:text="${resource.topic.name}">Topic</a>
                             </div>
                             <p class="card-text" th:text="${resource.description}">
                                 Description
@@ -56,7 +56,7 @@
                             <i class="fa fa-facebook-square" style="margin-left: 3px"></i>
                             <i class="fa fa-tumblr-square"></i>
                             <i class="fa fa-google-plus-square"></i>
-                            <a href="#" style="float: right">View Post</a>
+                            <a th:href="@{'/resource/'+${resource.id}}" style="float: right">View Post</a>
                         </div>
 
                     </div>
@@ -73,16 +73,18 @@
                         </div>
                         <div class="col-md-9">
 
-                            <h5 class="card-title" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
-                            <span>@<span th:text="${resource.user.username}"></span></span>
-                            <a href="#" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                            <div class="card-title">
+                                <h5 class="float-left" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
+                                <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
+                                <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                            </div>
                             <p class="card-text" th:text="${resource.description}">
                                 Description
                             </p>
                             <i class="fa fa-facebook-square" style="margin-left: 3px"></i>
                             <i class="fa fa-tumblr-square"></i>
                             <i class="fa fa-google-plus-square"></i>
-                            <a href="#" style="float: right">View Post</a>
+                            <a th:href="@{'/resource/'+${resource.id}}" style="float: right">View Post</a>
                         </div>
 
                     </div>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -47,5 +48,10 @@ public class ResourceService {
     @Transactional
     public void deleteResources(List<Resource> resourceList){
         resourceRepository.deleteAll(resourceList);
+    }
+
+    public Resource findById(Integer id){
+        Optional<Resource> resourceOptional = resourceRepository.findById(id);
+        return resourceOptional.orElse(null);
     }
 }
