@@ -92,8 +92,11 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <input type="text" class="form-control" id="topic" placeholder="topic"
-                                                       required="">
+                                                <select class="browser-default custom-select m-2"
+                                                        th:field="*{subscription.topic.id}">
+                                                    <option th:each="topic : ${topics}"
+                                                            th:value="${topic.id}" th:text="${topic.name}"></option>
+                                                </select>
                                             </div>
                                         </div>
                                     </form>
