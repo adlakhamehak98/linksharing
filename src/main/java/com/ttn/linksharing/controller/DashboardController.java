@@ -1,7 +1,6 @@
 package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
-import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,9 +59,7 @@ public class DashboardController {
             model.addAttribute("countTop", countTop);
             List<Subscription> subscriptionList = subscriptionService.subscriptionsPerUser(user);
             List<Topic> topics = subscriptionList.stream().map(e -> e.getTopic()).collect(Collectors.toList());
-            List<Seriousness> seriousness = subscriptionList.stream().map(Subscription::getSeriousness).collect(Collectors.toList());
             model.addAttribute("topics", topics);
-            //model.addAttribute("seriousness", seriousness);
             model.addAttribute("subscriptions", subscriptionList);
             List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
             model.addAttribute("trendingTopics", topics1);
@@ -115,8 +111,8 @@ public class DashboardController {
                 User user = userService.findById(userId);
                 resource.setUser(user);
                 String filePath = documentResourceService.storeDocument(file);
-                System.out.println(">>>>>>>>>>>filePath"+filePath);
-                if(filePath != null) {
+                System.out.println(">>>>>>>>>>>filePath" + filePath);
+                if (filePath != null) {
                     resource.setPath(filePath);
                     ModelAndView modelAndView = new ModelAndView("Dashboard");
                     documentResourceService.shareDocument(resource);

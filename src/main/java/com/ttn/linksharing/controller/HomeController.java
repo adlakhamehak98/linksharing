@@ -1,7 +1,9 @@
 package com.ttn.linksharing.controller;
 
+import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.repository.UserRepository;
+import com.ttn.linksharing.service.ResourceService;
 import com.ttn.linksharing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -33,19 +35,29 @@ public class HomeController {
     UserRepository userRepository;
 
     @Autowired
+    ResourceService resourceService;
+
+    @Autowired
     private JavaMailSender sender;
 
     List<User> users = new ArrayList<>();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
+        List<Resource> topResources = resourceService.fetchTopFivePublicResources();
+        List<Resource> latestResources = resourceService.fetchLatestFivePublicResources();
+        model.addAttribute("topResources", topResources);
+        model.addAttribute("latestResources", latestResources);
         model.addAttribute("user", new User());
         return "Home";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String submit(@Valid @RequestParam MultipartFile file, @Valid @ModelAttribute("user") User responseData, ModelMap model, BindingResult bindingResult) {
-        System.out.println("to register::::::::::::::::::");
+        List<Resource> topResources = resourceService.fetchTopFivePublicResources();
+        List<Resource> latestResources = resourceService.fetchLatestFivePublicResources();
+        model.addAttribute("topResources", topResources);
+        model.addAttribute("latestResources", latestResources);
         if (file == null || file.isEmpty()) {
             bindingResult.addError(new FieldError("user", "fileName", "File cant be null."));
             if (bindingResult.hasErrors()) {
@@ -75,17 +87,18 @@ public class HomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView formSuccess(@ModelAttribute("user") User responseData, HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView("Home");
-
         User loginStatus = userService.validateUser(responseData);
-
         if (loginStatus != null) {
             session.setAttribute("loggedInUser", loginStatus.getId());
             return new ModelAndView("redirect:/dashboard");
         } else {
-
-            ModelAndView modelAndView1 = new ModelAndView("redirect:/login").addObject("error", "Wrong Username Password");
-            return new ModelAndView("Home").addObject("error", "username or password Wrong");
+            ModelAndView modelAndView = new ModelAndView("Home");
+            List<Resource> topResources = resourceService.fetchTopFivePublicResources();
+            List<Resource> latestResources = resourceService.fetchLatestFivePublicResources();
+            modelAndView.addObject("topResources", topResources);
+            modelAndView.addObject("latestResources", latestResources);
+            modelAndView.addObject("error", "username or password Wrong");
+            return modelAndView;
 
         }
     }
