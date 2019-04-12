@@ -94,8 +94,8 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <select class="browser-default custom-select m-2 sendInvitationTopics"
-                                                        name="topicId" id="topicId">
+                                                <select class="browser-default custom-select m-2"
+                                                        name="topicId">
                                                     <option th:each="topic : ${topics}"
                                                             th:value="${topic.id}" th:text="${topic.name}"></option>
                                                 </select>
@@ -358,8 +358,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3" data-toggle="modal"
-                                       data-target="#sendInvitationModal" id="sendInvitationAjax"
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3 sendInvitationAjax" data-toggle="modal"
+                                       data-target="#sendInvitationModal1" id="sendInvitationAjax"
                                        th:if="${subscription.topic.user.id == user.id}"
                                        th:attr="data-el_id=${subscription.topic.id}"></i>
                                     <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 subscriptionTopicEdit"
@@ -369,6 +369,9 @@
                                        th:if="${subscription.topic.user.id == user.id}"
                                        th:attr="data-topic_id=${subscription.topic.id}"></i>
                                 </div>
+
+
+
                             </div>
                         </li>
                     </ul>
@@ -478,8 +481,10 @@
                                 </div>
                             </div>
                             <div class="row" style="float: right">
-                                <a href="#" class="mr-4">Download</a>
-                                <a href="#" class="mr-4">View Full Site</a>
+                                <a href="#" class="mr-4"
+                                th:if="${readingItem.resource.resourceType=='DOCUMENT'}">Download</a>
+                                <a href="#" class="mr-4"
+                                   th:unless="${readingItem.resource.resourceType=='DOCUMENT'}">View Full Site</a>
                                 <a href="#" class="mr-4">Mark as Read</a>
                                 <a href="#">View Post</a>
                             </div>
@@ -490,6 +495,41 @@
         </div>
     </div>
 </div>
+<!--send invitation modal-->
+<div class="modal fade" id="sendInvitationModal1" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Send Invitation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:action="@{/dashboard/sendInvitation}">
+                    <div class="form-group row">
+                        <label class="col-md-5 col-form-label">Email*</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" name="email"
+                                   placeholder="email"
+                                   required="">
+                        </div>
+                    </div>
+                    <input type="hidden" name="topicId" id="sendInvitationTopics">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <input type="submit" value="Invite" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $(".createTopicButton").click(function () {
@@ -593,9 +633,10 @@
             });
         });
 
-        $("#sendInvitationAjax").click(function () {
-            $(".sendInvitationTopics").attr("disabled","disabled");
-        })
+        $(".sendInvitationAjax").click(function () {
+            var topicId = $(this).attr("data-el_id");
+            $("#sendInvitationTopics").val(topicId);
+        });
     });
 </script>
 </body>
