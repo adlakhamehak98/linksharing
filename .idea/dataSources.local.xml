@@ -7,5 +7,11 @@
       <first-sync>true</first-sync>
       <user-name>root</user-name>
     </data-source>
+    <data-source name="linksharing@localhost [2]" uuid="127f1f16-f5a9-453e-a4d0-76db1b66aa76">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
   </component>
 </project>

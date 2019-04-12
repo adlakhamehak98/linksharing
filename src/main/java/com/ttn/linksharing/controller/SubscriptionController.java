@@ -3,15 +3,15 @@ package com.ttn.linksharing.controller;
 import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.Subscription;
 import com.ttn.linksharing.entity.Topic;
+import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.enums.Seriousness;
-import com.ttn.linksharing.service.ResourceRatingService;
-import com.ttn.linksharing.service.ResourceService;
-import com.ttn.linksharing.service.SubscriptionService;
-import com.ttn.linksharing.service.TopicService;
+import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +31,9 @@ public class SubscriptionController {
 
     @Autowired
     ResourceRatingService resourceRatingService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/updateSeriousness", method = RequestMethod.POST)
     @ResponseBody

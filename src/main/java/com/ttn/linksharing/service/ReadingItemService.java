@@ -1,6 +1,7 @@
 package com.ttn.linksharing.service;
 
 import com.ttn.linksharing.entity.ReadingItem;
+import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.repository.ReadingItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ public class ReadingItemService {
     @Autowired
     ReadingItemRepository readingItemRepository;
 
-    public List<ReadingItem> findUnreadResorces(boolean isRead){
-        return readingItemRepository.findAllByIsRead(isRead);
+    public List<ReadingItem> findUnreadResourcesPerUser(Boolean isRead, User user){
+        return readingItemRepository.findAllByIsReadAAndAndUser(isRead, user);
     }
 }

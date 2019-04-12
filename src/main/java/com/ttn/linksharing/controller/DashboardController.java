@@ -2,13 +2,11 @@ package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Seriousness;
-import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -18,9 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -77,7 +73,7 @@ public class DashboardController {
             model.addAttribute("subscriptions", subscriptionList);
             List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
             model.addAttribute("trendingTopics", topics1);
-            List<ReadingItem> readingItemList = readingItemService.findUnreadResorces(false);
+            List<ReadingItem> readingItemList = readingItemService.findUnreadResourcesPerUser(false, user);
             model.addAttribute("readingItems", readingItemList);
 
             return "Dashboard";
@@ -118,9 +114,9 @@ public class DashboardController {
     public String createTopic(@RequestParam Integer topicId, @RequestParam String email, HttpSession session) throws Exception {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
 
-            User user = userId != null ?userService.findById(userId): null;
-        Topic  topic = topicService.findTopicById(topicId);
-                sendEmail(email, topic,user);
+        User user = userId != null ? userService.findById(userId) : null;
+        Topic topic = topicService.findTopicById(topicId);
+        sendEmail(email, topic, user);
 
         return "redirect:/dashboard";
     }
@@ -129,10 +125,10 @@ public class DashboardController {
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
         helper.setTo(email);
-        String url="http://localhost:8080/dashboard/topicSubscription/"+ topic.getId();
-        helper.setText("Hello, you have received an invitation"+ (user != null ? " from "+user.getFirstName(): "")+" for the topic" + topic.getName() + "." +
-                " Click on the url to subscribe to the topic, "+url+".");
-        helper.setSubject("A New Invitation" + (user != null ? " from "+user.getFirstName(): "") + ".");
+        String url = "http://localhost:8080/dashboard/topicSubscription/" + topic.getId();
+        helper.setText("Hello, you have received an invitation" + (user != null ? " from " + user.getFirstName() : "") + " for the topic" + topic.getName() + "." +
+                " Click on the url to subscribe to the topic, " + url + ".");
+        helper.setSubject("A New Invitation" + (user != null ? " from " + user.getFirstName() : "") + ".");
         sender.send(message);
     }
 
@@ -166,16 +162,16 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "/dashboard/topicSubscription/{id}", method = RequestMethod.GET)
-    public String subscribeTopic(@PathVariable Integer id, HttpSession session){
+    public String subscribeTopic(@PathVariable Integer id, HttpSession session) {
         Topic topic = topicService.findTopicById(id);
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         User user = userId != null ? userService.findById(userId) : null;
-        if(topic != null && user != null){
+        if (topic != null && user != null) {
             Subscription subscription = subscriptionService.findByUserAndTopic(user, topic);
-            if(subscription == null) {
+            if (subscription == null) {
                 subscriptionService.saveSubscription(new Subscription(user, topic, Seriousness.CASUAL));
             }
-            return "redirect:/topic/"+topic.getId();
+            return "redirect:/topic/" + topic.getId();
         } else {
             return "redirect:/";
         }
