@@ -31,7 +31,7 @@ public class Subscription {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private  LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     public Subscription(User user, Topic topic, Seriousness seriousness) {
         this.user = user;
@@ -39,5 +39,6 @@ public class Subscription {
         this.seriousness = seriousness;
     }
 
-    public Subscription(){}
+    public Subscription() {
+    }
 }

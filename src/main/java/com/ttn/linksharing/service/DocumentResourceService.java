@@ -9,10 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 @Service
 public class DocumentResourceService {
@@ -20,15 +16,15 @@ public class DocumentResourceService {
     @Autowired
     DocumentResourceRepository documentResourceRepository;
 
-    public void shareDocument(DocumentResource documentResource){
+    public void shareDocument(DocumentResource documentResource) {
         documentResourceRepository.save(documentResource);
     }
 
     public String storeDocument(MultipartFile document) {
         try {
             String filename = StringUtils.cleanPath(document.getOriginalFilename());
-            document.transferTo(new File("/home/ttn/project/uploads/documents/"+filename));
-            return "/home/ttn/project/uploads/documents/"+filename;
+            document.transferTo(new File("/home/ttn/project/uploads/documents/" + filename));
+            return "/home/ttn/project/uploads/documents/" + filename;
         } catch (IOException e) {
             e.printStackTrace();
         }

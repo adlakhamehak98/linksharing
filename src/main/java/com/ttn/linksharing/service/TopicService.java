@@ -7,29 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class TopicService {
     @Autowired
     TopicRepository topicRepository;
 
-    public void createTopic(Topic topic){
+    public void createTopic(Topic topic) {
         topicRepository.save(topic);
     }
 
-    public int topicsCount(User user){
+    public int topicsCount(User user) {
         return topicRepository.countAllByUser(user);
     }
 
-    public Topic findTopicById(int id){
+    public Topic findTopicById(int id) {
         return topicRepository.findById(id);
     }
 
     @Transactional
-    public void deleteTopic(Topic topic){
+    public void deleteTopic(Topic topic) {
         topicRepository.delete(topic);
     }
 }

@@ -35,7 +35,7 @@ public class Resource {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private  LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     public Resource(User user, Topic topic, String description, List<ResourceRating> resourceRatings) {
         this.user = user;

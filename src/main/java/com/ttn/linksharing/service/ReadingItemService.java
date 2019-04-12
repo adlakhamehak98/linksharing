@@ -14,7 +14,7 @@ public class ReadingItemService {
     @Autowired
     ReadingItemRepository readingItemRepository;
 
-    public List<ReadingItem> findUnreadResourcesPerUser(Boolean isRead, User user){
-        return readingItemRepository.findAllByIsReadAAndAndUser(isRead, user);
+    public List<ReadingItem> findUnreadResourcesPerUser(Boolean isRead, User user) {
+        return readingItemRepository.findAllByIsReadAndUser(isRead, user);
     }
 }

@@ -15,28 +15,28 @@ public class SubscriptionService {
     @Autowired
     SubscriptionRepository subscriptionRepository;
 
-    public int subscriptionsCount(User user){
+    public int subscriptionsCount(User user) {
         return subscriptionRepository.countAllByUser(user);
     }
 
-    public List<Subscription> subscriptionsPerUser(User user){
+    public List<Subscription> subscriptionsPerUser(User user) {
         return subscriptionRepository.findAllByUser(user);
     }
 
-    public Subscription findByid(int id){
+    public Subscription findByid(int id) {
         return subscriptionRepository.findById(id);
     }
 
-    public void saveSubscription (Subscription subscription){
+    public void saveSubscription(Subscription subscription) {
         subscriptionRepository.save(subscription);
     }
 
-    public Subscription findByUserAndTopic(User user, Topic topic){
+    public Subscription findByUserAndTopic(User user, Topic topic) {
         return subscriptionRepository.findByUserAndTopic(user, topic);
     }
 
     @Transactional
-    public void deleteSubscription(Topic topic){
+    public void deleteSubscription(Topic topic) {
         subscriptionRepository.deleteByTopic(topic);
     }
 }

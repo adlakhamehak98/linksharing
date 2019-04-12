@@ -368,7 +368,7 @@
                                        th:if="${subscription.topic.user.id == user.id}"
                                        th:attr="data-topic_id=${subscription.topic.id}"></i>
                                 </div>
-                                 <!--send invitation inside subscription modal-->
+                                <!--send invitation inside subscription modal-->
                                 <div class="modal fade" id="sendInvitationModal1" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel"
                                      aria-hidden="true">
@@ -512,9 +512,9 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title" th:text="${readingItem.resource.name}"></h5>
+                                    <h5 class="card-title" th:text="${name}"></h5>
                                     <div style="display: inline-block">
-                                        <p class="card-text">vghb</p>
+                                        <p class="card-text" th:text="${readingItem.resource.description}"></p>
                                     </div>
                                 </div>
                             </div>

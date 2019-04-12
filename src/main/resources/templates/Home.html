@@ -36,7 +36,7 @@
         <!--in between content-->
         <div class="col-md-7">
 
-            <div class="card m-2" >
+            <div class="card m-2">
                 <h5 class="card-header">Recent shares</h5>
                 <div class="card-body">
                     <div class="row pt-1" th:each="resource : ${latestResources}">
@@ -46,9 +46,11 @@
                         </div>
                         <div class="col-md-9">
                             <div class="card-title">
-                            <h5 class="float-left" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
-                            <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
-                            <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                                <h5 class="float-left"
+                                    th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
+                                <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
+                                <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right"
+                                   th:text="${resource.topic.name}">Topic</a>
                             </div>
                             <p class="card-text" th:text="${resource.description}">
                                 Description
@@ -74,9 +76,11 @@
                         <div class="col-md-9">
 
                             <div class="card-title">
-                                <h5 class="float-left" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
+                                <h5 class="float-left"
+                                    th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
                                 <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
-                                <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                                <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right"
+                                   th:text="${resource.topic.name}">Topic</a>
                             </div>
                             <p class="card-text" th:text="${resource.description}">
                                 Description
@@ -190,7 +194,8 @@
                                        class="alert alert-danger"/>
                                 </div>
                             </div>
-                            <input type="submit" class="btn btn-primary" style="float: right;" onClick="validatePassword()">
+                            <input type="submit" class="btn btn-primary" style="float: right;"
+                                   onClick="validatePassword()">
                         </form>
                     </div>
                 </div>

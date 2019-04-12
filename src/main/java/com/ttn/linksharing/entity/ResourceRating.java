@@ -29,7 +29,7 @@ public class ResourceRating {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private  LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     public ResourceRating(User user, Resource resource, Integer rating) {
         this.user = user;

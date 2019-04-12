@@ -11,7 +11,7 @@ import java.util.List;
 public class LinkResource extends Resource {
     String url;
 
-    public LinkResource(User user, Topic topic,String description, List<ResourceRating> resourceRatings, String url) {
+    public LinkResource(User user, Topic topic, String description, List<ResourceRating> resourceRatings, String url) {
         super(user, topic, description, resourceRatings);
         this.url = url;
     }

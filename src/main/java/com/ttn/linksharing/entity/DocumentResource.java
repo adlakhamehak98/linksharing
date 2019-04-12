@@ -11,9 +11,10 @@ public class DocumentResource extends Resource {
     private String path;
 
     public DocumentResource(User user, Topic topic, String description, List<ResourceRating> resourceRatings, String path) {
-        super(user, topic,description, resourceRatings);
+        super(user, topic, description, resourceRatings);
         this.path = path;
     }
 
-    public  DocumentResource(){}
+    public DocumentResource() {
+    }
 }

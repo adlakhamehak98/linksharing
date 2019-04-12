@@ -120,31 +120,29 @@ public class HomeController {
         if (user != null) {
             sendEmail(user);
             return "redirect:/";
-        }
-        else
+        } else
             return "ForgetPassword";
-        }
+    }
 
 
     @RequestMapping(value = "/reset", method = RequestMethod.GET)
     public ModelAndView reset() throws Exception {
-             return new ModelAndView("ForgetPassword");
+        return new ModelAndView("ForgetPassword");
     }
 
 
-
-    private void sendEmail (User user) throws Exception {
+    private void sendEmail(User user) throws Exception {
         System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
-            MimeMessage message = sender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message);
-            helper.setTo(user.getEmail());
+        MimeMessage message = sender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setTo(user.getEmail());
         System.out.println(user.getEmail());
         System.out.println("Here>>>>>>>>>>>>>>>>>>>>>>");
 
-            helper.setText("Hello, your new password is: " + user.getPassword());
-            helper.setSubject("Please Find your password here");
-            sender.send(message);
-        }
+        helper.setText("Hello, your new password is: " + user.getPassword());
+        helper.setSubject("Please Find your password here");
+        sender.send(message);
+    }
 //    @RequestMapping("topic")
 //    public ModelAndView topic() {
 //        ModelAndView modelAndView = new ModelAndView("Topic");
@@ -168,4 +166,4 @@ public class HomeController {
 //        ModelAndView modelAndView = new ModelAndView("Edit Profile");
 //        return modelAndView;
 //    }
-    }
+}

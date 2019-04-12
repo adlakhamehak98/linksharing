@@ -37,7 +37,7 @@ public class Topic {
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private  LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     public Topic(String name, User user, Visibility visibility) {
         this.name = name;

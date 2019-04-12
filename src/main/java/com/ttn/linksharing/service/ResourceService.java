@@ -32,25 +32,25 @@ public class ResourceService {
         return topics;
     }
 
-    public List<Resource> fetchLatestFivePublicResources(){
-        return resourceRepository.findRecentByTopicVisiblity(Visibility.PUBLIC.name(),5);
+    public List<Resource> fetchLatestFivePublicResources() {
+        return resourceRepository.findRecentByTopicVisiblity(Visibility.PUBLIC.name(), 5);
     }
 
-    public List<Resource> fetchTopFivePublicResources(){
-        List<Integer> resourceIds = resourceRatingRepository.fetchTopResources(Visibility.PUBLIC.name(),5);
+    public List<Resource> fetchTopFivePublicResources() {
+        List<Integer> resourceIds = resourceRatingRepository.fetchTopResources(Visibility.PUBLIC.name(), 5);
         return resourceRepository.findAllByIdIn(resourceIds);
     }
 
-    public List<Resource> findByTopic(Topic topic){
+    public List<Resource> findByTopic(Topic topic) {
         return resourceRepository.findByTopic(topic);
     }
 
     @Transactional
-    public void deleteResources(List<Resource> resourceList){
+    public void deleteResources(List<Resource> resourceList) {
         resourceRepository.deleteAll(resourceList);
     }
 
-    public Resource findById(Integer id){
+    public Resource findById(Integer id) {
         Optional<Resource> resourceOptional = resourceRepository.findById(id);
         return resourceOptional.orElse(null);
     }

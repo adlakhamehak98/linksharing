@@ -3,15 +3,15 @@ package com.ttn.linksharing.controller;
 import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.Subscription;
 import com.ttn.linksharing.entity.Topic;
-import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -39,15 +39,15 @@ public class SubscriptionController {
     @ResponseBody
     public Map updateSeriousness(@RequestParam int subscriptionId, @RequestParam Seriousness seriousness, HttpSession session) throws Exception {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         if (userId != null) {
             Subscription subscription = subscriptionService.findByid(subscriptionId);
             subscription.setSeriousness(seriousness);
             subscriptionService.saveSubscription(subscription);
-            map.put("SUCCESS","Seriousness UpdatedSuccessfully");
+            map.put("SUCCESS", "Seriousness UpdatedSuccessfully");
         } else {
-        	map.put("ERROR","No Logged In User");
-		}
+            map.put("ERROR", "No Logged In User");
+        }
 
         return map;
     }

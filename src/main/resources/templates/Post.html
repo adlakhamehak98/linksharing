@@ -96,7 +96,8 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <input type="hidden" th:field="*{resource.topic.id}" th:value="${topic.id}">
+                                                <input type="hidden" th:field="*{resource.topic.id}"
+                                                       th:value="${topic.id}">
                                                 <span th:text="${topic.name}"></span>
                                             </div>
                                         </div>
@@ -151,7 +152,8 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <input type="hidden" th:field="*{resource.topic.id}" th:value="${topic.id}">
+                                                <input type="hidden" th:field="*{resource.topic.id}"
+                                                       th:value="${topic.id}">
                                                 <span th:text="${topic.name}"></span>
                                             </div>
                                         </div>
@@ -184,18 +186,20 @@
                             <div class="row">
                                 <div class="card-title w-100">
                                     <div class="w-100">
-                                        <h5 class="float-left" th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
-                                        <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right" th:text="${resource.topic.name}">Topic</a>
+                                        <h5 class="float-left"
+                                            th:text="${resource.user.firstName} + ' ' + ${resource.user.lastName}"></h5>
+                                        <a th:href="@{'/topic/'+${resource.topic.id}}" style="float: right"
+                                           th:text="${resource.topic.name}">Topic</a>
                                     </div>
                                     <div class="w-100">
-                                    <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
+                                        <span class="text-muted" th:text="'@'+${resource.user.username}"></span>
                                     </div>
                                 </div>
-                            <p class="card-text" th:text="${resource.description}">
-                                cillum. </p>
+                                <p class="card-text" th:text="${resource.description}">
+                                    cillum. </p>
                             </div>
                             <div class="row" style="float: right">
-                                <a href="#"  class="mr-4">Delete</a>
+                                <a href="#" class="mr-4">Delete</a>
                                 <a href="#" class="mr-4">Edit</a>
                                 <a th:if="${resourceType == 'DocumentResource'}" href="#" class="mr-4">Download</a>
                                 <a th:if="${resourceType == 'LinkResource'}" href="#">View Full Site</a>

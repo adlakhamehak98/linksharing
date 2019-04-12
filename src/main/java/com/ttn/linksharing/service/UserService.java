@@ -12,15 +12,13 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
 
 @Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void saveUser(User responseData)
-    {
+    public void saveUser(User responseData) {
         userRepository.save(responseData);
     }
 
@@ -29,11 +27,11 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public User findUserByEmail(String email){
+    public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
-    public User findById(int id){
+    public User findById(int id) {
         return userRepository.findById(id);
     }
 

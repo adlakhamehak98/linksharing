@@ -223,7 +223,9 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title" th:text = "${subscription.user.firstName} + ' ' + ${subscription.user.lastName}">Uday Pratap singh</h5>
+                                    <h5 class="card-title"
+                                        th:text="${subscription.user.firstName} + ' ' + ${subscription.user.lastName}">
+                                        Uday Pratap singh</h5>
                                 </div>
                             </div>
                         </li>
@@ -235,7 +237,8 @@
         <!--body in between right content-->
         <div class="col-md-7">
             <div class="card m-2">
-                <h5 class="card-header" th:text="'Post: ' + ${topic.name}">Post: "Grails"<span style="float: right"><a href="#">View All</a> </span></h5>
+                <h5 class="card-header" th:text="'Post: ' + ${topic.name}">Post: "Grails"<span style="float: right"><a
+                        href="#">View All</a> </span></h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" th:each="resource : ${topic.resource}">

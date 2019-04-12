@@ -23,13 +23,13 @@ public class ReadingItem {
     @OneToOne
     private Resource resource;
 
-    private Boolean isRead=false;
+    private Boolean isRead = false;
 
     @CreatedDate
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private  LocalDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 
     public ReadingItem(User user, Resource resource) {
         this.user = user;

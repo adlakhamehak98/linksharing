@@ -1,7 +1,6 @@
 package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.*;
-import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,7 +141,7 @@ public class TopicController {
     }
 
     @RequestMapping(value = "/dashboard/sendInvitation1", method = RequestMethod.POST)
-    public String createTopic(@RequestParam Integer topicId, @RequestParam String email,Model model, HttpSession session) throws Exception {
+    public String createTopic(@RequestParam Integer topicId, @RequestParam String email, Model model, HttpSession session) throws Exception {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
 
         User user = userId != null ? userService.findById(userId) : null;

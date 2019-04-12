@@ -11,7 +11,7 @@ import java.util.List;
 public interface ResourceRepository extends CrudRepository<Resource, Integer> {
     List<Resource> findAll();
 
-    @Query(value = "select topic_id, COUNT(id) from resource group by topic_id order by count(id) desc limit 5",nativeQuery = true)
+    @Query(value = "select topic_id, COUNT(id) from resource group by topic_id order by count(id) desc limit 5", nativeQuery = true)
     List<Object[]> findTopByIdOrderByTopicDesc();
 
     @Query(value = "SELECT res.* FROM resource AS res JOIN topic AS t ON res.topic_id = t.id WHERE t.visibility = :visibility ORDER BY res.created_date DESC LIMIT :maxRecords", nativeQuery = true)
