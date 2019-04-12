@@ -3,6 +3,7 @@ package com.ttn.linksharing.controller;
 import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.Subscription;
 import com.ttn.linksharing.entity.Topic;
+import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class SubscriptionController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ReadingItemService readingItemService;
+
     @RequestMapping(value = "/updateSeriousness", method = RequestMethod.POST)
     @ResponseBody
     public Map updateSeriousness(@RequestParam int subscriptionId, @RequestParam Seriousness seriousness, HttpSession session) throws Exception {
@@ -60,6 +64,7 @@ public class SubscriptionController {
         if (userId != null) {
             Topic topic = topicService.findTopicById(topicId);
             List<Resource> resources = resourceService.findByTopic(topic);
+            readingItemService.deleteReadingItemPerUser(resources);
             resourceRatingService.deleteRatingList(resources);
             resourceService.deleteResources(resources);
             subscriptionService.deleteSubscription(topic);

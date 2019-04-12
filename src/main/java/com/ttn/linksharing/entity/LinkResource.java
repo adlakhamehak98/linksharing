@@ -2,11 +2,13 @@ package com.ttn.linksharing.entity;
 
 import lombok.Data;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.util.List;
 
 
 @Data
+@DiscriminatorValue("LINK")
 @Entity
 public class LinkResource extends Resource {
     String url;

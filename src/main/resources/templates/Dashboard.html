@@ -57,7 +57,7 @@
                     <div style="float: right" class="dropdown show">
                         <span style="margin-bottom:12px" class="fa fa-user fa-lg"></span>
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           data-toggle="dropdown" aria-haspopup="true"  th:text="${user.username}" aria-expanded="false">
                             Uday
                         </a>
 
@@ -94,7 +94,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-5 col-form-label">Topic*</label>
                                             <div class="col-md-7">
-                                                <select class="browser-default custom-select m-2"
+                                                <select class="browser-default custom-select m-2 sendInvitationTopics"
                                                         name="topicId" id="topicId">
                                                     <option th:each="topic : ${topics}"
                                                             th:value="${topic.id}" th:text="${topic.name}"></option>
@@ -353,12 +353,13 @@
                                             class="browser-default custom-select m-2 visibilityDropDown">
                                         <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
                                                 th:value="${visibility}" th:text="${visibility}"
-                                                th:selected="${visibility==subscription.topic.visibility}"></option>
+                                                th:selected="${visibility==subscription.topic.visibility}">
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
                                     <i class="fa fa-envelope-o pt-3 pb-3 pl-3" data-toggle="modal"
-                                       data-target="#sendInvitationModal1"
+                                       data-target="#sendInvitationModal" id="sendInvitationAjax"
                                        th:if="${subscription.topic.user.id == user.id}"
                                        th:attr="data-el_id=${subscription.topic.id}"></i>
                                     <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 subscriptionTopicEdit"
@@ -367,49 +368,6 @@
                                     <i class="fa fa-trash-o pt-3 pb-3 pl-3 subscriptionTopicDelete"
                                        th:if="${subscription.topic.user.id == user.id}"
                                        th:attr="data-topic_id=${subscription.topic.id}"></i>
-                                </div>
-                                <!--send invitation inside subscription modal-->
-                                <div class="modal fade" id="sendInvitationModal1" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Send Invitation</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="post" th:action="@{/dashboard/sendInvitation1}">
-                                                    <div class="form-group row">
-                                                        <label class="col-md-5 col-form-label">Email*</label>
-                                                        <div class="col-md-7">
-                                                            <input type="text" class="form-control" name="email"
-                                                                   placeholder="email"
-                                                                   required="">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label class="col-md-5 col-form-label">Topic*</label>
-                                                        <div class="col-md-7">
-                                                            <input type="text" th:value="${hardCodedTopic}"
-                                                                   th:text="${hardCodedTopic}">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Cancel
-                                                        </button>
-                                                        <input type="submit" value="Invite" class="btn btn-primary">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -481,13 +439,14 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3" data-toggle="modal"
+                                       data-target="#sendInvitationModal"
                                        th:if="${topic.user.id == user.id}"
                                        th:attr="data-el_id=${topic.id}"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 topicEdit"
+                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 subscriptionTopicEdit"
                                        th:if="${topic.user.id == user.id}"
                                        th:attr="data-el_id=${topic.id}"></i>
-                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3 topicDelete"
+                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3 subscriptionTopicDelete"
                                        th:if="${topic.user.id == user.id}"
                                        th:attr="data-topic_id=${topic.id}"></i>
                                 </div>
@@ -633,6 +592,10 @@
                 }
             });
         });
+
+        $("#sendInvitationAjax").click(function () {
+            $(".sendInvitationTopics").attr("disabled","disabled");
+        })
     });
 </script>
 </body>

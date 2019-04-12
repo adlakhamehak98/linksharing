@@ -13,6 +13,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Data
 @Entity
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "resource_type")
 @EntityListeners(AuditingEntityListener.class)
 public class Resource {
 
@@ -25,6 +26,9 @@ public class Resource {
 
     @ManyToOne
     private Topic topic;
+
+    @Column(name = "resource_type" , insertable = false, updatable = false)
+    private String resourceType;
 
     private String description;
 

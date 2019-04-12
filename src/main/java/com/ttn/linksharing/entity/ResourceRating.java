@@ -36,4 +36,6 @@ public class ResourceRating {
         this.resource = resource;
         this.rating = rating;
     }
+
+    public  ResourceRating(){}
 }

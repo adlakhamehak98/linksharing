@@ -44,6 +44,7 @@ public class Bootstrap {
             addResourceRating();
             addReadingItem();
         }
+
         System.out.println("Your Application is up and running");
     }
 
