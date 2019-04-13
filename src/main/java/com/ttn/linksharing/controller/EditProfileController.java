@@ -78,6 +78,16 @@ public class EditProfileController {
                 }
             }
         }
-        return "reirect:/dashboard";
+        return "redirect:/dashboard";
+    }
+
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    public String changePassword(ModelMap model, HttpSession session) {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+            User user = userService.findById(userId);
+            user.setPassword(user.getPassword());
+            userService.saveUser(user);
+            model.addAttribute("user", user);
+            return "redirect:/dashboard/editProfile";
     }
 }
