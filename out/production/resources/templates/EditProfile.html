@@ -28,7 +28,7 @@
             <div class="row">
                 <nav class="navbar navbar-light bg-light col-md-12 test">
                     <div>
-                        <img src="myLogo.png" alt="logo unavailable"
+                        <img src="/myLogo.png" alt="logo unavailable"
                              style="height: 40px; width: 40px">
                         <a class="navbar-brand" href="#">
                             Link Sharing
@@ -45,7 +45,7 @@
                     <div style="float: right" class="dropdown show">
                         <span style="margin-bottom:12px" class="fa fa-user fa-lg"></span>
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true"  th:text="${user.username}" aria-expanded="false">
+                           data-toggle="dropdown" aria-haspopup="true" th:text="${user.username}" aria-expanded="false">
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -63,69 +63,97 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="username.png" alt="user image"
+                            <img src="/username.png" alt="user image"
                                  style="border: 1px solid;height: 140px; width: 140px">
                         </div>
                         <div class="col-md-8">
-                            <div class="row">
-                                <h5 class="card-title">Uday Pratap singh</h5>
-                                <p class="card-text"></p>
-                            </div>
+
+                            <h5 class="card-title" th:text="${name}"></h5>
+                            <p class="card-text">
+                                <span>Subscriptions: </span>
+                                <a href="#" id="subscriptionsCount"
+                                   th:text="${countSub}"></a><br>
+                                <span>Topics: </span>
+                                <a href="#" id="topicsCount" th:text="${countTop}"></a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="card m-2">
-                <h5 class="card-header">Top Posts</h5>
+                <h5 class="card-header">Topics</h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <li class="list-group-item"
+                            th:if="${subscription.topic.user.id == user.id}"
+                            th:id="${subscription.topic.id}+'subscriptionBox'"
+                            th:each="subscription : ${subscriptions}">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="username.png" alt="user image"
+                                    <img src="/username.png" alt="user image"
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title"></h5>
+                                    <h5 class="card-title subscriptionTopicNameOriginal"
+                                        th:id="${subscription.topic.id}+'subscriptionTopicNameOriginal'"
+                                        th:text="${subscription.topic.name}"></h5>
+                                    <h5 class="card-title subscriptionTopicName" style="display: none"
+                                        th:id="${subscription.topic.id}+'subscriptionTopicName'">
+                                        <input type="text" th:id="${subscription.topic.id}+'subscriptionTopicText'"
+                                               th:value="${subscription.topic.name}">
+                                        <span class="input-group-btn">
+                                                       <button class="btn btn-outline-primary subscriptionTopicSave"
+                                                               th:attr="data-topic_id=${subscription.topic.id}"
+                                                               type="button">Save</button>
+                                        </span>
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-outline-primary subscriptionTopicCancel"
+                                                th:attr="data-topic_id=${subscription.topic.id}"
+                                                type="button">Cancel</button>
+                                        </span>
+                                    </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+                                            <span>Subscriptions: </span>
+                                            <a href="#" class="subscriptionsCount"
+                                               th:text="${subscription.topic.subscriptions.size()}"></a><br>
+                                            <span>Post: </span>
+                                            <a href="#" class="topicsCount"
+                                               th:text="${subscription.topic.resource.size()}"></a>
+                                            <br>
+                                            <span><a href="#">Unsubscribe</a></span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" style="float: right">
-                                <a href="#" class="mr-4">Download</a>
-                                <a href="#" class="mr-4">View Full Site</a>
-                                <a href="#" class="mr-4">Mark as Read</a>
-                                <a href="#">View Post</a>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="username.png" alt="user image"
-                                         style="border: 1px solid;height: 140px; width: 140px">
+                                    <select th:attr="data-subscription_id=${subscription.id}"
+                                            class="browser-default custom-select m-2 seriousnessDropDown">
+                                        <option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"
+                                                th:value="${seriousness}" th:text="${seriousness}"
+                                                th:selected="${seriousness==subscription.seriousness}"></option>
+                                    </select>
                                 </div>
-                                <div class="col-md-8">
-                                    <h5 class="card-title"></h5>
-                                    <div style="display: inline-block">
-                                        <p class="card-text">
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                        </p>
-                                    </div>
+                                <div class="col-md-4">
+                                    <select th:attr="data-topic_id=${subscription.topic.id}"
+                                            class="browser-default custom-select m-2 visibilityDropDown">
+                                        <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
+                                                th:value="${visibility}" th:text="${visibility}"
+                                                th:selected="${visibility==subscription.topic.visibility}">
+                                        </option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="row" style="float: right">
-                                <a href="#" class="mr-4">Download</a>
-                                <a href="#" class="mr-4">View Full Site</a>
-                                <a href="#" class="mr-4">Mark as Read</a>
-                                <a href="#">View Post</a>
+                                <div class="col-md-4">
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3 sendInvitationAjax" data-toggle="modal"
+                                       data-target="#sendInvitationModal1" id="sendInvitationAjax"
+                                       th:attr="data-el_id=${subscription.topic.id}"></i>
+                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 subscriptionTopicEdit"
+                                       th:attr="data-el_id=${subscription.topic.id}"></i>
+                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3 subscriptionTopicDelete1"
+                                       th:attr="data-topic_id=${subscription.topic.id}"></i>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -240,5 +268,111 @@
     }
 </script>
 </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".subscriptionTopicDelete1").click(function () {
+            var y = $(this).attr("data-topic_id").concat("subscriptionBox");
+            $("#" + y).css('display', 'none');
+
+            var topicId = $(this).attr("data-topic_id");
+
+            $.ajax({
+                type: "POST",
+                url: "/deleteSubscription",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".subscriptionTopicEdit").click(function () {
+            var y = $(this).attr("data-el_id").concat("subscriptionTopicNameOriginal");
+            $("#" + y).css('display', 'none');
+
+            var x = $(this).attr("data-el_id").concat("subscriptionTopicName");
+            $("#" + x).css('display', 'block');
+        });
+
+        $(".subscriptionTopicCancel").click(function () {
+            var y = $(this).attr("data-topic_id").concat("subscriptionTopicNameOriginal");
+            $("#" + y).css('display', 'block');
+
+            var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
+            $("#" + x).css('display', 'none');
+        });
+
+        $(".subscriptionTopicSave").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            var topicName = $("#" + topicId + "subscriptionTopicText").val();
+            var y = $(this).attr("data-topic_id").concat("subscriptionTopicNameOriginal");
+            $("#" + y).css('display', 'block');
+
+            var x = $(this).attr("data-topic_id").concat("subscriptionTopicName");
+            $("#" + x).css('display', 'none');
+
+            $.ajax({
+                type: "POST",
+                url: "/updateTopicName",
+                data: {topicId: topicId, topicName: topicName},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".seriousnessDropDown").change(function () {
+            var subscriptionId = $(this).attr("data-subscription_id");
+            var seriousness = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "/updateSeriousness",
+                data: {subscriptionId: subscriptionId, seriousness: seriousness},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null)
+                        alert(data.SUCCESS);
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".visibilityDropDown").change(function () {
+            var topicId = $(this).attr("data-topic_id");
+            var visibility = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "/updateVisibility",
+                data: {topicId: topicId, visibility: visibility},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null)
+                        alert(data.SUCCESS);
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".sendInvitationAjax").click(function () {
+            var topicId = $(this).attr("data-el_id");
+            $("#sendInvitationTopics").val(topicId);
+        });
+    });
+</script>
 </html>
 

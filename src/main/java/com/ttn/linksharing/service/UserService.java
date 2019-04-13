@@ -52,4 +52,10 @@ public class UserService {
         }
         return null;
     }
+
+    public void updateUser(int id) {
+        User user = userRepository.findById(id);
+        if(user!=null)
+            userRepository.save(user);
+    }
 }
