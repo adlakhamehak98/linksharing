@@ -53,7 +53,7 @@ public class EditProfileController {
             model.addAttribute("subscriptions", subscriptionList);
             return "EditProfile";
         } else
-            return "redirect:/";
+            return "redirect:/dashboard";
     }
 
     @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
@@ -82,12 +82,12 @@ public class EditProfileController {
     }
 
     @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-    public String changePassword(ModelMap model, HttpSession session) {
+    public String changePassword(ModelMap model, @RequestParam String password, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
-            User user = userService.findById(userId);
-            user.setPassword(user.getPassword());
-            userService.saveUser(user);
-            model.addAttribute("user", user);
-            return "redirect:/dashboard/editProfile";
+        User user = userService.findById(userId);
+        user.setPassword(password);
+        userService.saveUser(user);
+        model.addAttribute("user", user);
+        return "redirect:/dashboard/editProfile";
     }
 }

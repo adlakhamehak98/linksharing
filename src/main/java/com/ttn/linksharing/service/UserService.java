@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -51,5 +52,9 @@ public class UserService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<User> findAllUsers(){
+        return userRepository.findAll();
     }
 }

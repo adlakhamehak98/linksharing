@@ -10,13 +10,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String firstName;
     private String lastName;
     private String email;
     private String username;
     private String password;
     private String fileName;
+    private Boolean isActive=true;
+    private Boolean isAdmin=false;
 
     @Transient
     private String confirmPassword;
