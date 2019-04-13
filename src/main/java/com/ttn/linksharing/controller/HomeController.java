@@ -32,9 +32,6 @@ public class HomeController {
     UserService userService;
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     ResourceService resourceService;
 
     @Autowired
@@ -71,7 +68,7 @@ public class HomeController {
         } else {
             ModelAndView modelAndView = new ModelAndView("Home");
             users.add(responseData);
-            userRepository.save(responseData);
+            userService.saveUser(responseData);
             model.addAttribute("user", responseData);
             System.out.println(users);
             User userCheck = userService.checkUser(responseData.getUsername());
@@ -143,27 +140,10 @@ public class HomeController {
         helper.setSubject("Please Find your password here");
         sender.send(message);
     }
-//    @RequestMapping("topic")
-//    public ModelAndView topic() {
-//        ModelAndView modelAndView = new ModelAndView("Topic");
-//        return modelAndView;
-//    }
-//
-//    @RequestMapping("post")
-//    public ModelAndView post() {
-//        ModelAndView modelAndView = new ModelAndView("Post");
-//        return modelAndView;
-//    }
-//
+
 //    @RequestMapping("search")
 //    public ModelAndView search() {
 //        ModelAndView modelAndView = new ModelAndView("Search");
-//        return modelAndView;
-//    }
-//
-//    @RequestMapping("editProfile")
-//    public ModelAndView editProfile() {
-//        ModelAndView modelAndView = new ModelAndView("Edit Profile");
 //        return modelAndView;
 //    }
 }
