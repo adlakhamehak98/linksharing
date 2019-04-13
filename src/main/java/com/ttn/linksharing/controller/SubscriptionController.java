@@ -8,7 +8,6 @@ import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,7 +78,7 @@ public class SubscriptionController {
 
     @RequestMapping(value = "/subscribeTopic", method = RequestMethod.POST)
     @ResponseBody
-    public Map subscribeTopic(@RequestParam Integer topicId, HttpSession session){
+    public Map subscribeTopic(@RequestParam Integer topicId, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         Topic topic = topicId != null ? topicService.findTopicById(topicId) : null;
         Map<String, String> map = new HashMap<>();
@@ -95,7 +94,7 @@ public class SubscriptionController {
 
     @RequestMapping(value = "/unsubscribeTopic", method = RequestMethod.POST)
     @ResponseBody
-    public Map unsubscribeTopic(@RequestParam Integer topicId, HttpSession session){
+    public Map unsubscribeTopic(@RequestParam Integer topicId, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         Topic topic = topicId != null ? topicService.findTopicById(topicId) : null;
         Map<String, String> map = new HashMap<>();

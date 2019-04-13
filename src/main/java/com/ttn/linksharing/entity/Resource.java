@@ -27,7 +27,7 @@ public class Resource {
     @ManyToOne
     private Topic topic;
 
-    @Column(name = "resource_type" , insertable = false, updatable = false)
+    @Column(name = "resource_type", insertable = false, updatable = false)
     private String resourceType;
 
     private String description;
@@ -55,7 +55,7 @@ public class Resource {
     }
 
     public String getResourceUrl() {
-        if(this instanceof  LinkResource){
+        if (this instanceof LinkResource) {
             LinkResource linkResource = (LinkResource) this;
             return linkResource.getUrl();
         } else {

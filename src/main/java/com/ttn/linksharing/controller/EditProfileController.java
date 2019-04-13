@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -60,7 +59,7 @@ public class EditProfileController {
     @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
     public String submit(@Valid @ModelAttribute User responseData, @RequestParam MultipartFile file, ModelMap model, BindingResult bindingResult, HttpSession session) throws Exception {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
-        if(userId != null && userId.equals(responseData.getId())) {
+        if (userId != null && userId.equals(responseData.getId())) {
             User user = userService.findById(responseData.getId());
             user.setFirstName(responseData.getFirstName());
             user.setLastName(responseData.getLastName());

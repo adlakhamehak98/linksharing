@@ -19,12 +19,12 @@ public class ReadingItemService {
         return readingItemRepository.findAllByIsReadAndUser(isRead, user);
     }
 
-    public void deleteReadingItemPerUser(List<Resource> resources){
+    public void deleteReadingItemPerUser(List<Resource> resources) {
         List<ReadingItem> readingItemList = readingItemRepository.findByResourceIn(resources);
         readingItemRepository.deleteAll(readingItemList);
     }
 
-    public ReadingItem save(ReadingItem readingItem){
+    public ReadingItem save(ReadingItem readingItem) {
         return readingItemRepository.save(readingItem);
     }
 }

@@ -10,7 +10,5 @@ import java.util.List;
 public interface ReadingItemRepository extends CrudRepository<ReadingItem, Integer> {
     List<ReadingItem> findAllByIsReadAndUser(Boolean isRead, User user);
 
-
-
     List<ReadingItem> findByResourceIn(List<Resource> resources);
 }

@@ -49,7 +49,7 @@ public class ResourceController {
         model.addAttribute("documentResource", new DocumentResource());
         List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
         model.addAttribute("trendingTopics", topics1.stream()
-                .peek(t -> t.setCurrentUserSubscription(subscriptionService.findByUserAndTopic(user,t)))
+                .peek(t -> t.setCurrentUserSubscription(subscriptionService.findByUserAndTopic(user, t)))
                 .collect(Collectors.toList()));
         if (topic != null) {
             if (user != null) {
@@ -78,22 +78,19 @@ public class ResourceController {
     }
 
     @RequestMapping("/download/{id}")
-    public void downloadPDFResource( HttpServletRequest request,
-                                     HttpServletResponse response,
-                                     @PathVariable("id") Integer id) throws FileNotFoundException {
+    public void downloadPDFResource(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    @PathVariable("id") Integer id) throws FileNotFoundException {
         Resource resource = resourceService.findById(id);
-        if(resource instanceof  DocumentResource){
+        if (resource instanceof DocumentResource) {
             DocumentResource documentResource = (DocumentResource) resource;
             Path file = Paths.get(documentResource.getPath());
-            if (Files.exists(file))
-            {
-                response.addHeader("Content-Disposition", "attachment; filename="+file.getFileName());
-                try
-                {
+            if (Files.exists(file)) {
+                response.addHeader("Content-Disposition", "attachment; filename=" + file.getFileName());
+                try {
                     Files.copy(file, response.getOutputStream());
                     response.getOutputStream().flush();
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             } else {
@@ -103,12 +100,12 @@ public class ResourceController {
         }
     }
 
-    public Map markAsRead(@RequestParam Integer id, HttpSession session){
+    public Map markAsRead(@RequestParam Integer id, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
         User user = userId != null ? userService.findById(userId) : null;
-        Resource resource = id != null ?resourceService.findById(id) : null;
+        Resource resource = id != null ? resourceService.findById(id) : null;
         Map<String, String> map = new HashMap<>();
-        if(user != null && resource != null){
+        if (user != null && resource != null) {
             ReadingItem readingItem = new ReadingItem(user, resource);
             readingItemService.save(readingItem);
             map.put("SUCCESS", "Resource marked as read.");

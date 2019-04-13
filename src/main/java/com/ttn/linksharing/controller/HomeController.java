@@ -2,7 +2,6 @@ package com.ttn.linksharing.controller;
 
 import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.User;
-import com.ttn.linksharing.repository.UserRepository;
 import com.ttn.linksharing.service.ResourceService;
 import com.ttn.linksharing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

@@ -148,7 +148,7 @@ public class TopicController {
         Topic topic = topicService.findTopicById(topicId);
         sendEmail(email, topic, user);
 
-        return "redirect:/topic/"+topic.getId();
+        return "redirect:/topic/" + topic.getId();
     }
 
     private void sendEmail(String email, Topic topic, User user) throws Exception {
@@ -157,7 +157,7 @@ public class TopicController {
         helper.setTo(email);
         String url = "http://localhost:8080/dashboard/topicSubscription/" + topic.getId();
         helper.setText("Hello, you have received an invitation" + (user != null ? " from " + user.getFirstName() : "") + " for the topic" + topic.getName() + "." +
-                       " Click on the url to subscribe to the topic, " + url + ".");
+                " Click on the url to subscribe to the topic, " + url + ".");
         helper.setSubject("A New Invitation" + (user != null ? " from " + user.getFirstName() : "") + ".");
         sender.send(message);
     }

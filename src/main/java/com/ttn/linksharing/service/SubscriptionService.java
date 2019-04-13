@@ -41,5 +41,7 @@ public class SubscriptionService {
     }
 
     @Transactional
-    public  void delete(Subscription subscription) { subscriptionRepository.delete(subscription);}
+    public void delete(Subscription subscription) {
+        subscriptionRepository.delete(subscription);
+    }
 }
