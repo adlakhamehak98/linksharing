@@ -178,23 +178,5 @@ public class DashboardController {
     }
 
 
-//    @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
-//    public String submit(@Valid @ModelAttribute User responseData, @RequestParam MultipartFile file, ModelMap model, BindingResult bindingResult, HttpSession session) throws Exception {
-//        ModelAndView modelAndView = new ModelAndView("EditProfile");
-//        Integer userId = (Integer) session.getAttribute("loggedInUser");
-//        User user = userService.findById(userId);
-//        model.addAttribute("user", user);
-//        User userCheck = userService.checkUser(user.getUsername());
-//        userService.storeProfilePic(file);
-//        if ((userCheck != null)) {
-//            userService.updateUser(userId);
-//            return "/dashboard/editProfile";
-//        } else {
-//            bindingResult.addError(new FieldError("user", "username", "Username already exists."));
-//            if (bindingResult.hasErrors()) {
-//                return "/dashboard/editProfile";
-//            }
-//            return "/dashboard/editProfile";
-//        }
-//    }
+//
 }

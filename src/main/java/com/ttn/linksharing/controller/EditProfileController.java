@@ -21,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,5 +57,29 @@ public class EditProfileController {
             return "redirect:/";
     }
 
-
+    @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
+    public String submit(@Valid @ModelAttribute User responseData, @RequestParam MultipartFile file, ModelMap model, BindingResult bindingResult, HttpSession session) throws Exception {
+        ModelAndView modelAndView = new ModelAndView("Home");
+        userService.saveUser(responseData);
+        model.addAttribute("user", responseData);
+        User user = userService.findById(responseData.getId());
+        user.setFirstName(responseData.getFirstName());
+        user.setLastName(responseData.getLastName());
+        user.setUsername(responseData.getUsername());
+//        user.setEmail(responseData.getEmail());
+//        user.setFileName(responseData.getFileName());
+//        user.setPassword(responseData.getPassword());
+        User userCheck = userService.checkUser(responseData.getUsername());
+        userService.storeProfilePic(file);
+        if ((userCheck != null)) {
+            userService.saveUser(user);
+            return "redirect:/dashboard/editProfile";
+        } else {
+            bindingResult.addError(new FieldError("user", "username", "Duplicate Username not allowed."));
+            if (bindingResult.hasErrors()) {
+                return "redirect:/dashboard/editProfile";
+            }
+        }
+        return "Home";
+    }
 }
