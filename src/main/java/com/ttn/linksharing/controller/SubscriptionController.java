@@ -8,6 +8,7 @@ import com.ttn.linksharing.enums.Seriousness;
 import com.ttn.linksharing.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,6 +72,38 @@ public class SubscriptionController {
             topicService.deleteTopic(topic);
 
             map.put("SUCCESS", "Subscription Deleted Successfully");
+        }
+        map.put("ERROR", "No Logged In User");
+        return map;
+    }
+
+    @RequestMapping(value = "/subscribeTopic", method = RequestMethod.POST)
+    @ResponseBody
+    public Map subscribeTopic(@RequestParam Integer topicId, HttpSession session){
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        Topic topic = topicId != null ? topicService.findTopicById(topicId) : null;
+        Map<String, String> map = new HashMap<>();
+        if (userId != null && topic != null) {
+            User user = userService.findById(userId);
+            Subscription subscription = new Subscription(user, topic, Seriousness.CASUAL);
+            subscriptionService.saveSubscription(subscription);
+            map.put("SUCCESS", "Subscribed to topic " + topic.getName());
+        }
+        map.put("ERROR", "No Logged In User");
+        return map;
+    }
+
+    @RequestMapping(value = "/unsubscribeTopic", method = RequestMethod.POST)
+    @ResponseBody
+    public Map unsubscribeTopic(@RequestParam Integer topicId, HttpSession session){
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        Topic topic = topicId != null ? topicService.findTopicById(topicId) : null;
+        Map<String, String> map = new HashMap<>();
+        if (userId != null && topic != null) {
+            User user = userService.findById(userId);
+            Subscription subscription = subscriptionService.findByUserAndTopic(user, topic);
+            subscriptionService.delete(subscription);
+            map.put("SUCCESS", "Unsubscribed to topic " + topic.getName());
         }
         map.put("ERROR", "No Logged In User");
         return map;

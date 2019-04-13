@@ -306,9 +306,11 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title subscriptionTopicNameOriginal"
-                                        th:id="${subscription.topic.id}+'subscriptionTopicNameOriginal'"
-                                        th:text="${subscription.topic.name}"></h5>
+                                    <a th:href="@{'/topic/'+${subscription.topic.id}}">
+                                        <h5 class="card-title subscriptionTopicNameOriginal"
+                                            th:id="${subscription.topic.id}+'subscriptionTopicNameOriginal'"
+                                            th:text="${subscription.topic.name}"></h5>
+                                    </a>
                                     <h5 class="card-title subscriptionTopicName" style="display: none"
                                         th:id="${subscription.topic.id}+'subscriptionTopicName'">
                                         <input type="text" th:id="${subscription.topic.id}+'subscriptionTopicText'"
@@ -333,7 +335,7 @@
                                             <a href="#" class="topicsCount"
                                                th:text="${subscription.topic.resource.size()}"></a>
                                             <br>
-                                            <span><a href="#">Unsubscribe</a></span>
+                                            <span><a th:attr="data-topic_id=${subscription.topic.id}" class="unsubscribeTopic" href="javascript:void(0)">Unsubscribe</a></span>
                                         </p>
                                     </div>
                                 </div>
@@ -388,9 +390,11 @@
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title topicNameOriginal"
-                                        th:id="${topic.id}+'topicNameOriginal'"
-                                        th:text="${topic.name}"></h5>
+                                    <a th:href="@{'/topic/'+${topic.id}}">
+                                        <h5 class="card-title topicNameOriginal"
+                                            th:id="${topic.id}+'topicNameOriginal'"
+                                            th:text="${topic.name}"></h5>
+                                    </a>
                                     <h5 class="card-title topicName" style="display: none"
                                         th:id="${topic.id}+'topicName'">
                                         <input type="text" th:id="${topic.id}+'topicText'"
@@ -416,22 +420,22 @@
                                                th:text="${topic.resource.size()}"></a>
                                             <br>
                                             <span>
-                                                <a href="#" class="trendingTopicUnsubscribe">Unsubscribe</a>
-                                                <a href="#" class="trendingTopicSubscribe">Subscribe</a>
+                                                <a th:attr="data-topic_id=${topic.id}" class="unsubscribeTopic" href="javascript:void(0)" th:if="${topic.currentUserSubscription}">Unsubscribe</a>
+                                                <a th:attr="data-topic_id=${topic.id}" class="subscribeTopic" href="javascript:void(0)" th:unless="${topic.currentUserSubscription}">Subscribe</a>
                                             </span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <!--<div class="col-md-4" th:if="${topic.user.id == user.id}">-->
-                                <!--<select th:attr="data-subscription_id=${topic.id}"-->
-                                <!--class="browser-default custom-select m-2 seriousnessDropDown1">-->
-                                <!--<option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"-->
-                                <!--th:value="${seriousness}" th:text="${seriousness}"-->
-                                <!--th:selected="${seriousness==subscription.seriousness}"></option>-->
-                                <!--</select>-->
-                                <!--</div>-->
+                                <div class="col-md-4" th:if="${topic.currentUserSubscription}">
+                                <select th:attr="data-subscription_id=${topic.currentUserSubscription.id}"
+                                class="browser-default custom-select m-2 seriousnessDropDown">
+                                <option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"
+                                th:value="${seriousness}" th:text="${seriousness}"
+                                th:selected="${seriousness==topic.currentUserSubscription.seriousness}"></option>
+                                </select>
+                                </div>
                                 <div class="col-md-4" th:if="${topic.user.id == user.id}">
                                     <select th:attr="data-topic_id=${topic.id}"
                                             class="browser-default custom-select m-2 visibilityDropDown">
@@ -441,11 +445,10 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3" data-toggle="modal"
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3 sendInvitationAjax" data-toggle="modal"
                                        data-target="#sendInvitationModal1"
-                                       th:if="${topic.user.id == user.id}"
                                        th:attr="data-el_id=${topic.id}"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 subscriptionTopicEdit"
+                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 trendingTopicEdit"
                                        th:if="${topic.user.id == user.id}"
                                        th:attr="data-el_id=${topic.id}"></i>
                                     <i class="fa fa-trash-o pt-3 pb-3 pl-3 subscriptionTopicDelete"
@@ -480,12 +483,12 @@
                                 </div>
                             </div>
                             <div class="row" style="float: right">
-                                <a href="#" class="mr-4"
+                                <a th:href="'/download/'+@{${readingItem.resource.id}}" class="mr-4" target="_blank"
                                 th:if="${readingItem.resource.resourceType=='DOCUMENT'}">Download</a>
-                                <a href="#" class="mr-4"
+                                <a th:href="@{${readingItem.resource.resourceUrl}}" class="mr-4" target="_blank"
                                    th:unless="${readingItem.resource.resourceType=='DOCUMENT'}">View Full Site</a>
                                 <a href="#" class="mr-4">Mark as Read</a>
-                                <a href="#">View Post</a>
+                                <a th:href="@{'/resource/'+${readingItem.resource.id}}">View Post</a>
                             </div>
                         </li>
                     </ul>
@@ -635,6 +638,83 @@
         $(".sendInvitationAjax").click(function () {
             var topicId = $(this).attr("data-el_id");
             $("#sendInvitationTopics").val(topicId);
+        });
+
+        $(".trendingTopicEdit").click(function () {
+            var y = $(this).attr("data-el_id").concat("topicNameOriginal");
+            $("#" + y).css('display', 'none');
+
+            var x = $(this).attr("data-el_id").concat("topicName");
+            $("#" + x).css('display', 'block');
+        });
+
+        $(".topicCancel").click(function () {
+            var y = $(this).attr("data-topic_id").concat("topicNameOriginal");
+            $("#" + y).css('display', 'block');
+
+            var x = $(this).attr("data-topic_id").concat("topicName");
+            $("#" + x).css('display', 'none');
+        });
+
+        $(".topicSave").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            var topicName = $("#" + topicId + "topicText").val();
+            var y = $(this).attr("data-topic_id").concat("topicNameOriginal");
+            $("#" + y).css('display', 'block');
+
+            var x = $(this).attr("data-topic_id").concat("topicName");
+            $("#" + x).css('display', 'none');
+
+            $.ajax({
+                type: "POST",
+                url: "/updateTopicName",
+                data: {topicId: topicId, topicName: topicName},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".subscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/subscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".unsubscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/unsubscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
         });
     });
 </script>

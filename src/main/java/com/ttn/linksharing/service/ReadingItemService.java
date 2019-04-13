@@ -23,4 +23,8 @@ public class ReadingItemService {
         List<ReadingItem> readingItemList = readingItemRepository.findByResourceIn(resources);
         readingItemRepository.deleteAll(readingItemList);
     }
+
+    public ReadingItem save(ReadingItem readingItem){
+        return readingItemRepository.save(readingItem);
+    }
 }

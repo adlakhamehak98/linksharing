@@ -58,7 +58,7 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="/dashboard/editProfile">Profile</a>
                             <a class="dropdown-item" href="#">Users</a>
                             <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
@@ -186,10 +186,10 @@
                             <h5 class="card-title" th:text="${topic.name}">Grails</h5>
                             <div style="display: inline-block" th:if="${user}">
                                 <p class="card-text" th:unless="${subscription}">
-                                    <span><a href="#">Subscribe</a></span>
+                                    <span><a  class="subscribeTopic" href="javascript:void(0)">Subscribe</a></span>
                                 </p>
                                 <p class="card-text" th:if="${subscription}">
-                                    <span><a href="#">Unsubscribe</a></span>
+                                    <span><a class="unsubscribeTopic" href="javascript:void(0)">Unsubscribe</a></span>
                                 </p>
                             </div>
                         </div>
@@ -204,7 +204,9 @@
                             </select>
                         </div>
                         <div class="col-md-1">
-                            <i class="fa fa-envelope-o pt-4 pb-3 pl-3"></i>
+                            <i class="fa fa-envelope-o pt-4 pb-3 pl-3 sendInvitationAjax" data-toggle="modal"
+                            data-target="#sendInvitationModal1" id="sendInvitationAjax"
+                            th:attr="data-el_id=${topic.id}"></i>
                         </div>
                     </div>
 
@@ -257,10 +259,12 @@
                                 </div>
                             </div>
                             <div class="row" style="float: right">
-                                <a href="#" class="mr-4">Download</a>
-                                <a href="#" class="mr-4">View Full Site</a>
-                                <a href="#" class="mr-4" th:if="${subscription}">Mark as Read</a>
-                                <a href="#">View Post</a>
+                                <a th:href="'/download/'+@{${resource.id}}" class="mr-4" target="_blank"
+                                   th:if="${resource.resourceType=='DOCUMENT'}">Download</a>
+                                <a th:href="@{${resource.resourceUrl}}" class="mr-4" target="_blank"
+                                   th:unless="${resource.resourceType=='DOCUMENT'}">View Full Site</a>
+                                <a href="#" class="mr-4">Mark as Read</a>
+                                <a th:href="@{'/resource/'+${resource.id}}">View Post</a>
                             </div>
                         </li>
                     </ul>
@@ -268,6 +272,40 @@
             </div>
         </div>
 
+    </div>
+</div>
+<!--send invitation modal-->
+<div class="modal fade" id="sendInvitationModal1" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Send Invitation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:action="@{/dashboard/sendInvitation}">
+                    <div class="form-group row">
+                        <label class="col-md-5 col-form-label">Email*</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" name="email"
+                                   placeholder="email"
+                                   required="">
+                        </div>
+                    </div>
+                    <input type="hidden" name="topicId" id="sendInvitationTopics" th:value="${topic.id}">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <input type="submit" value="Invite" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 <script type="application/javascript">
@@ -282,6 +320,78 @@
                 success: function (data) {
                     if (data.SUCCESS != null)
                         alert(data.SUCCESS);
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".subscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/subscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".unsubscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/unsubscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".subscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/subscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
+
+        $(".unsubscribeTopic").click(function () {
+            var topicId = $(this).attr("data-topic_id");
+            $.ajax({
+                type: "POST",
+                url: "/unsubscribeTopic",
+                data: {topicId: topicId},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null) {
+                        location.reload();
+                        alert(data.SUCCESS);
+                    }
                     else
                         alert(data.ERROR);
                 }

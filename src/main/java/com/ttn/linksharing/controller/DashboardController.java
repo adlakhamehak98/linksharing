@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -72,7 +73,9 @@ public class DashboardController {
             model.addAttribute("topics", topics);
             model.addAttribute("subscriptions", subscriptionList);
             List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
-            model.addAttribute("trendingTopics", topics1);
+            model.addAttribute("trendingTopics", topics1.stream()
+                    .peek(topic -> topic.setCurrentUserSubscription(subscriptionService.findByUserAndTopic(user,topic)))
+                    .collect(Collectors.toList()));
             List<ReadingItem> readingItemList = readingItemService.findUnreadResourcesPerUser(false, user);
             model.addAttribute("readingItems", readingItemList);
 
@@ -89,6 +92,7 @@ public class DashboardController {
             topic.setUser(user);
             ModelAndView modelAndView = new ModelAndView("Dashboard");
             topicService.createTopic(topic);
+            subscriptionService.saveSubscription(new Subscription(user,topic,Seriousness.VERY_SERIOUS));//Creator will be automatically subscribed to topic with seriousness of Very Serious.
             model.addAttribute("topic", topic);
             System.out.println(topic);
             return "redirect:/dashboard";
@@ -104,6 +108,7 @@ public class DashboardController {
             resource.setUser(user);
             ModelAndView modelAndView = new ModelAndView("Dashboard");
             linkResourceService.shareLink(resource);
+            readingItemService.save(new ReadingItem(user, resource));
             model.addAttribute("linkResource", resource);
             return "redirect:/dashboard";
         }
@@ -145,11 +150,11 @@ public class DashboardController {
                 User user = userService.findById(userId);
                 resource.setUser(user);
                 String filePath = documentResourceService.storeDocument(file);
-                System.out.println(">>>>>>>>>>>filePath" + filePath);
                 if (filePath != null) {
                     resource.setPath(filePath);
                     ModelAndView modelAndView = new ModelAndView("Dashboard");
                     documentResourceService.shareDocument(resource);
+                    readingItemService.save(new ReadingItem(user,resource));
                     model.addAttribute("documentResource", resource);
                     return "redirect:/dashboard";
                 } else {

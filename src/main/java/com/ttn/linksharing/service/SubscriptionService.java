@@ -39,4 +39,7 @@ public class SubscriptionService {
     public void deleteSubscription(Topic topic) {
         subscriptionRepository.deleteByTopic(topic);
     }
+
+    @Transactional
+    public  void delete(Subscription subscription) { subscriptionRepository.delete(subscription);}
 }

@@ -37,8 +37,6 @@ public class HomeController {
     @Autowired
     private JavaMailSender sender;
 
-    List<User> users = new ArrayList<>();
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model, HttpSession session) {
         Integer userId = (Integer) session.getAttribute("loggedInUser");
@@ -66,13 +64,10 @@ public class HomeController {
                 return "Home";
             }
         } else {
-            ModelAndView modelAndView = new ModelAndView("Home");
-            users.add(responseData);
-            userService.saveUser(responseData);
+            String filename = userService.storeProfilePic(file);
+            responseData.setFileName(filename);
             model.addAttribute("user", responseData);
-            System.out.println(users);
             User userCheck = userService.checkUser(responseData.getUsername());
-            userService.storeProfilePic(file);
             if ((userCheck != null)) {
                 userService.saveUser(responseData);
                 return "Home";

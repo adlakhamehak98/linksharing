@@ -39,6 +39,9 @@ public class Topic {
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
 
+    @Transient
+    private Subscription currentUserSubscription;
+
     public Topic(String name, User user, Visibility visibility) {
         this.name = name;
         this.user = user;

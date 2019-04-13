@@ -59,27 +59,26 @@ public class EditProfileController {
 
     @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
     public String submit(@Valid @ModelAttribute User responseData, @RequestParam MultipartFile file, ModelMap model, BindingResult bindingResult, HttpSession session) throws Exception {
-        ModelAndView modelAndView = new ModelAndView("Home");
-        userService.saveUser(responseData);
-        model.addAttribute("user", responseData);
-        User user = userService.findById(responseData.getId());
-        user.setFirstName(responseData.getFirstName());
-        user.setLastName(responseData.getLastName());
-        user.setUsername(responseData.getUsername());
-//        user.setEmail(responseData.getEmail());
-//        user.setFileName(responseData.getFileName());
-//        user.setPassword(responseData.getPassword());
-        User userCheck = userService.checkUser(responseData.getUsername());
-        userService.storeProfilePic(file);
-        if ((userCheck != null)) {
-            userService.saveUser(user);
-            return "redirect:/dashboard/editProfile";
-        } else {
-            bindingResult.addError(new FieldError("user", "username", "Duplicate Username not allowed."));
-            if (bindingResult.hasErrors()) {
+        Integer userId = (Integer) session.getAttribute("loggedInUser");
+        if(userId != null && userId.equals(responseData.getId())) {
+            User user = userService.findById(responseData.getId());
+            user.setFirstName(responseData.getFirstName());
+            user.setLastName(responseData.getLastName());
+            user.setUsername(responseData.getUsername());
+            User userCheck = userService.checkUser(responseData.getUsername());
+            if ((userCheck != null && userCheck.getId().equals(responseData.getId()))) {
+                String filename = userService.storeProfilePic(file);
+                user.setFileName(filename != null ? filename : user.getFileName());
+                userService.saveUser(user);
+                model.addAttribute("user", user);
                 return "redirect:/dashboard/editProfile";
+            } else {
+                bindingResult.addError(new FieldError("user", "username", "Duplicate Username not allowed."));
+                if (bindingResult.hasErrors()) {
+                    return "redirect:/dashboard/editProfile";
+                }
             }
         }
-        return "Home";
+        return "reirect:/dashboard";
     }
 }

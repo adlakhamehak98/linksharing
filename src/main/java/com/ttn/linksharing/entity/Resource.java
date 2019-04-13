@@ -41,6 +41,9 @@ public class Resource {
     @LastModifiedDate
     private LocalDateTime lastModifiedDate;
 
+    @Transient
+    private String resourceUrl;
+
     public Resource(User user, Topic topic, String description, List<ResourceRating> resourceRatings) {
         this.user = user;
         this.topic = topic;
@@ -49,5 +52,16 @@ public class Resource {
     }
 
     public Resource() {
+    }
+
+    public String getResourceUrl() {
+        if(this instanceof  LinkResource){
+            LinkResource linkResource = (LinkResource) this;
+            return linkResource.getUrl();
+        } else {
+            DocumentResource documentResource = (DocumentResource) this;
+            return documentResource.getPath();
+        }
+
     }
 }
