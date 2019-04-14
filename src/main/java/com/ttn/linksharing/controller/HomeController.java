@@ -133,10 +133,4 @@ public class HomeController {
         helper.setSubject("Please Find your password here");
         sender.send(message);
     }
-
-//    @RequestMapping("search")
-//    public ModelAndView search() {
-//        ModelAndView modelAndView = new ModelAndView("Search");
-//        return modelAndView;
-//    }
 }
