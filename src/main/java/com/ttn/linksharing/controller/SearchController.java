@@ -1,15 +1,15 @@
 package com.ttn.linksharing.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SearchController {
 
-    @RequestMapping("search")
-    public ModelAndView search() {
-        ModelAndView modelAndView = new ModelAndView("Search");
-        return modelAndView;
+    @RequestMapping("/search")
+    public String search(Model model) {
+
+        return "Search";
     }
 }

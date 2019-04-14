@@ -3,6 +3,7 @@ package com.ttn.linksharing.controller;
 import com.ttn.linksharing.entity.*;
 import com.ttn.linksharing.enums.Visibility;
 import com.ttn.linksharing.service.ReadingItemService;
+import com.ttn.linksharing.service.ResourceRatingService;
 import com.ttn.linksharing.service.ResourceService;
 import com.ttn.linksharing.service.SubscriptionService;
 import com.ttn.linksharing.service.UserService;
@@ -39,6 +40,8 @@ public class ResourceController {
     ReadingItemService readingItemService;
     @Autowired
     SubscriptionService subscriptionService;
+    @Autowired
+    ResourceRatingService resourceRatingService;
 
     @RequestMapping(value = "resource/{id}", method = RequestMethod.GET)
     public String home(@PathVariable Integer id, Model model, HttpSession session) {
@@ -64,12 +67,14 @@ public class ResourceController {
                 }
                 if (topic.getVisibility() == Visibility.PUBLIC) {
                     model.addAttribute("resource", resource);
+                    model.addAttribute("resourceRating", resourceRatingService.findByResourceAnyUser(resource, user));
                     model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
                     return "Post";
                 }
                 if (topic.getVisibility() == Visibility.PRIVATE && user != null
                     && topic.getSubscriptions().stream().map(Subscription::getUser).anyMatch(u -> u.getId().equals(user.getId()))) {
                     model.addAttribute("resource", resource);
+                    model.addAttribute("resourceRating", resourceRatingService.findByResourceAnyUser(resource, user));
                     model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
                     return "Post";
                 } else {
@@ -147,5 +152,27 @@ public class ResourceController {
         } else {
             return "redirect:/resource/"+resourceId;
         }
+    }
+
+    @RequestMapping(value = "/updateRating", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> updateRating(@RequestParam Integer resourceId, @RequestParam Integer rating, HttpSession session){
+        Integer currentUserId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> result = new HashMap<>();
+        System.out.println("------"+ resourceId +"::"+rating);
+        User currentUser = currentUserId != null ? userService.findById(currentUserId) : null;
+        Resource resource = resourceService != null ? resourceService.findById(resourceId) : null;
+        if (currentUser != null && resource != null) {
+            System.out.println("hererere=======" );
+            ResourceRating resourceRating = resourceRatingService.findByResourceAnyUser(resource, currentUser);
+            resourceRating = resourceRating != null ? resourceRating : new ResourceRating(currentUser, resource, rating);
+            resourceRating.setRating(rating);
+            resourceRatingService.save(resourceRating);
+            System.out.println(resourceRating.toString());
+            result.put("SUCCESS", "Resource rating updated.");
+        } else {
+            result.put("ERROR","Unauthorized Action");
+        }
+        return result;
     }
 }

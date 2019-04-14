@@ -2,6 +2,7 @@ package com.ttn.linksharing.repository;
 
 import com.ttn.linksharing.entity.Resource;
 import com.ttn.linksharing.entity.ResourceRating;
+import com.ttn.linksharing.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,6 @@ public interface ResourceRatingRepository extends CrudRepository<ResourceRating,
     void deleteByResourceIn(List<Resource> resourceList);
 
     void deleteAllByResource(Resource resource);
+
+    ResourceRating findByResourceAndUser(Resource resource, User user);
 }

@@ -192,10 +192,22 @@
                                         <a th:href="@{'/topic/'+${resource.topic.id}}" style="width: 20%"
                                            th:text="${resource.topic.name}">Topic</a>
                                     </div>
-                                    <div class="w-100">
+                                    <div class="w-100" style="margin-bottom: 40px">
                                         <span class="text-muted float-left" th:text="'@'+${resource.user.username}"></span>
                                         <span class="text-muted float-right" th:text="'@'+${resource.createdDate}"></span>
                                     </div>
+                                    <div class="w-100">
+                                        <select th:attr="data-resource_id=${resource.id}" style="float: right; width: 15%"
+                                                class="browser-default custom-select m-2 resourceRating">
+                                            <option value="0" th:selected="${resourceRating} and ${resourceRating.rating}==0">0</option>
+                                            <option value="1" th:selected="${resourceRating} and ${resourceRating.rating}==1">1</option>
+                                            <option value="2" th:selected="${resourceRating} and ${resourceRating.rating}==2">2</option>
+                                            <option value="3" th:selected="${resourceRating} and ${resourceRating.rating}==3">3</option>
+                                            <option value="4" th:selected="${resourceRating} and ${resourceRating.rating}==4">4</option>
+                                            <option value="5" th:selected="${resourceRating} and ${resourceRating.rating}==5">5</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                                 <p class="card-text" th:text="${resource.description}" th:id="${resource.id}+'resourceDescriptionDisplay'">
                                     cillum. </p>
@@ -216,8 +228,8 @@
                                 </div>
                             </div>
                             <div class="row" style="float: right">
-                                <a th:if="${resource.user.id == user.id}" onclick="return confirm_click();" th:href="@{'/deleteResource/'+${resource.id}}" class="mr-4">Delete</a>
-                                <a th:if="${resource.user.id == user.id}" href="javascript:void(0)" class="mr-4 editDescription" th:attr="data-resource_id=${resource.id}">Edit</a>
+                                <a th:if="${user} and ${resource.user.id == user.id}" onclick="return confirm_click();" th:href="@{'/deleteResource/'+${resource.id}}" class="mr-4">Delete</a>
+                                <a th:if="${user} and ${resource.user.id == user.id}" href="javascript:void(0)" class="mr-4 editDescription" th:attr="data-resource_id=${resource.id}">Edit</a>
                                 <a th:if="${resourceType == 'DocumentResource'}" target="_blank" th:href="@{'/download/'+${resource.id}}" class="mr-4">Download</a>
                                 <a th:if="${resourceType == 'LinkResource'}" target="_blank" th:href="@{${resource.resourceUrl}}">View Full Site</a>
                             </div>
@@ -514,6 +526,23 @@
         {
             return confirm("Are you sure ?");
         }
+
+        $(".resourceRating").change(function () {
+            var rating = $(this).val();
+            var resourceId = $(this).attr("data-resource_id");
+            $.ajax({
+                type: "POST",
+                url: "/updateRating",
+                data: {resourceId: resourceId, rating: rating},
+                datatype: JSON,
+                success: function (data) {
+                    if (data.SUCCESS != null)
+                        alert(data.SUCCESS);
+                    else
+                        alert(data.ERROR);
+                }
+            });
+        });
     })
 </script>
 </body>

@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2cdaeaf-dc58-4f1a-9cbc-feffba7f80e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java" afterDir="false" />
     </list>
     <list id="682ea0c2-0f56-44a0-ba55-b3f2a05ce067" name="Home Page integration" comment="" />
+    <list id="1f6b0675-637e-4bbc-b110-7bc831584350" name="Resource rating on post page" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/ResourceRatingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceRatingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/ResourceRatingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Post.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Post.html" afterDir="false" />
+    </list>
     <list id="1c543ffb-b141-4540-bd09-03ee06fbf992" name="Topic and Resource page" comment="" />
     <list id="5671a61f-67c8-46fe-a381-d0f0c4b17f08" name="User edit  topic and post page" comment="" />
     <list id="b7fe47a4-b4e7-4add-9455-820f3943d9fe" name="Users listing fix" comment="" />
@@ -105,9 +108,9 @@
         <counts>
           <entry key="CSS" value="3" />
           <entry key="Groovy" value="5" />
-          <entry key="HTML" value="70" />
+          <entry key="HTML" value="71" />
           <entry key="Image" value="3" />
-          <entry key="JAVA" value="355" />
+          <entry key="JAVA" value="360" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Properties" value="14" />
@@ -120,7 +123,7 @@
           <entry key="CSS" value="16" />
           <entry key="Groovy" value="2" />
           <entry key="HTML" value="4192" />
-          <entry key="JAVA" value="9100" />
+          <entry key="JAVA" value="9122" />
           <entry key="PLAIN_TEXT" value="50" />
           <entry key="Properties" value="107" />
         </counts>
@@ -135,20 +138,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/EditProfileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="-284">
+              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+            <state relative-caret-position="91">
+              <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,37 +183,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="38" column="139" selection-start-line="38" selection-start-column="139" selection-end-line="38" selection-end-column="139" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/UsersController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
+            <state relative-caret-position="-1785">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,17 +197,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="-1244">
               <caret line="55" column="128" selection-start-line="55" selection-start-column="128" selection-end-line="55" selection-end-column="128" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
+            <state relative-caret-position="150">
+              <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,11 +215,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state relative-caret-position="736">
+              <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -650,7 +649,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/entity/DocumentResource.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/Home.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/DocumentResourceService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/TopicController.java" />
@@ -671,8 +669,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/UsersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java" />
       </list>
     </option>
   </component>
@@ -700,7 +699,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -824,6 +822,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -837,7 +836,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555246057670" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Users_listing_fix_.patch" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Resource_rating_on_post_page.patch" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -947,6 +946,7 @@
       <changelist id="1c543ffb-b141-4540-bd09-03ee06fbf992" name="Topic and Resource page" comment="" />
       <changelist id="5671a61f-67c8-46fe-a381-d0f0c4b17f08" name="User edit  topic and post page" comment="" />
       <changelist id="b7fe47a4-b4e7-4add-9455-820f3943d9fe" name="Users listing fix" comment="" />
+      <changelist id="1f6b0675-637e-4bbc-b110-7bc831584350" name="Resource rating on post page" comment="" />
       <created>1554445890476</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -964,12 +964,12 @@
       <workItem from="1555153812050" duration="854000" />
       <workItem from="1555155249746" duration="10875000" />
       <workItem from="1555178477481" duration="11206000" />
-      <workItem from="1555255156238" duration="440000" />
+      <workItem from="1555255156238" duration="2037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211880000" />
+    <option name="totallyTimeSpent" value="213477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1104,23 +1104,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/500.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="44" column="65" selection-start-line="44" selection-start-column="65" selection-end-line="44" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/rating.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Topic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -1136,13 +1119,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/rating.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/TopicController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1348,17 +1324,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/EditProfile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
           <caret line="210" column="18" selection-start-line="210" selection-start-column="18" selection-end-line="210" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1380,23 +1354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/EditProfileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1434,13 +1391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="55" column="128" selection-start-line="55" selection-start-column="128" selection-end-line="55" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1680">
@@ -1456,13 +1406,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SearchController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="150">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/SubscriptionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/ResourceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1785">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/bootstrap/Bootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1244">
+          <caret line="55" column="128" selection-start-line="55" selection-start-column="128" selection-end-line="55" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/DashboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/controller/EditProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-284">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Seriousness.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ttn/linksharing/enums/Visibility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/error/404.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
