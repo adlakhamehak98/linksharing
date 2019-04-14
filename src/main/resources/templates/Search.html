@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <title>Search</title>
     <meta charset="utf-8">
@@ -24,9 +24,9 @@
     <div class="row">
 
         <!--  Header Text -->
-        <div class="col-md-12 m-2">
+        <div class="col-md-12 mb-2">
             <div class="row">
-                <nav class="navbar navbar-light bg-light col-md-12 mb-2" style="border: 1px solid; border-radius: 7px">
+                <nav class="navbar navbar-light bg-light col-md-12 " style="border: 1px solid; border-radius: 7px">
                     <div>
                         <img src="myLogo.png" alt="logo unavailable"
                              style="height: 40px; width: 40px">
@@ -176,77 +176,78 @@
                 <h5 class="card-header">Trending Topics</h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <li class="list-group-item" th:each="topic : ${trendingTopics}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="username.png" alt="user image"
                                          style="border: 1px solid;height: 140px; width: 140px">
                                 </div>
                                 <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
+                                    <a th:href="@{'/topic/'+${topic.id}}">
+                                        <h5 class="card-title topicNameOriginal"
+                                            th:id="${topic.id}+'topicNameOriginal'"
+                                            th:text="${topic.name}"></h5>
+                                    </a>
+                                    <h5 class="card-title topicName" style="display: none"
+                                        th:id="${topic.id}+'topicName'">
+                                        <input type="text" th:id="${topic.id}+'topicText'"
+                                               th:value="${topic.name}">
+                                        <span class="input-group-btn">
+                                                       <button class="btn btn-outline-primary topicSave"
+                                                               th:attr="data-topic_id=${topic.id}"
+                                                               type="button">Save</button>
+                                        </span>
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-outline-primary topicCancel"
+                                                th:attr="data-topic_id=${topic.id}"
+                                                type="button">Cancel</button>
+                                        </span>
+                                    </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            <span><a href="#">Subscribe</a></span>
+                                            <span>Subscriptions: </span>
+                                            <a href="#" class="subscriptionsCount"
+                                               th:text="${topic.subscriptions.size()}"></a><br>
+                                            <span>Post: </span>
+                                            <a href="#" class="topicsCount"
+                                               th:text="${topic.resource.size()}"></a>
+                                            <br>
+                                            <span>
+                                                <a th:attr="data-topic_id=${topic.id}" class="unsubscribeTopic" href="javascript:void(0)" th:if="${topic.currentUserSubscription}">Unsubscribe</a>
+                                                <a th:attr="data-topic_id=${topic.id}" class="subscribeTopic" href="javascript:void(0)" th:unless="${topic.currentUserSubscription}">Subscribe</a>
+                                            </span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Serious</option>
-                                        <option value="2">Very Serious</option>
-                                        <option value="3">Casual</option>
+                                <div class="col-md-4" th:if="${topic.currentUserSubscription}">
+                                    <select th:attr="data-subscription_id=${topic.currentUserSubscription.id}"
+                                            class="browser-default custom-select m-2 seriousnessDropDown">
+                                        <option th:each="seriousness : ${T(com.ttn.linksharing.enums.Seriousness).values()}"
+                                                th:value="${seriousness}" th:text="${seriousness}"
+                                                th:selected="${seriousness==topic.currentUserSubscription.seriousness}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4" th:if="${user} and ${topic.user.id == user.id}">
+                                    <select th:attr="data-topic_id=${topic.id}"
+                                            class="browser-default custom-select m-2 visibilityDropDown">
+                                        <option th:each="visibility : ${T(com.ttn.linksharing.enums.Visibility).values()}"
+                                                th:value="${visibility}" th:text="${visibility}"
+                                                th:selected="${visibility==topic.visibility}"></option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Private</option>
-                                        <option value="2">Edit</option>
-                                        <option value="3">Delete</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="username.png" alt="user image"
-                                         style="border: 1px solid;height: 140px; width: 140px">
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 class="card-title">Uday Pratap singh</h5>
-                                    <div style="display: inline-block">
-                                        <p class="card-text">
-                                            <span><a href="#">Unsubscribe</a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Serious</option>
-                                        <option value="2">Very Serious</option>
-                                        <option value="3">Casual</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="browser-default custom-select m-2">
-                                        <option selected value="1">Private</option>
-                                        <option value="2">Edit</option>
-                                        <option value="3">Delete</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3"></i>
-                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3"></i>
+                                    <i class="fa fa-envelope-o pt-3 pb-3 pl-3 sendInvitationAjax" data-toggle="modal"
+                                       data-target="#sendInvitationModal1"
+                                       th:if="${user} and ${topic.user.id == user.id}"
+                                       th:attr="data-el_id=${topic.id}"></i>
+                                    <i class="fa fa-pencil-square-o pt-3 pb-3 pl-3 trendingTopicEdit"
+                                       th:if="${user} and ${topic.user.id == user.id}"
+                                       th:attr="data-el_id=${topic.id}"></i>
+                                    <i class="fa fa-trash-o pt-3 pb-3 pl-3 subscriptionTopicDelete"
+                                       th:if="${user} and ${topic.user.id == user.id}"
+                                       th:attr="data-topic_id=${topic.id}"></i>
                                 </div>
                             </div>
                         </li>
@@ -319,30 +320,6 @@
                 <h5 class="card-header">Search for "test"</h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="username.png" alt="user image"
-                                         style="border: 1px solid;height: 140px; width: 140px">
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 class="card-title"></h5>
-                                    <div style="display: inline-block">
-                                        <p class="card-text">
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                            lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="float: right">
-                                <a href="#" class="mr-4">Download</a>
-                                <a href="#" class="mr-4">View Full Site</a>
-                                <a href="#" class="mr-4">Mark as Read</a>
-                                <a href="#">View Post</a>
-                            </div>
-                        </li>
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-4">
