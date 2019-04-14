@@ -31,6 +31,16 @@ public class User {
         this.fileName = fileName;
     }
 
+    public User(String firstName, String lastName, String email, String username, String password, String fileName, Boolean isAdmin) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.fileName = fileName;
+        this.isAdmin = isAdmin;
+    }
+
     public User() {
     }
 }
