@@ -29,7 +29,7 @@
                     <div>
                         <img src="/myLogo.png" alt="logo unavailable"
                              style="height: 40px; width: 40px">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="/">
                             Link Sharing
                         </a>
                     </div>
@@ -48,8 +48,10 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="/dashboard/editProfile">Profile</a>
+                            <a class="dropdown-item" href="/users"
+                               th:if="${user.isAdmin}==true">Users</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
                     </div>
                 </nav>

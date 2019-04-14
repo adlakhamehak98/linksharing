@@ -30,7 +30,7 @@
                     <div>
                         <img src="myLogo.png" alt="logo unavailable"
                              style="height: 40px; width: 40px">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="/">
                             Link Sharing
                         </a>
                     </div>
@@ -283,13 +283,19 @@
                         <div class="col-md-8">
 
                             <h5 class="card-title" th:text="${name}"></h5>
-                            <p class="card-text">
-                                <span>Subscriptions: </span>
-                                <a href="#" id="subscriptionsCount"
-                                   th:text="${countSub}"></a><br>
-                                <span>Topics: </span>
-                                <a href="#" id="topicsCount" th:text="${countTop}"></a>
-                            </p>
+                            <div>
+                                <p class="card-text">
+                                    <div class="text-muted col-md-12" style="font-size: smaller;padding-right: 0px;padding-left: 0px" th:text="'@'+${user.username}"></div>
+                                    <span class="text-muted float-left col-md-9" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Subscriptions</span>
+                                    <span class="text-muted float-left col-md-3" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Post</span>
+
+                                    <a href="#" class="subscriptionsCount float-left col-md-9" style="font-size: smaller;"
+                                       th:text="${countSub}"></a><br>
+                                    <a href="#" class="topicsCount float-left col-md-3" style="font-size: smaller;"
+                                       th:text="${countTop}"></a>
+                                    <br>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -329,14 +335,16 @@
                                     </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            <span>Subscriptions: </span>
-                                            <a href="#" class="subscriptionsCount"
+                                            <span class="text-muted float-left col-md-4" style="font-size: smaller;padding-right: 0px;padding-left: 0px" th:text="'@'+${subscription.topic.user.username}"></span>
+                                            <span class="text-muted float-left col-md-5" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Subscriptions</span>
+                                            <span class="text-muted float-left col-md-3" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Post</span>
+                                            <span><a  style="font-size: smaller;padding-left: 0px" th:attr="data-topic_id=${subscription.topic.id}" class="unsubscribeTopic float-left col-md-6" href="javascript:void(0)">Unsubscribe</a></span>
+
+                                            <a href="#" class="subscriptionsCount float-left col-md-3" style="font-size: smaller;"
                                                th:text="${subscription.topic.subscriptions.size()}"></a><br>
-                                            <span>Post: </span>
-                                            <a href="#" class="topicsCount"
+                                            <a href="#" class="topicsCount float-left col-md-3" style="font-size: smaller;"
                                                th:text="${subscription.topic.resource.size()}"></a>
                                             <br>
-                                            <span><a th:attr="data-topic_id=${subscription.topic.id}" class="unsubscribeTopic" href="javascript:void(0)">Unsubscribe</a></span>
                                         </p>
                                     </div>
                                 </div>
@@ -413,17 +421,18 @@
                                     </h5>
                                     <div style="display: inline-block">
                                         <p class="card-text">
-                                            <span>Subscriptions: </span>
-                                            <a href="#" class="subscriptionsCount"
+                                            <span class="text-muted float-left col-md-4" style="font-size: smaller;padding-right: 0px;padding-left: 0px" th:text="'@'+${topic.user.username}"></span>
+                                            <span class="text-muted float-left col-md-5" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Subscriptions</span>
+                                            <span class="text-muted float-left col-md-3" style="font-size: smaller;padding-right: 0px;padding-left: 0px">Post</span>
+                                            <span>
+                                                <a style="font-size: smaller;padding-left: 0px" th:attr="data-topic_id=${topic.id}" class="unsubscribeTopic float-left col-md-6" href="javascript:void(0)" th:if="${topic.currentUserSubscription}">Unsubscribe</a>
+                                                <a style="font-size: smaller;padding-left: 0px" th:attr="data-topic_id=${topic.id}" class="subscribeTopic float-left col-md-6" href="javascript:void(0)" th:unless="${topic.currentUserSubscription}">Subscribe</a>
+                                            </span>
+                                            <a href="#" class="subscriptionsCount float-left col-md-3" style="font-size: smaller;"
                                                th:text="${topic.subscriptions.size()}"></a><br>
-                                            <span>Post: </span>
-                                            <a href="#" class="topicsCount"
+                                            <a href="#" class="topicsCount float-left col-md-3" style="font-size: smaller;"
                                                th:text="${topic.resource.size()}"></a>
                                             <br>
-                                            <span>
-                                                <a th:attr="data-topic_id=${topic.id}" class="unsubscribeTopic" href="javascript:void(0)" th:if="${topic.currentUserSubscription}">Unsubscribe</a>
-                                                <a th:attr="data-topic_id=${topic.id}" class="subscribeTopic" href="javascript:void(0)" th:unless="${topic.currentUserSubscription}">Subscribe</a>
-                                            </span>
                                         </p>
                                     </div>
                                 </div>
