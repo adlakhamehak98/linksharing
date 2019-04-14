@@ -6,6 +6,7 @@ import com.ttn.linksharing.entity.User;
 import com.ttn.linksharing.repository.ReadingItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,5 +27,15 @@ public class ReadingItemService {
 
     public ReadingItem save(ReadingItem readingItem) {
         return readingItemRepository.save(readingItem);
+    }
+
+    @Transactional
+    public void deleteRatingList(List<Resource> resourceList) {
+        readingItemRepository.deleteByResourceIn(resourceList);
+    }
+
+    @Transactional
+    public void deleteAllByResource(Resource resource) {
+        readingItemRepository.deleteAllByResource(resource);
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,36 +43,38 @@ public class ResourceController {
     @RequestMapping(value = "resource/{id}", method = RequestMethod.GET)
     public String home(@PathVariable Integer id, Model model, HttpSession session) {
         Resource resource = resourceService.findById(id);
-        Topic topic = resource.getTopic();
-        Integer userId = (Integer) session.getAttribute("loggedInUser");
-        User user = userId != null ? userService.findById(userId) : null;
-        model.addAttribute("linkResource", new LinkResource());
-        model.addAttribute("documentResource", new DocumentResource());
-        List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
-        model.addAttribute("trendingTopics", topics1.stream()
-                .peek(t -> t.setCurrentUserSubscription(subscriptionService.findByUserAndTopic(user, t)))
-                .collect(Collectors.toList()));
-        if (topic != null) {
-            if (user != null) {
-                model.addAttribute("user", user);
-                model.addAttribute("subscription",
-                        topic.getSubscriptions().stream()
-                                .filter(subscription -> subscription.getUser().getId().equals(user.getId()))
-                                .findFirst()
-                                .orElse(null));
-            }
-            if (topic.getVisibility() == Visibility.PUBLIC) {
-                model.addAttribute("resource", resource);
-                model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
-                return "Post";
-            }
-            if (topic.getVisibility() == Visibility.PRIVATE && user != null
+        if(resource != null) {
+            Topic topic = resource.getTopic();
+            Integer userId = (Integer) session.getAttribute("loggedInUser");
+            User user = userId != null ? userService.findById(userId) : null;
+            model.addAttribute("linkResource", new LinkResource());
+            model.addAttribute("documentResource", new DocumentResource());
+            List<Topic> topics1 = resourceService.findTopicsWithMaxResourcesCount();
+            model.addAttribute("trendingTopics", topics1.stream()
+                    .peek(t -> t.setCurrentUserSubscription(subscriptionService.findByUserAndTopic(user, t)))
+                    .collect(Collectors.toList()));
+            if (topic != null) {
+                if (user != null) {
+                    model.addAttribute("user", user);
+                    model.addAttribute("subscription",
+                            topic.getSubscriptions().stream()
+                                    .filter(subscription -> subscription.getUser().getId().equals(user.getId()))
+                                    .findFirst()
+                                    .orElse(null));
+                }
+                if (topic.getVisibility() == Visibility.PUBLIC) {
+                    model.addAttribute("resource", resource);
+                    model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
+                    return "Post";
+                }
+                if (topic.getVisibility() == Visibility.PRIVATE && user != null
                     && topic.getSubscriptions().stream().map(Subscription::getUser).anyMatch(u -> u.getId().equals(user.getId()))) {
-                model.addAttribute("resource", resource);
-                model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
-                return "Post";
-            } else {
-                return "redirect:/";
+                    model.addAttribute("resource", resource);
+                    model.addAttribute("resourceType", resource instanceof LinkResource ? "LinkResource" : "DocumentResource");
+                    return "Post";
+                } else {
+                    return "redirect:/";
+                }
             }
         }
         return "404";
@@ -115,4 +118,34 @@ public class ResourceController {
         return map;
     }
 
+    @RequestMapping(value = "/updateResource", method = RequestMethod.POST)
+    @ResponseBody
+    public Map updateUserStatus(@RequestParam Integer resourceId, @RequestParam String description, HttpSession session){
+        Integer currentUserId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> result = new HashMap<>();
+        User currentUser = currentUserId != null ? userService.findById(currentUserId) : null;
+        Resource resource = resourceService != null ? resourceService.findById(resourceId) : null;
+        if (currentUser != null && resource != null) {
+            resource.setDescription(description);
+            resourceService.save(resource);
+            result.put("SUCCESS", "Post Description updated.");
+        } else {
+            result.put("ERROR","Unauthorized Action");
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/deleteResource/{resourceId}", method = RequestMethod.GET)
+    public String deleteResource(@PathVariable Integer resourceId, HttpSession session){
+        Integer currentUserId = (Integer) session.getAttribute("loggedInUser");
+        Map<String, String> result = new HashMap<>();
+        User currentUser = currentUserId != null ? userService.findById(currentUserId) : null;
+        Resource resource = resourceService != null ? resourceService.findById(resourceId) : null;
+        if (currentUser != null && resource != null && resource.getUser().getId().equals(currentUser.getId())) {
+            resourceService.delete(resource);
+            return "redirect:/topic/"+resource.getTopic().getId();
+        } else {
+            return "redirect:/resource/"+resourceId;
+        }
+    }
 }

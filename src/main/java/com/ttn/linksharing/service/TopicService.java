@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class TopicService {
     @Autowired
@@ -28,4 +30,6 @@ public class TopicService {
     public void deleteTopic(Topic topic) {
         topicRepository.delete(topic);
     }
+
+    public List<Topic> findAll() {return topicRepository.findAll();}
 }

@@ -18,4 +18,13 @@ public class ResourceRatingService {
     public void deleteRatingList(List<Resource> resourceList) {
         resourceRatingRepository.deleteByResourceIn(resourceList);
     }
+
+    @Transactional
+    public void deleteAllByResource(Resource resource) {
+        resourceRatingRepository.deleteAllByResource(resource);
+    }
+
+    List<Integer> fetchTopResources(String visibility, Integer limit){
+        return resourceRatingRepository.fetchTopResources(visibility, limit);
+    }
 }

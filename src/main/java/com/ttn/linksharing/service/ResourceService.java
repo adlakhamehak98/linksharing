@@ -20,10 +20,13 @@ public class ResourceService {
     ResourceRepository resourceRepository;
 
     @Autowired
-    ResourceRatingRepository resourceRatingRepository;
+    ResourceRatingService resourceRatingService;
 
     @Autowired
     TopicRepository topicRepository;
+
+    @Autowired
+    ReadingItemService readingItemService;
 
     public List<Topic> findTopicsWithMaxResourcesCount() {
         List<Object[]> topTopics = resourceRepository.findTopByIdOrderByTopicDesc();
@@ -37,7 +40,7 @@ public class ResourceService {
     }
 
     public List<Resource> fetchTopFivePublicResources() {
-        List<Integer> resourceIds = resourceRatingRepository.fetchTopResources(Visibility.PUBLIC.name(), 5);
+        List<Integer> resourceIds = resourceRatingService.fetchTopResources(Visibility.PUBLIC.name(), 5);
         return resourceRepository.findAllByIdIn(resourceIds);
     }
 
@@ -53,5 +56,15 @@ public class ResourceService {
     public Resource findById(Integer id) {
         Optional<Resource> resourceOptional = resourceRepository.findById(id);
         return resourceOptional.orElse(null);
+    }
+
+    public Resource save(Resource resource){
+        return resourceRepository.save(resource);
+    }
+
+    public void delete(Resource resource){
+        readingItemService.deleteAllByResource(resource);
+        resourceRatingService.deleteAllByResource(resource);
+        resourceRepository.delete(resource);
     }
 }

@@ -11,4 +11,9 @@ public interface ReadingItemRepository extends CrudRepository<ReadingItem, Integ
     List<ReadingItem> findAllByIsReadAndUser(Boolean isRead, User user);
 
     List<ReadingItem> findByResourceIn(List<Resource> resources);
+
+
+    void deleteByResourceIn(List<Resource> resourceList);
+
+    void deleteAllByResource(Resource resource);
 }

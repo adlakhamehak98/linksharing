@@ -16,4 +16,6 @@ public interface ResourceRatingRepository extends CrudRepository<ResourceRating,
     List<ResourceRating> findByResource(Resource resource);
 
     void deleteByResourceIn(List<Resource> resourceList);
+
+    void deleteAllByResource(Resource resource);
 }
