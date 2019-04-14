@@ -26,7 +26,7 @@ public class UsersController {
             model.addAttribute("users", users);
             return "Users";
         }
-        return "redirect:/dashboard";
+        return "redirect:/";
     }
 
 }

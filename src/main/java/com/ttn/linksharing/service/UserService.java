@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public User validateUser(User responseData) {
-        User loginStatus = userRepository.findByUsernameAndPassword(responseData.getUsername(), responseData.getPassword());
+        User loginStatus = userRepository.findByUsernameAndPasswordAndIsActive(responseData.getUsername(), responseData.getPassword(), true);
         return loginStatus;
     }
 

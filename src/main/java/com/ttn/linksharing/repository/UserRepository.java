@@ -9,7 +9,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByUsername(String username);
 
-    User findByUsernameAndPassword(String userName, String Password); //login
+    User findByUsernameAndPasswordAndIsActive(String userName, String Password, Boolean isActive); //login
 
     List<User> findAll();
 
